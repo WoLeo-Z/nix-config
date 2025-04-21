@@ -1,0 +1,93 @@
+{
+  hostName = "vm";
+  system = "x86_64-linux";
+
+  config = { pkgs, lib, ... }: {
+    modules = {
+      desktop = {
+        terminal = {
+          default = "foot";
+          foot.enable = true;
+        };
+      };
+      services = {
+        ssh.enable = true;
+      };
+      system = {
+        boot = {
+          loader = {
+            grub.enable = true;
+          };
+        };
+      };
+    };
+
+    # TODO: Remove this for vm. Use key auth instead.
+    services.openssh.settings.PasswordAuthentication = lib.mkForce true;
+
+    environment.systemPackages = with pkgs; [
+      hello
+    ];
+  };
+
+  hardware = { lib, ... }: {
+    # QEMU Guest
+    services.qemuGuest.enable = true;
+    services.spice-vdagentd.enable = true;
+
+    # "/nix/var/nix/profiles/per-user/root/channels/nixos/nixos/modules/profiles/qemu-guest.nix"
+    # Common configuration for virtual machines running under QEMU (using virtio).
+    boot.initrd.availableKernelModules = [
+        "virtio_net"
+        "virtio_pci"
+        "virtio_mmio"
+        "virtio_blk"
+        "virtio_scsi"
+        "9p"
+        "9pnet_virtio"
+    ];
+    boot.initrd.kernelModules = [
+        "virtio_balloon"
+        "virtio_console"
+        "virtio_rng"
+        "virtio_gpu"
+    ];
+
+    # boot.supportedFilesystems = [ "ntfs" ];
+
+    fileSystems."/" =
+        { device = "/dev/disk/by-label/nixos";
+        fsType = "btrfs";
+        options = [ "subvol=root" "compress=zstd" ];
+        };
+
+    fileSystems."/home" =
+        { device = "/dev/disk/by-label/nixos";
+        fsType = "btrfs";
+        options = [ "subvol=home" "compress=zstd" ];
+        };
+
+    fileSystems."/nix" =
+        { device = "/dev/disk/by-label/nixos";
+        fsType = "btrfs";
+        options = [ "subvol=nix" "compress=zstd" "noatime" ];
+        };
+
+    fileSystems."/boot" =
+        { device = "/dev/disk/by-uuid/5103-9ADA";
+        fsType = "vfat";
+        options = [ "fmask=0022" "dmask=0022" ];
+        };
+
+    swapDevices =
+        [ { device = "/dev/disk/by-label/swap"; }
+        ];
+
+    # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+    # (the default) this is the recommended approach. When using systemd-networkd it's
+    # still possible to use this option, but it's recommended to use it in conjunction
+    # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+    networking.useDHCP = lib.mkDefault true;
+    # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
+  };
+}
