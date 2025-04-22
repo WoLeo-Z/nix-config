@@ -65,7 +65,9 @@
       
       flake = {
         nixosConfigurations = let
+          # Import modules
           collectModules = import ./lib/collectModules.nix { lib = nixpkgs.lib; };
+          modules = collectModules ./modules;
           
           # Import hosts
           hostConfigs = let
@@ -105,7 +107,7 @@
                   home-manager.useUserPackages = true;
                 }
               ]
-              ++ collectModules ./modules;
+              ++ modules;
             };
         in
           builtins.mapAttrs mkNixosConfiguration hostConfigs;
