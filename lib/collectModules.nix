@@ -2,8 +2,9 @@
 
 let
   inherit (lib) attrNames filterAttrs hasSuffix flatten;
-
-  collect = dir:
+in
+rec {
+  collectModules = dir:
     let
       contents = builtins.readDir dir;
 
@@ -11,9 +12,7 @@ let
       subdirs = filterAttrs (name: type: type == "directory") contents;
 
       imported = map (name: dir + "/${name}") (attrNames nixFiles);
-      nested = flatten (map (name: collect (dir + "/${name}")) (attrNames subdirs));
+      nested = flatten (map (name: collectModules (dir + "/${name}")) (attrNames subdirs));
     in
       imported ++ nested;
-
-in
-  collect
+}

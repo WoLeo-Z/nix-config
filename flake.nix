@@ -65,9 +65,11 @@
       
       flake = {
         nixosConfigurations = let
+          # Import our custom lib which merges helpers with nixpkgs.lib
+          lib = import ./lib { lib = nixpkgs.lib; };
+          
           # Import modules
-          collectModules = import ./lib/collectModules.nix { lib = nixpkgs.lib; };
-          modules = collectModules ./modules;
+          modules = lib.collectModules ./modules;
           
           # Import hosts
           hostConfigs = let
@@ -92,7 +94,7 @@
           mkNixosConfiguration = hostName: hostConfig:
             nixpkgs.lib.nixosSystem {
               system = hostConfig.system;
-              specialArgs = { inherit inputs; };
+              specialArgs = { inherit inputs lib; };
               modules = [
                 {
                   networking.hostName = hostConfig.hostName;
@@ -106,6 +108,7 @@
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
                 }
+
               ]
               ++ modules;
             };
