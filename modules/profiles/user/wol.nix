@@ -1,3 +1,6 @@
+# Reference: hlissner/dotfiles/modules/profiles/user/hlissner.nix
+# https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/modules/profiles/user/hlissner.nix
+
 { lib, config, ... }:
 
 with lib;

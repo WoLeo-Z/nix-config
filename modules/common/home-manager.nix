@@ -1,4 +1,6 @@
-# Reference: https://github.com/hlissner/dotfiles/blob/master/modules/home.nix
+# Reference: hlissner/dotfiles/modules/home.nix
+# https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/modules/home.nix
+
 # modules/home.nix -- the $HOME manager
 #
 # This is NOT a home-manager home.nix file. This NixOS module does two things:
