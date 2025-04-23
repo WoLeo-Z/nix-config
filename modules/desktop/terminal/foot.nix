@@ -8,10 +8,10 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # user.packages = with pkgs; [
-    #   foot
-    #   libsixel  # image support in foot
-    # ];
+    home-manager.users.wol.home.packages = with pkgs; [
+      foot
+      libsixel # image support in foot
+    ];
 
     # TODO: Add foot config or use home.configFile
   };

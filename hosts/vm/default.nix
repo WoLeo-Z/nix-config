@@ -4,15 +4,21 @@
 
   config = { pkgs, lib, ... }: {
     modules = {
+      profiles = {
+        user = "wol";
+      };
+
       desktop = {
         terminal = {
           default = "foot";
           foot.enable = true;
         };
       };
+
       services = {
         ssh.enable = true;
       };
+
       system = {
         boot = {
           loader = {
@@ -31,7 +37,7 @@
   };
 
   hardware = { lib, ... }: {
-    # QEMU Guest
+    # QEMU Guest TODO: Modularize this
     services.qemuGuest.enable = true;
     services.spice-vdagentd.enable = true;
 
