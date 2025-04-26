@@ -95,5 +95,15 @@
     # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
     networking.useDHCP = lib.mkDefault true;
     # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
+
+    # Try to mount shared flake folder
+    boot.postBootCommands = ''
+      mkdir -p /mnt/flake
+      mount -t virtiofs flake /mnt/flake || true
+      if mountpoint -q /mnt/flake; then
+        rm -rf /etc/nixos
+        ln -sf /mnt/flake /etc/nixos
+      fi
+    '';
   };
 }
