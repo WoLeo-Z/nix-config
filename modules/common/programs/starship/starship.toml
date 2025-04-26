@@ -1,0 +1,33 @@
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+format = """
+$hostname$directory$git_branch
+$character
+"""
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+# [os]
+# format = "[$symbol]($style)"
+# style = "bold white"
+# disabled = false
+
+# [os.symbols]
+# # NixOS = "❄️ "
+# NixOS = " " # Use Nerd Font
+
+[directory]
+truncation_length = 5
+# truncation_symbol = '…/'
+
+[directory.substitutions]
+"Desktop" = "  "
+"Documents" = "  "
+"Downloads" = "  "
+"Music" = " 󰎈 "
+"Pictures" = "  "
+"Videos" = "  "
+"Other" = "  "
