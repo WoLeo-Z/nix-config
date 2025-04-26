@@ -1,7 +1,7 @@
 # Reference: hlissner/dotfiles/modules/profiles/user/hlissner.nix
 # https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/modules/profiles/user/hlissner.nix
 
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 with lib;
 let cfg = config.modules.profiles;
@@ -13,6 +13,17 @@ in mkIf (username == "wol") (mkMerge [
     user.name = username;
     user.description = "WoL";
     i18n.defaultLocale = mkDefault "en_US.UTF-8";
+    
+    user.shell = pkgs.fish;
+    programs.fish = {
+      enable = true;
+      useBabelfish = true;
+
+      interactiveShellInit = ''
+        set -U fish_greeting # disable greeting
+      '';
+    };
+
     # modules.shell.vaultwarden.settings.server = "vault.home.lissner.net";
 
     # Be slightly more restrictive about SSH access to workstations, which I

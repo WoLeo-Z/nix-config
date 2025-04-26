@@ -8,10 +8,12 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home-manager.users.wol.home.packages = with pkgs; [
+    user.packages = with pkgs; [
       foot
       libsixel # image support in foot
     ];
+
+    # TODO: programs.foot.enableFishIntegration = true;
 
     # TODO: Add foot config or use home.configFile
   };
