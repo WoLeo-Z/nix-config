@@ -13,16 +13,6 @@ in mkIf (username == "wol") (mkMerge [
     user.name = username;
     user.description = "WoL";
     i18n.defaultLocale = mkDefault "en_US.UTF-8";
-    
-    user.shell = pkgs.fish;
-    programs.fish = {
-      enable = true;
-      useBabelfish = true;
-
-      interactiveShellInit = ''
-        set -U fish_greeting # disable greeting
-      '';
-    };
 
     # modules.shell.vaultwarden.settings.server = "vault.home.lissner.net";
 
