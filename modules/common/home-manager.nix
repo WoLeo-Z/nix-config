@@ -23,6 +23,8 @@ with lib;
 let cfg = config.home;
 in {
   options.home = with types; {
+    programs   = mkOpt' attrs {} "An alias for home-manager.users.$USER.programs";
+
     file       = mkOpt' attrs {} "Files to place directly in $HOME";
     configFile = mkOpt' attrs {} "Files to place in $XDG_CONFIG_HOME";
     dataFile   = mkOpt' attrs {} "Files to place in $XDG_DATA_HOME";
@@ -73,7 +75,9 @@ in {
       #   home.file        ->  home-manager.users.hlissner.home.file
       #   home.configFile  ->  home-manager.users.hlissner.home.xdg.configFile
       #   home.dataFile    ->  home-manager.users.hlissner.home.xdg.dataFile
+      #   home.programs    ->  home-manager.users.hlissner.home.programs
       users.${config.user.name} = {
+        programs = mkAliasDefinitions options.home.programs;
         home = {
           file = mkAliasDefinitions options.home.file;
           # Necessary for home-manager to work with flakes, otherwise it will

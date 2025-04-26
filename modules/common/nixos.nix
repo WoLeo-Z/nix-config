@@ -10,7 +10,7 @@
   environment.systemPackages = with pkgs; [
     # Core
     git
-    neovim
+    vim
 
     # Networking
     wget
