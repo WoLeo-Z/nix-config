@@ -5,5 +5,5 @@
     enable = true;
   };
 
-  home.configFile."starship.toml".source = ./starship.toml;
+  home'.configFile."starship.toml".source = ./starship.toml;
 }
