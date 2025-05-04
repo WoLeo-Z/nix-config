@@ -9,6 +9,9 @@
       };
 
       desktop = {
+        enable = true;
+        stylix.enable = true;
+        niri.enable = true;
         terminal = {
           default = "foot";
           foot.enable = true;

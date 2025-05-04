@@ -25,32 +25,16 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    # Hyprland & Hyprland Contrib repos
+    # Others
 
-    # to be able to use the binary cache, we should avoid
-    # overriding the nixpkgs input - as the resulting hash would
-    # mismatch if packages are built against different versions
-    # of the same depended packages.
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
-
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs = {
-        hyprlang.follows = "hyprland/hyprlang";
-        nixpkgs.follows = "hyprland/nixpkgs";
-        systems.follows = "hyprland/systems";
-      };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "hyprland/nixpkgs";
-    };
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

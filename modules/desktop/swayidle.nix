@@ -1,0 +1,48 @@
+{ lib, config, pkgs, ... }:
+
+with lib;
+let
+  cfg = config.modules.desktop.swayidle;
+in
+{
+  options.modules.desktop.swayidle = {
+    enable = mkEnableOption "Enable swayidle";
+  };
+
+  config = mkIf cfg.enable {
+    home = {
+      programs = {
+        swaylock.enable = true;
+      };
+
+      services = {
+        swayidle = {
+          enable = true;
+          extraArgs = lib.mkForce [ ]; # remove `-w` to avoid double lock bug
+          events = [
+            {
+              event = "lock";
+              command = lib.getExe pkgs.swaylock;
+            }
+            {
+              event = "before-sleep";
+              command = "${lib.getExe' pkgs.systemd "loginctl"} lock-session";
+            }
+          ];
+          timeouts = [
+            {
+              timeout = 300;
+              command = "${lib.getExe' pkgs.systemd "loginctl"} lock-session";
+            }
+            # {
+            #   timeout = 1800;
+            #   command = "${lib.getExe' pkgs.systemd "systemctl"} suspend";
+            # }
+          ];
+        };
+      };
+    };
+
+    # security.pam.services.swaylock = { };
+  };
+}
