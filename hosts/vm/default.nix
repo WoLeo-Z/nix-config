@@ -91,7 +91,7 @@
         };
 
     fileSystems."/boot" =
-        { device = "/dev/disk/by-uuid/5103-9ADA";
+        { device = "/dev/disk/by-label/BOOT"; # sudo fatlabel /dev/vda1 BOOT
         fsType = "vfat";
         options = [ "fmask=0022" "dmask=0022" ];
         };
