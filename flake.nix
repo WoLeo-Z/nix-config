@@ -25,6 +25,15 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    # NUR
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
+    };
+
     # Others
 
     niri = {
@@ -55,7 +64,7 @@
       flake = {
         nixosConfigurations = let
           # Import our custom lib which merges helpers with nixpkgs.lib
-          lib = import ./lib { lib = nixpkgs.lib; };
+          lib = import ./lib { lib = nixpkgs.lib // home-manager.lib; };
           
           # Import modules
           modules = lib.collectModules ./modules;

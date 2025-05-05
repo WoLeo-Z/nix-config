@@ -10,6 +10,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    modules.desktop.fcitx5.enable = true;
+    
     hm = {
       home.sessionVariables = {
         QT_QPA_PLATFORM = "wayland";
