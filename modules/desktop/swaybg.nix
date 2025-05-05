@@ -11,7 +11,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home = {
+    hm = {
       systemd.user.services.swaybg = {
         Unit = {
           Description = "Wallpaper tool for Wayland compositors";

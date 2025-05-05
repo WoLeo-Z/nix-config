@@ -22,6 +22,8 @@ with builtins;
 with lib;
 let cfg = config.home';
 in {
+  options.hm = mkOpt' types.attrs {} "An alias for home-manager.users.${config.user.name}";
+  
   options.home' = with types; {
     file       = mkOpt' attrs {} "Files to place directly in $HOME";
     configFile = mkOpt' attrs {} "Files to place in $XDG_CONFIG_HOME";
@@ -36,8 +38,6 @@ in {
     stateDir   = mkOpt str "${cfg.dir}/.local/state";
     fakeDir    = mkOpt str "${cfg.dir}/.local/user";
   };
-
-  options.home = mkOpt' types.attrs {} "";
 
   config = {
     environment.localBinInPath = true;
@@ -66,10 +66,10 @@ in {
     # nixos-rebuild build-vm to work.
     home-manager = {
       useUserPackages = true;
-      users.${config.user.name} = mkAliasDefinitions options.home;
+      users.${config.user.name} = mkAliasDefinitions options.hm;
     };
 
-    home = {
+    hm = {
       # I only need a subset of home-manager's capabilities. That is, access to
       # its home.file, home.xdg.configFile and home.xdg.dataFile so I can deploy
       # files easily to my $HOME, but 'home-manager.users.hlissner.home.file.*'

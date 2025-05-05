@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home = {
+    hm = {
       programs.waybar.enable = true;
       home.packages = with pkgs; [
         playerctl # mpris

@@ -28,7 +28,7 @@ in
       xwayland-satellite
     ];
 
-    home = {
+    hm = {
       home.packages = with pkgs; [
         wlr-randr
         wl-clipboard

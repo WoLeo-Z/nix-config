@@ -10,7 +10,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home = {
+    hm = {
       programs.wofi.enable = true;
       xdg.configFile."wofi" = {
         source = ./config;
