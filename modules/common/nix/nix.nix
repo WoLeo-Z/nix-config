@@ -2,7 +2,7 @@
 { pkgs, ... }:
 {
   nix = {
-    package = pkgs.lix;
+    package = pkgs.nix;
 
     # Run the Nix daemon on lowest possible priority so that my system
     # stays responsive during demanding tasks such as GC and builds.
@@ -130,6 +130,9 @@
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         # "ags.cachix.org-1:naAvMrz0CuYqeyGNyLgE010iUiuf/qx6kYrUv3NwAJ8="
       ];
+
+      # TODO: Add access tokens (Create a github token with empty permissions. Security?)
+      # https://nix.dev/manual/nix/2.28/command-ref/conf-file.html#conf-access-tokens
     };
   };
 }
