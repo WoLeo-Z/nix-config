@@ -17,6 +17,9 @@
           foot.enable = true;
         };
         apps = {
+          browsers = {
+            google-chrome.enable = true;
+          };
           media = {
             spotify.enable = true;
           };

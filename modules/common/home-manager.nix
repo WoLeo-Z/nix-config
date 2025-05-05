@@ -23,7 +23,7 @@ with lib;
 let cfg = config.home';
 in {
   options.hm = mkOpt' types.attrs {} "An alias for home-manager.users.${config.user.name}";
-  
+
   options.home' = with types; {
     file       = mkOpt' attrs {} "Files to place directly in $HOME";
     configFile = mkOpt' attrs {} "Files to place in $XDG_CONFIG_HOME";
@@ -66,6 +66,7 @@ in {
     # nixos-rebuild build-vm to work.
     home-manager = {
       useUserPackages = true;
+      useGlobalPkgs = true;
       users.${config.user.name} = mkAliasDefinitions options.hm;
     };
 
