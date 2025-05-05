@@ -16,6 +16,11 @@
           default = "foot";
           foot.enable = true;
         };
+        apps = {
+          media = {
+            spotify.enable = true;
+          };
+        };
       };
 
       services = {
