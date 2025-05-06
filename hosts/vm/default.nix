@@ -23,6 +23,10 @@
           media = {
             spotify.enable = true;
           };
+          zed = {
+            enable = true;
+            enableAI = true;
+          };
         };
       };
 
