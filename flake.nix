@@ -57,82 +57,110 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-parts, systems, home-manager, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      flake-parts,
+      systems,
+      home-manager,
+      ...
+    }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         inputs.treefmt-nix.flakeModule
       ];
 
       systems = import systems;
-      
-      perSystem = { self', pkgs, lib, system, ... }: {
-        # formatter = config.treefmt.wrapper;
-        treefmt = {
-          projectRoot = self;
 
-          programs.nixfmt.enable = pkgs.lib.meta.availableOn pkgs.stdenv.buildPlatform pkgs.nixfmt-rfc-style.compiler;
-          programs.nixfmt.package = pkgs.nixfmt-rfc-style;
+      perSystem =
+        {
+          self',
+          pkgs,
+          lib,
+          system,
+          ...
+        }:
+        {
+          # formatter = config.treefmt.wrapper;
+          treefmt = {
+            projectRoot = self;
 
-          programs.shellcheck.enable = true;
+            programs.nixfmt.enable = pkgs.lib.meta.availableOn pkgs.stdenv.buildPlatform pkgs.nixfmt-rfc-style.compiler;
+            programs.nixfmt.package = pkgs.nixfmt-rfc-style;
+
+            programs.shellcheck.enable = true;
             settings.formatter.shellcheck.options = [
-            "-s"
-            "bash"
-          ];
+              "-s"
+              "bash"
+            ];
 
-          programs.deno.enable = true;
+            programs.deno.enable = true;
 
-          programs.ruff.check = true;
-          programs.ruff.format = true;
-          settings.formatter.ruff-check.priority = 1;
-          settings.formatter.ruff-format.priority = 2;
+            programs.ruff.check = true;
+            programs.ruff.format = true;
+            settings.formatter.ruff-check.priority = 1;
+            settings.formatter.ruff-format.priority = 2;
+          };
         };
-      };
-      
+
       flake = {
-        nixosConfigurations = let
-          # Import our custom lib which merges helpers with nixpkgs.lib
-          lib = import ./lib { lib = nixpkgs.lib // home-manager.lib; };
-          
-          # Import modules
-          modules = lib.collectModules ./modules;
-          
-          # Import hosts
-          hostConfigs = let
-            hostDirs = builtins.attrNames (builtins.readDir ./hosts);
-            
-            getHostConfig = hostName:
-              if builtins.pathExists (./hosts + "/${hostName}/default.nix")
-              then import (./hosts + "/${hostName}/default.nix")
-              else null;
-              
-            # Filter out null values and build host config map
-            configs = builtins.listToAttrs (
-              builtins.map (hostName: 
-                let config = getHostConfig hostName;
-                in if config != null
-                   then { name = hostName; value = config; }
-                   else null
-              ) hostDirs
-            );
-          in configs;
-          
-          mkNixosConfiguration = hostName: hostConfig:
-            nixpkgs.lib.nixosSystem {
-              system = hostConfig.system;
-              specialArgs = { inherit inputs lib; };
-              modules = [
-                {
-                  networking.hostName = hostConfig.hostName;
-                }
-                
-                hostConfig.config
-                hostConfig.hardware
-                
-                home-manager.nixosModules.home-manager
-              ]
-              ++ modules;
-            };
-        in
+        nixosConfigurations =
+          let
+            # Import our custom lib which merges helpers with nixpkgs.lib
+            lib = import ./lib { lib = nixpkgs.lib // home-manager.lib; };
+
+            # Import modules
+            modules = lib.collectModules ./modules;
+
+            # Import hosts
+            hostConfigs =
+              let
+                hostDirs = builtins.attrNames (builtins.readDir ./hosts);
+
+                getHostConfig =
+                  hostName:
+                  if builtins.pathExists (./hosts + "/${hostName}/default.nix") then
+                    import (./hosts + "/${hostName}/default.nix")
+                  else
+                    null;
+
+                # Filter out null values and build host config map
+                configs = builtins.listToAttrs (
+                  builtins.map (
+                    hostName:
+                    let
+                      config = getHostConfig hostName;
+                    in
+                    if config != null then
+                      {
+                        name = hostName;
+                        value = config;
+                      }
+                    else
+                      null
+                  ) hostDirs
+                );
+              in
+              configs;
+
+            mkNixosConfiguration =
+              hostName: hostConfig:
+              nixpkgs.lib.nixosSystem {
+                system = hostConfig.system;
+                specialArgs = { inherit inputs lib; };
+                modules = [
+                  {
+                    networking.hostName = hostConfig.hostName;
+                  }
+
+                  hostConfig.config
+                  hostConfig.hardware
+
+                  home-manager.nixosModules.home-manager
+                ] ++ modules;
+              };
+          in
           builtins.mapAttrs mkNixosConfiguration hostConfigs;
       };
     };

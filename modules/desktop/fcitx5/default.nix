@@ -63,7 +63,7 @@ in
     hm = {
       # Reference: merrkry/decalratia/profiles/desktop/i18n.nix
       # https://github.com/merrkry/decalratia/blob/c25aab15b970b568f1670d655f1429a8a8a5832d/profiles/desktop/i18n.nix
-      
+
       home.sessionVariables = lib.mkMerge [
         {
           LANG = "zh_CN.UTF-8";

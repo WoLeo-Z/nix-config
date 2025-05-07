@@ -1,6 +1,7 @@
 # Referenced from: https://github.com/sukhmancs/nixos-configs/blob/4578594ef84c39e4e92558fa45e99dfebc5dc635/modules/shared/nix/nixpkgs.nix
 # Original Code by NotAShelf - https://github.com/notashelf/nyx
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   # Global nixpkgs configuration. This is ignored if nixpkgs.pkgs is set
   # which is a case that should be avoided. Everything that is set to configure
   # nixpkgs must go here.

@@ -1,8 +1,15 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 with lib;
-let cfg = config.modules.desktop.terminal.foot;
-in {
+let
+  cfg = config.modules.desktop.terminal.foot;
+in
+{
   options.modules.desktop.terminal.foot = {
     enable = mkEnableOption "Enable foot terminal emulator";
   };

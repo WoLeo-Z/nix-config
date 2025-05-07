@@ -23,7 +23,7 @@
     # Optimise nix store. Manual way: nix-store --optimise
     optimise = {
       automatic = true;
-      dates = ["04:00"];
+      dates = [ "04:00" ];
     };
 
     # We use flakes, so we do need tools related to nix-channel
@@ -44,10 +44,18 @@
       auto-optimise-store = true;
 
       # allow sudo users to mark the following values as trusted
-      allowed-users = ["root" "@wheel" "nix-builder"];
+      allowed-users = [
+        "root"
+        "@wheel"
+        "nix-builder"
+      ];
 
       # only allow sudo users to manage the nix store
-      trusted-users = ["root" "@wheel" "nix-builder"];
+      trusted-users = [
+        "root"
+        "@wheel"
+        "nix-builder"
+      ];
 
       # let the system decide the number of max jobs
       max-jobs = "auto";
@@ -57,7 +65,12 @@
       sandbox-fallback = false;
 
       # supported system features
-      system-features = ["nixos-test" "kvm" "recursive-nix" "big-parallel"];
+      system-features = [
+        "nixos-test"
+        "kvm"
+        "recursive-nix"
+        "big-parallel"
+      ];
 
       # continue building derivations if one fails
       keep-going = true;

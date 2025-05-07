@@ -10,6 +10,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    
+
   };
 }

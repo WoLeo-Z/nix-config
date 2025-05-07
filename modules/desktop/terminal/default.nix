@@ -1,11 +1,21 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 with lib;
-let cfg = config.modules.desktop.terminal;
-in {
+let
+  cfg = config.modules.desktop.terminal;
+in
+{
   options.modules.desktop.terminal = {
     default = mkOption {
-      type = types.enum [ "foot" "kitty" ];
+      type = types.enum [
+        "foot"
+        "kitty"
+      ];
       default = null;
       description = "Default terminal emulator";
     };

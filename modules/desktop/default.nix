@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
@@ -11,7 +16,7 @@ in
 
   config = mkIf cfg.enable {
     modules.desktop.fcitx5.enable = true;
-    
+
     hm = {
       home.sessionVariables = {
         QT_QPA_PLATFORM = "wayland";
@@ -61,7 +66,7 @@ in
       TTYVHangup = true;
       TTYVTDisallocate = true;
     };
-    
+
     fonts.packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans

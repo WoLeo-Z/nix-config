@@ -1,6 +1,6 @@
 /* 
  * Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
-*/
+ */
 
 /** ********** Fonts ********** **/
 * {
@@ -29,8 +29,7 @@
   margin-top: 20px;
 }
 
-#inner-box {
-}
+#inner-box {}
 
 #img {
   padding-right: 8px;
@@ -53,11 +52,9 @@
   color: --wofi-color0;
 }
 
-#unselected {
-}
+#unselected {}
 
-#selected {
-}
+#selected {}
 
 #input,
 #entry:selected {

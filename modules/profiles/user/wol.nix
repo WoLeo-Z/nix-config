@@ -1,14 +1,21 @@
 # Reference: hlissner/dotfiles/modules/profiles/user/hlissner.nix
 # https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/modules/profiles/user/hlissner.nix
 
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 with lib;
-let cfg = config.modules.profiles;
-    username = cfg.user;
-    # role = cfg.role;
-    # TODO: key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB71rSnjuC06Qq3NLXQJwSz7jazoB+umydddrxL6vg1a";
-in mkIf (username == "wol") (mkMerge [
+let
+  cfg = config.modules.profiles;
+  username = cfg.user;
+  # role = cfg.role;
+  # TODO: key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB71rSnjuC06Qq3NLXQJwSz7jazoB+umydddrxL6vg1a";
+in
+mkIf (username == "wol") (mkMerge [
   {
     user.name = username;
     user.description = "WoL";

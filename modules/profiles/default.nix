@@ -1,4 +1,9 @@
-{ lib, options, config, ... }:
+{
+  lib,
+  options,
+  config,
+  ...
+}:
 
 with lib;
 {
@@ -6,8 +11,8 @@ with lib;
     user = mkOpt str "";
     role = mkOpt str "";
     platform = mkOpt str "";
-    hardware = mkOpt (listOf str) [];
-    networks = mkOpt (listOf str) [];
+    hardware = mkOpt (listOf str) [ ];
+    networks = mkOpt (listOf str) [ ];
   };
 
   config = {

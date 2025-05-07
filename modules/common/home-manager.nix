@@ -16,27 +16,36 @@
 # than what I had before NixOS). home-manager is one black box too many for my
 # liking.
 
-{ lib, config, options, home-manager, pkgs, ... }:
+{
+  lib,
+  config,
+  options,
+  home-manager,
+  pkgs,
+  ...
+}:
 
 with builtins;
 with lib;
-let cfg = config.home';
-in {
-  options.hm = mkOpt' types.attrs {} "An alias for home-manager.users.${config.user.name}";
+let
+  cfg = config.home';
+in
+{
+  options.hm = mkOpt' types.attrs { } "An alias for home-manager.users.${config.user.name}";
 
   options.home' = with types; {
-    file       = mkOpt' attrs {} "Files to place directly in $HOME";
-    configFile = mkOpt' attrs {} "Files to place in $XDG_CONFIG_HOME";
-    dataFile   = mkOpt' attrs {} "Files to place in $XDG_DATA_HOME";
-    fakeFile   = mkOpt' attrs {} "Files to place in $XDG_FAKE_HOME";
+    file = mkOpt' attrs { } "Files to place directly in $HOME";
+    configFile = mkOpt' attrs { } "Files to place in $XDG_CONFIG_HOME";
+    dataFile = mkOpt' attrs { } "Files to place in $XDG_DATA_HOME";
+    fakeFile = mkOpt' attrs { } "Files to place in $XDG_FAKE_HOME";
 
-    dir        = mkOpt str "${config.user.home}";
-    binDir     = mkOpt str "${cfg.dir}/.local/bin";
-    cacheDir   = mkOpt str "${cfg.dir}/.cache";
-    configDir  = mkOpt str "${cfg.dir}/.config";
-    dataDir    = mkOpt str "${cfg.dir}/.local/share";
-    stateDir   = mkOpt str "${cfg.dir}/.local/state";
-    fakeDir    = mkOpt str "${cfg.dir}/.local/user";
+    dir = mkOpt str "${config.user.home}";
+    binDir = mkOpt str "${cfg.dir}/.local/bin";
+    cacheDir = mkOpt str "${cfg.dir}/.cache";
+    configDir = mkOpt str "${cfg.dir}/.config";
+    dataDir = mkOpt str "${cfg.dir}/.local/share";
+    stateDir = mkOpt str "${cfg.dir}/.local/state";
+    fakeDir = mkOpt str "${cfg.dir}/.local/user";
   };
 
   config = {
@@ -46,11 +55,11 @@ in {
       # These are the defaults, and xdg.enable does set them, but due to load
       # order, they're not set before environment.variables are set, which
       # could cause race conditions.
-      XDG_BIN_HOME    = cfg.binDir;
-      XDG_CACHE_HOME  = cfg.cacheDir;
+      XDG_BIN_HOME = cfg.binDir;
+      XDG_CACHE_HOME = cfg.cacheDir;
       XDG_CONFIG_HOME = cfg.configDir;
-      XDG_DATA_HOME   = cfg.dataDir;
-      XDG_STATE_HOME  = cfg.stateDir;
+      XDG_DATA_HOME = cfg.dataDir;
+      XDG_STATE_HOME = cfg.stateDir;
 
       # This is not in the XDG standard. It's my jail for stubborn programs,
       # like Firefox, Steam, and LMMS.
@@ -58,9 +67,7 @@ in {
       XDG_DESKTOP_DIR = cfg.fakeDir;
     };
 
-    home'.file =
-      mapAttrs' (k: v: nameValuePair "${cfg.fakeDir}/${k}" v)
-        cfg.fakeFile;
+    home'.file = mapAttrs' (k: v: nameValuePair "${cfg.fakeDir}/${k}" v) cfg.fakeFile;
 
     # Install user packages to /etc/profiles instead. Necessary for
     # nixos-rebuild build-vm to work.
@@ -89,14 +96,14 @@ in {
       xdg = {
         # enable = true;
         configFile = mkAliasDefinitions options.home'.configFile;
-        dataFile   = mkAliasDefinitions options.home'.dataFile;
+        dataFile = mkAliasDefinitions options.home'.dataFile;
 
         # Force these, since it'll be considered an abstraction leak to use
         # home-manager's API anywhere outside this module.
-        cacheHome  = mkForce cfg.cacheDir;
+        cacheHome = mkForce cfg.cacheDir;
         configHome = mkForce cfg.configDir;
-        dataHome   = mkForce cfg.dataDir;
-        stateHome  = mkForce cfg.stateDir;
+        dataHome = mkForce cfg.dataDir;
+        stateHome = mkForce cfg.stateDir;
       };
     };
   };

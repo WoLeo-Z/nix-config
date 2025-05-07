@@ -1,4 +1,10 @@
-{ lib, config, pkgs, inputs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 with lib;
 let
@@ -23,7 +29,7 @@ in
     modules.desktop.wofi.enable = true;
     modules.desktop.swayidle.enable = true;
     modules.desktop.swaybg.enable = true;
-    
+
     environment.systemPackages = with pkgs; [
       xwayland-satellite
     ];

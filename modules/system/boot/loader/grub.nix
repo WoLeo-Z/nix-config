@@ -1,8 +1,15 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 with lib;
-let cfg = config.modules.system.boot.loader.grub;
-in {
+let
+  cfg = config.modules.system.boot.loader.grub;
+in
+{
   options.modules.system.boot.loader.grub = {
     enable = mkEnableOption "Enable GRUB bootloader";
   };

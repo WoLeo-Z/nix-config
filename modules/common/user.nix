@@ -1,12 +1,17 @@
 # Reference: hlissner/dotfiles/default.nix
 # https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/default.nix
 
-{ lib, options, config, ... }:
+{
+  lib,
+  options,
+  config,
+  ...
+}:
 
 with lib;
 {
   options = with types; {
-    modules = {};
+    modules = { };
 
     # Creates a simpler, polymorphic alias for users.users.$USER.
     user = mkOpt attrs { name = ""; };
@@ -15,7 +20,7 @@ with lib;
   config = {
     environment.sessionVariables = mkOrder 10 {
       # DOTFILES_HOME = config.dir; # TODO
-      NIXPKGS_ALLOW_UNFREE = "1";   # Forgive me Stallman-senpai.
+      NIXPKGS_ALLOW_UNFREE = "1"; # Forgive me Stallman-senpai.
     };
 
     # FIXME: Make this optional
