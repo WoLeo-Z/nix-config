@@ -25,6 +25,11 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # NUR
     nur = {
       url = "github:nix-community/NUR";
@@ -54,11 +59,33 @@
 
   outputs = inputs@{ self, nixpkgs, flake-parts, systems, home-manager, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        inputs.treefmt-nix.flakeModule
+      ];
+
       systems = import systems;
       
-      perSystem = { pkgs, system, ... }: {
-        # packages = { };
-        # devShells = { };
+      perSystem = { self', pkgs, lib, system, ... }: {
+        # formatter = config.treefmt.wrapper;
+        treefmt = {
+          projectRoot = self;
+
+          programs.nixfmt.enable = pkgs.lib.meta.availableOn pkgs.stdenv.buildPlatform pkgs.nixfmt-rfc-style.compiler;
+          programs.nixfmt.package = pkgs.nixfmt-rfc-style;
+
+          programs.shellcheck.enable = true;
+            settings.formatter.shellcheck.options = [
+            "-s"
+            "bash"
+          ];
+
+          programs.deno.enable = true;
+
+          programs.ruff.check = true;
+          programs.ruff.format = true;
+          settings.formatter.ruff-check.priority = 1;
+          settings.formatter.ruff-format.priority = 2;
+        };
       };
       
       flake = {
