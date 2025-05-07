@@ -12,7 +12,7 @@ let
 in
 {
   options.modules.desktop.swaybg = {
-    enable = mkEnableOption "Enable Swaybg";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

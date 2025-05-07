@@ -11,7 +11,7 @@ let
 in
 {
   options.modules.desktop.waybar = {
-    enable = mkEnableOption "Enable waybar";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

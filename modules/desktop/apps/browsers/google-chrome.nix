@@ -6,7 +6,7 @@ let
 in
 {
   options.modules.desktop.apps.browsers.google-chrome = {
-    enable = mkEnableOption "Enable Google Chrome";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

@@ -16,7 +16,7 @@ in
   ];
 
   options.modules.desktop.stylix = {
-    enable = mkEnableOption "Enable Stylix";
+    enable = mkEnableOption' { default = config.modules.desktop.enable; };
     image = mkOption {
       type = types.path;
       default = ../../assets/wallpapers/nix-black-4k.png;

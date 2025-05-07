@@ -11,7 +11,7 @@ let
 in
 {
   options.modules.desktop.terminal.foot = {
-    enable = mkEnableOption "Enable foot terminal emulator";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

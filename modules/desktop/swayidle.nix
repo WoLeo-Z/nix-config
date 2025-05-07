@@ -11,7 +11,7 @@ let
 in
 {
   options.modules.desktop.swayidle = {
-    enable = mkEnableOption "Enable swayidle";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

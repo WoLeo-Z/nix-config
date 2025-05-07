@@ -10,8 +10,10 @@ in
     type: default: description:
     mkOption { inherit type default description; };
 
-  mkBoolOpt =
-    default:
+  mkEnableOption' =
+    {
+      default ? false,
+    }:
     mkOption {
       inherit default;
       type = types.bool;

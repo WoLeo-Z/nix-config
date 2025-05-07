@@ -11,7 +11,7 @@ let
 in
 {
   options.modules.desktop = {
-    enable = mkEnableOption "Enable Desktop";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

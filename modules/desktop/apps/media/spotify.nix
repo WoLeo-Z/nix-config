@@ -16,7 +16,7 @@ in
   ];
 
   options.modules.desktop.apps.media.spotify = {
-    enable = mkEnableOption "Enable Spotify";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

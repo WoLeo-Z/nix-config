@@ -12,7 +12,7 @@ let
 in
 {
   options.modules.services.ssh = {
-    enable = mkEnableOption "Enable SSH service";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

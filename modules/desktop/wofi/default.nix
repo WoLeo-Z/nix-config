@@ -6,7 +6,7 @@ let
 in
 {
   options.modules.desktop.wofi = {
-    enable = mkEnableOption "Enable wofi";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

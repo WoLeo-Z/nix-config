@@ -36,7 +36,7 @@ let
 in
 {
   options.modules.desktop.fcitx5 = {
-    enable = lib.mkEnableOption "Enable Fcitx5";
+    enable = lib.mkEnableOption' { };
   };
 
   config = lib.mkIf cfg.enable {

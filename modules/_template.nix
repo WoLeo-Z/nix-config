@@ -6,7 +6,7 @@ let
 in
 {
   options.modules.template = {
-    enable = mkEnableOption "Enable Template";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

@@ -13,7 +13,7 @@ let
 in
 {
   options.modules.desktop.niri = {
-    enable = mkEnableOption "Enable Niri";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {

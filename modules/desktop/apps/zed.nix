@@ -11,8 +11,8 @@ let
 in
 {
   options.modules.desktop.apps.zed = {
-    enable = mkEnableOption "Enable Zed";
-    enableAI = mkEnableOption "Enable Zed AI";
+    enable = mkEnableOption' { };
+    enableAI = mkEnableOption' { default = true; };
   };
 
   config = mkIf cfg.enable {

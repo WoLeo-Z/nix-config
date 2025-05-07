@@ -11,7 +11,7 @@ let
 in
 {
   options.modules.system.boot.loader.grub = {
-    enable = mkEnableOption "Enable GRUB bootloader";
+    enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {
