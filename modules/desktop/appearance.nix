@@ -8,14 +8,14 @@
 
 with lib;
 let
-  cfg = config.modules.desktop.stylix;
+  cfg = config.modules.desktop.appearance;
 in
 {
   imports = [
     inputs.stylix.nixosModules.stylix
   ];
 
-  options.modules.desktop.stylix = {
+  options.modules.desktop.appearance = {
     enable = mkEnableOption' { default = config.modules.desktop.enable; };
     image = mkOption {
       type = types.path;
@@ -58,6 +58,20 @@ in
         emoji = {
           package = pkgs.noto-fonts-color-emoji;
           name = "Noto Color Emoji";
+        };
+      };
+    };
+
+    hm = {
+      gtk = {
+        enable = true;
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme;
+          # Papirus-Dark papirus-icon-theme
+          # kora kora-icon-theme
+          # ? fluent-icon-theme
+          # ? adwaita-icon-theme
         };
       };
     };

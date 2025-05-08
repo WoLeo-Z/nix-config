@@ -12,7 +12,7 @@
 
         desktop = {
           enable = true;
-          stylix.enable = true;
+          appearance.enable = true;
           niri.enable = true;
           terminal = {
             default = "foot";
