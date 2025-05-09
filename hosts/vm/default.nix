@@ -19,6 +19,7 @@
             foot.enable = true;
           };
           apps = {
+            nautilus.enable = true;
             browsers = {
               google-chrome.enable = true;
             };
