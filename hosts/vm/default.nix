@@ -30,6 +30,7 @@
               enable = true;
               enableAI = true;
             };
+            flatpak.enable = true;
           };
         };
 
