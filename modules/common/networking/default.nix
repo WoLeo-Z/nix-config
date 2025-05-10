@@ -1,22 +1,18 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}:
+{ lib, ... }:
 
 {
-  networking.networkmanager = {
-    enable = true;
+  networking = {
+    firewall.enable = lib.mkDefault false;
+    firewall.checkReversePath = lib.mkDefault false;
+    nftables.enable = lib.mkDefault true;
+    useDHCP = false;
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   networkmanagerapplet # nm-connection-editor
-  # ];
+  # systemd.network.enable = true;
+  # services.resolved.enable = false;
 
-  systemd = {
-    services.NetworkManager-wait-online.enable = false;
-    # Disables the service because it hangs on boot.
-    services.NetworkManager-dispatcher.enable = false;
-  };
+  # systemd.network.networks.enp1s0 = {
+  #   DHCP = "yes";
+  #   matchConfig.Name = "enp1s0";
+  # };
 }
