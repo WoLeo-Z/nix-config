@@ -29,6 +29,7 @@ in
     modules.desktop.wofi.enable = true;
     modules.desktop.swayidle.enable = true;
     modules.desktop.swaybg.enable = true;
+    modules.desktop.swaync.enable = true;
 
     environment.systemPackages = with pkgs; [
       xwayland-satellite
@@ -40,9 +41,7 @@ in
         wl-clipboard
         wl-clip-persist
         cliphist
-        swaybg
         brightnessctl
-        swaynotificationcenter
       ];
     };
 
