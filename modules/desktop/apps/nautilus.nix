@@ -35,12 +35,12 @@ in
           ];
         };
         "org/gnome/nautilus/list-view" = {
-          default-zoom-level = "small";
+          # default-zoom-level = "small";
 
-          use-tree-view = true;
+          # use-tree-view = true;
         };
         "org/gnome/nautilus/preferences" = {
-          default-folder-viewer = "list-view";
+          # default-folder-viewer = "list-view";
           # click-policy = "single";
 
           show-create-link = true;
