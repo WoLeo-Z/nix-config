@@ -72,6 +72,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         inputs.treefmt-nix.flakeModule
+        ./pkgs
       ];
 
       systems = import systems;
