@@ -3,6 +3,7 @@
 
   inputs = {
     systems.url = "github:nix-systems/default-linux";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     # NixOS stable
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
