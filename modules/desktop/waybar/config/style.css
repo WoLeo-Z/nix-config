@@ -33,7 +33,7 @@ tooltip label {
 }
 
 #tray {
-  background: rgba(60, 60, 60, 0.9);
+  /* background: rgba(60, 60, 60, 0.9); */
   border-radius: 8px;
 }
 
