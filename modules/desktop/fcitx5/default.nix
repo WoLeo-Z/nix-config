@@ -41,8 +41,8 @@ in
 
   config = lib.mkIf cfg.enable {
     i18n = {
-      defaultLocale = "en_US.UTF-8";
-      supportedLocales = [
+      defaultLocale = lib.mkDefault "en_US.UTF-8";
+      supportedLocales = lib.mkDefault [
         "en_US.UTF-8/UTF-8"
         "zh_CN.UTF-8/UTF-8"
       ];
@@ -66,7 +66,7 @@ in
 
       home.sessionVariables = lib.mkMerge [
         {
-          LANG = "zh_CN.UTF-8";
+          # LANG = "zh_CN.UTF-8"; # not working?
           XMODIFIERS = "@im=fcitx";
         }
         (lib.optionalAttrs (!config.services.desktopManager.plasma6.enable) {
