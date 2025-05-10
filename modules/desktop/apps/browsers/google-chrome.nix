@@ -42,12 +42,9 @@ in
       };
     };
 
-    # TODO: Add persistence
-    # environment.persistence."/persist" = {
-    #   users.${user}.directories = [
-    #     ".config/google-chrome"
-    #     ".cache/google-chrome"
-    #   ];
-    # };
+    stateless.user.directories = [
+      ".config/google-chrome"
+      ".cache/google-chrome"
+    ];
   };
 }
