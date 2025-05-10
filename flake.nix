@@ -122,29 +122,21 @@
 
                 getHostConfig =
                   hostName:
-                  if builtins.pathExists (./hosts + "/${hostName}/default.nix") then
-                    import (./hosts + "/${hostName}/default.nix")
-                  else
-                    null;
-
-                # Filter out null values and build host config map
-                configs = builtins.listToAttrs (
-                  builtins.map (
-                    hostName:
-                    let
-                      config = getHostConfig hostName;
-                    in
-                    if config != null then
-                      {
-                        name = hostName;
-                        value = config;
-                      }
-                    else
-                      null
-                  ) hostDirs
-                );
+                  let
+                    hostPath = ./hosts + "/${hostName}/default.nix";
+                    config = import hostPath;
+                  in
+                  config {
+                    inherit inputs lib;
+                    # pkgs = nixpkgs.legacyPackages."x86_64-linux";
+                  };
               in
-              configs;
+              builtins.listToAttrs (
+                builtins.map (hostName: {
+                  name = hostName;
+                  value = getHostConfig hostName;
+                }) hostDirs
+              );
 
             mkNixosConfiguration =
               hostName: hostConfig:
