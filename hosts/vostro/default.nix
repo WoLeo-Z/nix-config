@@ -53,6 +53,8 @@
   };
 
   hardware = {
+    boot.loader.grub.useOSProber = true; # Dual boot
+
     imports = [
       inputs.nixos-hardware.nixosModules.common-cpu-intel
       inputs.nixos-hardware.nixosModules.common-gpu-amd

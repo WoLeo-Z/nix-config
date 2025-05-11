@@ -24,6 +24,17 @@ in
       grub = {
         efiSupport = true;
         device = "nodev";
+
+        useOSProber = mkDefault false;
+
+        extraEntries = ''
+          menuentry "Reboot" {
+            reboot
+          }
+          menuentry "Poweroff" {
+            halt
+          }
+        '';
       };
     };
   };
