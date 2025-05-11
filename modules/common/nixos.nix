@@ -11,6 +11,7 @@
     # Core
     git
     vim
+    fd
 
     # Networking
     wget
