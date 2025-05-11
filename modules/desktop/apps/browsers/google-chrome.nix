@@ -13,10 +13,7 @@ in
     hm = {
       programs.google-chrome = {
         enable = true;
-        commandLineArgs = [
-          "--enable-wayland-ime"
-          "--enable-features=TouchpadOverscrollHistoryNavigation"
-        ];
+        commandLineArgs = lib.chromiumArgs;
       };
 
       xdg.mimeApps.defaultApplications = {
