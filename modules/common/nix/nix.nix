@@ -2,7 +2,7 @@
 { pkgs, ... }:
 {
   nix = {
-    package = pkgs.nix;
+    package = pkgs.lix;
 
     # Run the Nix daemon on lowest possible priority so that my system
     # stays responsive during demanding tasks such as GC and builds.
@@ -86,7 +86,7 @@
       extra-experimental-features = [
         "flakes" # flakes
         "nix-command" # experimental nix commands
-        "recursive-nix" # let nix invoke itself
+        # "recursive-nix" # let nix invoke itself # Lix 2.93 does not support this
         "ca-derivations" # content addressed nix
         "auto-allocate-uids" # allow nix to automatically pick UIDs, rather than creating nixbld* user accounts
         "cgroups" # allow nix to execute builds inside cgroups
