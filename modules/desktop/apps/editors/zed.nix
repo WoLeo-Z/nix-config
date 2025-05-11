@@ -7,10 +7,10 @@
 
 with lib;
 let
-  cfg = config.modules.desktop.apps.zed;
+  cfg = config.modules.desktop.apps.editors.zed;
 in
 {
-  options.modules.desktop.apps.zed = {
+  options.modules.desktop.apps.editors.zed = {
     enable = mkEnableOption' { };
     enableAI = mkEnableOption' { default = true; };
   };

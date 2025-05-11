@@ -26,9 +26,11 @@
           media = {
             spotify.enable = true;
           };
-          zed = {
-            enable = true;
-            enableAI = true;
+          editors = {
+            zed = {
+              enable = true;
+              enableAI = true;
+            };
           };
           flatpak.enable = true;
         };
