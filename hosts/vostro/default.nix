@@ -31,6 +31,7 @@
             spotify.enable = true;
           };
           editors = {
+            vscode.enable = true;
             zed = {
               enable = true;
               enableAI = true;
