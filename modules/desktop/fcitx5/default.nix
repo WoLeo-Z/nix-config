@@ -76,24 +76,24 @@ in
         })
       ];
 
-      systemd.user.services = {
-        "fcitx5" = {
-          Install = {
-            WantedBy = [ "graphical-session.target" ];
-          };
-          Unit = {
-            PartOf = [ "graphical-session.target" ];
-            After = [
-              "graphical-session.target"
-              "xwayland-satellite.service"
-            ];
-          };
-          Service = {
-            ExecStart = "${lib.getExe' config.i18n.inputMethod.package "fcitx5"} --replace";
-            Restart = "on-failure";
-          };
-        };
-      };
+      # systemd.user.services = {
+      #   "fcitx5" = {
+      #     Install = {
+      #       WantedBy = [ "graphical-session.target" ];
+      #     };
+      #     Unit = {
+      #       PartOf = [ "graphical-session.target" ];
+      #       After = [
+      #         "graphical-session.target"
+      #         "xwayland-satellite.service"
+      #       ];
+      #     };
+      #     Service = {
+      #       ExecStart = "${lib.getExe' config.i18n.inputMethod.package "fcitx5"} --replace";
+      #       Restart = "on-failure";
+      #     };
+      #   };
+      # };
 
       xdg.configFile."fcitx5" = {
         source = ./config;

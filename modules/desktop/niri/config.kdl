@@ -293,11 +293,11 @@ layout {
 // spawn-at-startup "alacritty" "-e" "fish"
 
 spawn-at-startup "waybar"
-spawn-at-startup "xwayland-satellite"
+spawn-at-startup "sh" "-c" "sleep 3 && fcitx5 -r"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 environment {
-    DISPLAY ":0"
+    DISPLAY ":42"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
 }

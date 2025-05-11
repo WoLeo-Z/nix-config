@@ -30,10 +30,7 @@ in
     modules.desktop.swayidle.enable = true;
     modules.desktop.swaybg.enable = true;
     modules.desktop.swaync.enable = true;
-
-    environment.systemPackages = with pkgs; [
-      xwayland-satellite
-    ];
+    modules.desktop.xwayland-satellite.enable = true;
 
     hm = {
       home.packages = with pkgs; [
