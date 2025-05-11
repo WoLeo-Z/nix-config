@@ -36,6 +36,7 @@
 
       services = {
         ssh.enable = true;
+        mihomo.enable = true;
       };
 
       system = {
