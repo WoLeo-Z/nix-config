@@ -38,6 +38,7 @@
             };
           };
           flatpak.enable = true;
+          telegram.enable = true;
         };
       };
 
