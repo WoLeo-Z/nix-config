@@ -21,6 +21,7 @@ in
         enable = true;
         userSettings = lib.mkMerge [
           {
+            theme = "Catppuccin Mocha";
             telemetry = {
               diagnostics = false;
               metrics = false;
@@ -93,8 +94,6 @@ in
           )
         ];
       };
-
-      stylix.targets.zed.enable = true;
     };
   };
 }
