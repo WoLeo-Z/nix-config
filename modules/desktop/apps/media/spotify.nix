@@ -11,9 +11,7 @@ let
   spicePkgs = inputs.spicetify-nix.legacyPackages."x86_64-linux";
 in
 {
-  imports = [
-    inputs.spicetify-nix.nixosModules.default
-  ];
+  imports = [ inputs.spicetify-nix.nixosModules.default ];
 
   options.modules.desktop.apps.media.spotify = {
     enable = mkEnableOption' { };

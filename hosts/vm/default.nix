@@ -118,9 +118,7 @@
       ];
     };
 
-    swapDevices = [
-      { device = "/dev/disk/by-label/swap"; }
-    ];
+    swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
 
     networking.interfaces.enp1s0.useDHCP = true;
 

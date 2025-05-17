@@ -10,9 +10,7 @@ let
   cfg = config.modules.stateless;
 in
 {
-  imports = [
-    inputs.impermanence.nixosModules.impermanence
-  ];
+  imports = [ inputs.impermanence.nixosModules.impermanence ];
 
   options.modules.stateless = {
     enable = mkEnableOption' { };
@@ -115,9 +113,7 @@ in
           # "/usr/share/icons"
         ];
 
-        files = [
-          "/etc/machine-id"
-        ];
+        files = [ "/etc/machine-id" ];
       };
 
       stateless.user = {

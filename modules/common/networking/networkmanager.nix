@@ -14,9 +14,7 @@
     networkmanager.wifi.backend = "iwd";
   };
 
-  environment.systemPackages = with pkgs; [
-    networkmanagerapplet
-  ];
+  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
 
   systemd = {
     services.NetworkManager-wait-online.enable = false;

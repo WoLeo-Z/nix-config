@@ -11,9 +11,7 @@ let
   cfg = config.modules.desktop.appearance;
 in
 {
-  imports = [
-    inputs.stylix.nixosModules.stylix
-  ];
+  imports = [ inputs.stylix.nixosModules.stylix ];
 
   options.modules.desktop.appearance = {
     enable = mkEnableOption' { default = config.modules.desktop.enable; };

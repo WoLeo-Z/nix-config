@@ -29,9 +29,7 @@ in
     services.flatpak.enable = true;
 
     hm = {
-      imports = [
-        inputs.nix-flatpak.homeManagerModules.nix-flatpak
-      ];
+      imports = [ inputs.nix-flatpak.homeManagerModules.nix-flatpak ];
 
       home.shellAliases = {
         "flatpak" = "flatpak --user";
@@ -87,9 +85,7 @@ in
           # };
         };
 
-        packages = [
-          "com.github.tchx84.Flatseal"
-        ];
+        packages = [ "com.github.tchx84.Flatseal" ];
 
         uninstallUnmanaged = true;
         uninstallUnused = true;
