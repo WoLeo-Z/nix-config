@@ -9,16 +9,16 @@ with lib;
 let
   cfg = config.modules.desktop.apps.flatpak;
 
-  untrustedFilesystemsOverride = [
-    "xdg-public-share"
-    "!xdg-desktop"
-    "!xdg-documents"
-    "!xdg-download"
-    "!xdg-music"
-    "!xdg-pictures"
-    "!xdg-templates"
-    "!xdg-videos"
-  ];
+  # untrustedFilesystemsOverride = [
+  #   "xdg-public-share"
+  #   "!xdg-desktop"
+  #   "!xdg-documents"
+  #   "!xdg-download"
+  #   "!xdg-music"
+  #   "!xdg-pictures"
+  #   "!xdg-templates"
+  #   "!xdg-videos"
+  # ];
 in
 {
   options.modules.desktop.apps.flatpak = {
