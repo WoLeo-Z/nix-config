@@ -1,8 +1,4 @@
-{
-  lib,
-  inputs,
-  ...
-}:
+{ inputs, ... }:
 
 {
   hostName = "vostro";
@@ -58,14 +54,29 @@
   };
 
   hardware = {
-    boot.loader.grub.useOSProber = true; # Dual boot
+    # Disable it to save time ...
+    # boot.loader.grub.useOSProber = true; # Dual boot
 
-    imports = [
-      inputs.nixos-hardware.nixosModules.common-cpu-intel
-      inputs.nixos-hardware.nixosModules.common-gpu-amd
-      inputs.nixos-hardware.nixosModules.common-pc-ssd
-    ];
+    hardware.enableRedistributableFirmware = true;
 
+    # CPU
+    # imports = [ "${inputs.nixos-hardware}/common/cpu/intel/comet-lake" ];
+    imports = [ inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only ];
+
+    # GPU 1: AMD Radeon RX 550 / 550 Series [Discrete]
+    hardware.amdgpu = {
+      initrd.enable = true;
+      amdvlk.enable = true;
+      amdvlk.support32Bit.enable = true;
+      # opencl.enable = true;
+    };
+
+    # Disable iGPU
+    # GPU 2: Intel UHD Graphics 630 [Integrated]
+    boot.blacklistedKernelModules = [ "i915" ];
+    boot.kernelParams = [ "i915.modeset=0" ];
+
+    # FileSystems
     boot.supportedFilesystems = [ "ntfs" ];
 
     fileSystems."/" = {
@@ -105,11 +116,8 @@
       ];
     };
 
-    swapDevices = [
-      { device = "/dev/disk/by-label/swap"; }
-    ];
-
+    # Networking
     networking.interfaces.enp3s0.useDHCP = true;
-    networking.interfaces.wlp4s0.useDHCP = true;
+    # networking.interfaces.wlp4s0.useDHCP = true;
   };
 }
