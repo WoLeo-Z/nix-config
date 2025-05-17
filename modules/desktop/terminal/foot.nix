@@ -15,13 +15,30 @@ in
   };
 
   config = mkIf cfg.enable {
-    user.packages = with pkgs; [
-      foot
-      libsixel # image support in foot
-    ];
+    hm = {
+      home.packages = with pkgs; [
+        libsixel # image support in foot
+      ];
 
-    # TODO: programs.foot.enableFishIntegration = true;
-
-    # TODO: Add foot config or use home.configFile
+      programs.foot = {
+        enable = true;
+        server.enable = true;
+        settings = {
+          # https://codeberg.org/dnkl/foot/src/branch/master/foot.ini
+          main = {
+            dpi-aware = mkForce "yes";
+            # font = "JetBrainsMono Nerd Font:size=12";
+          };
+          scrollback = {
+            lines = 10000;
+          };
+          key-bindings = {
+            # Use Control+C to send SIGINT
+            clipboard-copy = "Control+c XF86Copy";
+            clipboard-paste = "Control+v XF86Paste";
+          };
+        };
+      };
+    };
   };
 }
