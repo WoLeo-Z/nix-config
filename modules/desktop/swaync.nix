@@ -23,6 +23,8 @@ in
       home.packages = with pkgs; [
         libnotify # provide notify-send
       ];
+
+      stylix.targets.swaync.enable = true;
     };
   };
 }

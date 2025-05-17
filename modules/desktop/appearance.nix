@@ -24,7 +24,7 @@ in
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      autoEnable = true;
+      autoEnable = false;
       polarity = "dark";
       image = cfg.image;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -61,6 +61,7 @@ in
     };
 
     hm = {
+      # GTK
       gtk = {
         enable = true;
         iconTheme = {
@@ -72,6 +73,10 @@ in
           # ? adwaita-icon-theme
         };
       };
+
+      stylix.targets.gtk.enable = true;
+
+      stylix.targets.qt.enable = true;
     };
   };
 }

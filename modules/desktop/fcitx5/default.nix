@@ -107,7 +107,5 @@ in
           "${config.home'.configDir}/fcitx5/conf"
       '';
     };
-
-    # stylix.targets.fcitx5.enable = false;
   };
 }

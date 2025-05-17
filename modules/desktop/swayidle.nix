@@ -20,6 +20,8 @@ in
         swaylock.enable = true;
       };
 
+      stylix.targets.swaylock.enable = true;
+
       services = {
         swayidle = {
           enable = true;

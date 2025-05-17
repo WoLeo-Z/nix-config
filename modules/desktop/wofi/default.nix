@@ -16,6 +16,8 @@ in
         source = ./config;
         recursive = true;
       };
+
+      stylix.targets.wofi.enable = true;
     };
   };
 }

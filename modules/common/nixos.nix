@@ -24,4 +24,6 @@
     which
     tree
   ];
+
+  stylix.targets.console.enable = true;
 }

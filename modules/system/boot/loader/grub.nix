@@ -37,5 +37,7 @@ in
         '';
       };
     };
+
+    stylix.targets.grub.enable = true;
   };
 }

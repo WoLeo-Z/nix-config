@@ -41,5 +41,7 @@ in
       57621 # To sync local tracks from your filesystem with mobile devices in the same network
       5353 # To enable discovery of Google Cast devices (and possibly other Spotify Connect devices) in the same network
     ];
+
+    stylix.targets.spicetify.enable = true;
   };
 }

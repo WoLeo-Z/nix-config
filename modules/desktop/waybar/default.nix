@@ -20,6 +20,8 @@ in
       home.packages = with pkgs; [
         playerctl # mpris
       ];
+
+      stylix.targets.waybar.enable = true;
     };
 
     home'.configFile."waybar" = {

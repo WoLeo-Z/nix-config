@@ -39,6 +39,8 @@ in
           };
         };
       };
+
+      stylix.targets.foot.enable = true;
     };
   };
 }
