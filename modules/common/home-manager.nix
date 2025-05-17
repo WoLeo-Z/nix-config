@@ -20,8 +20,6 @@
   lib,
   config,
   options,
-  home-manager,
-  pkgs,
   ...
 }:
 

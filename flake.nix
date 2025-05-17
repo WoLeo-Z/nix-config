@@ -80,13 +80,7 @@
       systems = import systems;
 
       perSystem =
-        {
-          self',
-          pkgs,
-          lib,
-          system,
-          ...
-        }:
+        { pkgs, ... }:
         {
           # formatter = config.treefmt.wrapper;
           treefmt = {
@@ -148,9 +142,7 @@
                 system = hostConfig.system;
                 specialArgs = { inherit inputs lib; };
                 modules = [
-                  {
-                    networking.hostName = hostConfig.hostName;
-                  }
+                  { networking.hostName = hostConfig.hostName; }
 
                   hostConfig.config
                   hostConfig.hardware
