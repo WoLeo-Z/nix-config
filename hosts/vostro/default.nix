@@ -25,6 +25,7 @@
           };
           media = {
             spotify.enable = true;
+            cavalier.enable = true;
           };
           editors = {
             vscode.enable = true;
