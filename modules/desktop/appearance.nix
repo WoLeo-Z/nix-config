@@ -75,6 +75,7 @@ in
       };
 
       stylix.targets.gtk.enable = true;
+      stylix.targets.gtk.flatpakSupport.enable = true;
 
       stylix.targets.qt.enable = true;
     };
