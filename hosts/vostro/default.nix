@@ -76,6 +76,18 @@
     boot.blacklistedKernelModules = [ "i915" ];
     boot.kernelParams = [ "i915.modeset=0" ];
 
+    # Bluetooth
+    hardware.bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Experimental = true; # Showing battery charge of bluetooth devices
+        };
+      };
+    };
+    services.blueman.enable = true;
+    hm.services.mpris-proxy.enable = true; # Using Bluetooth headset buttons to control media player
+
     # FileSystems
     boot.supportedFilesystems = [ "ntfs" ];
 
