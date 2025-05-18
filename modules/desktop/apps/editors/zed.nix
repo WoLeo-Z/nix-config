@@ -21,7 +21,23 @@ in
         enable = true;
         userSettings = lib.mkMerge [
           {
+            autosave = "on_focus_change";
             theme = "Catppuccin Mocha";
+            icon_theme = "Catppuccin Mocha";
+            auto_install_extension = {
+              catppuccin = true;
+              catppuccin-icons = true;
+              nix = true;
+            };
+
+            terminal = {
+              font_family = "JetBrainsMono Nerd Font";
+              env = {
+                EDITOR = "zed --wait";
+              };
+            };
+
+            auto_update = false;
             telemetry = {
               diagnostics = false;
               metrics = false;
