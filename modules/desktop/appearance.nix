@@ -42,12 +42,12 @@ in
 
       fonts = {
         serif = {
-          package = pkgs.noto-fonts-cjk-sans;
-          name = "Noto Sans CJK SC";
-        };
-        sansSerif = {
           package = pkgs.noto-fonts-cjk-serif;
           name = "Noto Serif CJK SC";
+        };
+        sansSerif = {
+          package = pkgs.noto-fonts-cjk-sans;
+          name = "Noto Sans CJK SC";
         };
         monospace = {
           package = pkgs.nerd-fonts.jetbrains-mono;
