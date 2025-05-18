@@ -7,10 +7,10 @@
 
 with lib;
 let
-  cfg = config.modules.desktop.terminal.foot;
+  cfg = config.modules.desktop.apps.terminal.foot;
 in
 {
-  options.modules.desktop.terminal.foot = {
+  options.modules.desktop.apps.terminal.foot = {
     enable = mkEnableOption' { };
   };
 

@@ -1,16 +1,11 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}:
+{ lib, config, ... }:
 
 with lib;
 let
-  cfg = config.modules.desktop.terminal;
+  cfg = config.modules.desktop.apps.terminal;
 in
 {
-  options.modules.desktop.terminal = {
+  options.modules.desktop.apps.terminal = {
     default = mkOption {
       type = types.enum [
         "foot"

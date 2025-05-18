@@ -14,11 +14,11 @@
         enable = true;
         appearance.enable = true;
         niri.enable = true;
-        terminal = {
-          default = "foot";
-          foot.enable = true;
-        };
         apps = {
+          terminal = {
+            default = "foot";
+            foot.enable = true;
+          };
           nautilus.enable = true;
           browsers = {
             google-chrome.enable = true;
