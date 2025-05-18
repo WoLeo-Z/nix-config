@@ -33,6 +33,9 @@
               enableAI = true;
             };
           };
+          utils = {
+            gnome-control-center.enable = true;
+          };
           flatpak.enable = true;
           telegram.enable = true;
         };
