@@ -21,6 +21,7 @@
           };
           nautilus.enable = true;
           browsers = {
+            firefox.enable = true;
             google-chrome.enable = true;
           };
           media = {
