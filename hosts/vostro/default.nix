@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 
 {
   hostName = "vostro";
@@ -64,9 +64,8 @@
 
     hardware.enableRedistributableFirmware = true;
 
-    # CPU
-    # imports = [ "${inputs.nixos-hardware}/common/cpu/intel/comet-lake" ];
-    imports = [ inputs.nixos-hardware.nixosModules.common-cpu-intel-cpu-only ];
+    # CPU: Intel(R) Core(TM) i3-10100 (8) @ 4.30 GHz
+    hardware.cpu.intel.updateMicrocode = true;
 
     # GPU 1: AMD Radeon RX 550 / 550 Series [Discrete]
     hardware.amdgpu = {
