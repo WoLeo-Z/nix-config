@@ -44,6 +44,7 @@
       };
 
       services = {
+        audio.enable = true;
         ssh.enable = true;
         mihomo.enable = true;
       };
