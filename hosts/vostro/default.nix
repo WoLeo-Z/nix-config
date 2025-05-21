@@ -134,7 +134,7 @@
     };
 
     # Networking
-    networking.interfaces.enp3s0.useDHCP = true;
+    # networking.interfaces.enp3s0.useDHCP = true;
     # networking.interfaces.wlp4s0.useDHCP = true;
   };
 }
