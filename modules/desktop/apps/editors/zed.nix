@@ -43,6 +43,7 @@ in
               metrics = false;
             };
             # vim_mode = true;
+            format_on_save = "off";
             languages = {
               "Nix" = {
                 tab_size = 2;
