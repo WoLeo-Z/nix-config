@@ -1,5 +1,3 @@
-// TODO: try https://github.com/notdanna/hypr.pro/tree/main/dots/waybar/purple
-
 {
   "layer": "top",
   "position": "top",
@@ -19,6 +17,7 @@
     "idle_inhibitor",
     "custom/separator",
     "backlight",
+    "power-profiles-daemon",
     "battery",
     "wireplumber"
   ],
@@ -80,15 +79,29 @@
     }
   },
   "niri/workspaces": {
-    "format": "{icon}",
+    "format": "{index}",
     "format-icons": {
-      "active": "",
-      "default": "·",
-      "focused": ""
+      "active": "",
+      "default": "",
+      "focused": ""
     }
   },
   "niri/window": {
-    "format": "{title}"
+    "format": "{title}",
+    "max-length": 80,
+    "separate-outputs": false,
+    "rewrite": {
+      "^.*~$": " Foot",
+      "^.*( — Firefox|Firefox)$": "󰈹 Firefox",
+      "^.*( — Zen Browser|Zen Browser)$": "󰈹 Zen",
+      "^.*( — Brave|Brave)$": " Brave",
+      "^.*( — Chromium|Chromium)$": " Chromium",
+      "^.*v( .*|$)": " Neovim",
+      "^.*(- Spotify|Spotify)$": "󰏤 Spotify",
+      "^.*(- Code|Code)$": " VSCode",
+      "^.*(- Cursor|Cursor)$": " Cursor",
+      "^.+ $": " Empty" // evita títulos vacíos
+    }
   },
   "privacy": {
     "icon-size": 14,
@@ -118,5 +131,15 @@
     "format-muted": "󰖁 {volume}%",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "scroll-step": "0.25"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip": true,
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "format-icons": {
+      "default": " ",
+      "balanced": " ",
+      "power-saver": "<span color='#a6e3a1'> </span>"
+    }
   }
 }

@@ -21,8 +21,10 @@ in
         playerctl # mpris
       ];
 
-      stylix.targets.waybar.enable = true;
+      # stylix.targets.waybar.enable = true;
     };
+
+    services.power-profiles-daemon.enable = true;
 
     home'.configFile."waybar" = {
       source = ./config;

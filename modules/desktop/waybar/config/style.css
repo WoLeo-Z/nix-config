@@ -41,3 +41,7 @@ tooltip label {
   padding: 0 4px;
   border-radius: 999px;
 }
+
+#workspaces button.active {
+  background: rgba(60, 60, 60, 0.9)
+}
