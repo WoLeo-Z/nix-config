@@ -10,6 +10,8 @@
         user = "wol";
       };
 
+      kernel = "xanmod";
+
       desktop = {
         enable = true;
         appearance.enable = true;
