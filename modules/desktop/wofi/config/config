@@ -22,6 +22,7 @@ allow_images=true
 image_size=24
 
 ## Search
+matching_mode=fuzzy
 exec_search=false
 hide_search=false
 parse_search=false
