@@ -32,5 +32,8 @@ in
         ];
       };
     };
+
+    # Better for steam proton games
+    systemd.extraConfig = "DefaultLimitNOFILE=1048576";
   };
 }
