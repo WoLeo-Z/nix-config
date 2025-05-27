@@ -50,6 +50,7 @@
         audio.enable = true;
         ssh.enable = true;
         mihomo.enable = true;
+        sunshine.enable = true;
       };
 
       system = {
