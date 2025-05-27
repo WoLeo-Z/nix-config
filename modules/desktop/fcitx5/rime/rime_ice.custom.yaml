@@ -1,0 +1,3 @@
+patch:
+  "translator/dictionary": custom_dict
+  "switches/@0/reset": 1 # default ascii_mode (eng)
