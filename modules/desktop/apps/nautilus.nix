@@ -24,6 +24,11 @@ in
     };
 
     services.gnome.sushi.enable = true;
+    services.gvfs.enable = true;
+
+    # Removable disk automounter
+    hm.services.udiskie.enable = true;
+    services.udisks2.enable = true;
 
     hm = {
       dconf.settings = {
@@ -40,7 +45,7 @@ in
           # use-tree-view = true;
         };
         "org/gnome/nautilus/preferences" = {
-          # default-folder-viewer = "list-view";
+          default-folder-viewer = "list-view";
           # click-policy = "single";
 
           show-create-link = true;
