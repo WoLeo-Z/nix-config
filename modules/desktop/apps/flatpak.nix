@@ -98,7 +98,8 @@ in
           };
         };
       };
+
+      stylix.targets.gtk.flatpakSupport.enable = true;
     };
-    # stylix.targets.gtk.flatpakSupport.enable = false;
   };
 }

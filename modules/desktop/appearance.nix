@@ -60,8 +60,8 @@ in
       };
     };
 
+    # GTK
     hm = {
-      # GTK
       gtk = {
         enable = true;
         iconTheme = {
@@ -74,10 +74,13 @@ in
         };
       };
 
-      stylix.targets.gtk.enable = true;
-      stylix.targets.gtk.flatpakSupport.enable = true;
-
-      stylix.targets.qt.enable = true;
+      stylix.targets.gtk.enable = true; # Home-manager options
+      stylix.targets.gnome.enable = true; # Needed by some apps (e.g. bottles, ...)
     };
+    stylix.targets.gtk.enable = true; # NixOS options
+
+    # QT
+    hm.stylix.targets.qt.enable = true;
+    stylix.targets.qt.enable = true;
   };
 }
