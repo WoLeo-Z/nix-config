@@ -20,9 +20,21 @@
     ldns # replacement of `dig`, it provide the command `drill`
     nmap
 
+    # Archives
+    zip
+    xz
+    zstd
+    unzipNLS
+    p7zip
+
+    # System
+    pciutils # lspci
+    usbutils # lsusb
+
     # Misc
     which
     tree
+    findutils
   ];
 
   stylix.targets.console.enable = true;
