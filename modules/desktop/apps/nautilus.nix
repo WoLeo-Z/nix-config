@@ -15,7 +15,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ pkgs.nautilus ];
+    environment.systemPackages = with pkgs; [
+      nautilus
+      kdePackages.ark
+    ];
 
     programs.nautilus-open-any-terminal = {
       # FIXME: not working?
