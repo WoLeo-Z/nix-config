@@ -44,6 +44,7 @@
           telegram.enable = true;
           steam.enable = true;
           bottles.enable = true;
+          bitwarden.enable = true;
         };
       };
 
