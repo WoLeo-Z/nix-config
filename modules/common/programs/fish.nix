@@ -1,11 +1,7 @@
-{ pkgs, ... }:
-
 {
-  user.shell = pkgs.fish;
-  programs.fish = {
+  programs.fish.enable = true;
+  hm.programs.fish = {
     enable = true;
-    useBabelfish = true;
-
     interactiveShellInit = ''
       set -U fish_greeting # disable greeting
     '';
