@@ -1,7 +1,5 @@
-{ ... }:
-
 {
-  programs.starship = {
+  hm.programs.starship = {
     enable = true;
   };
 
