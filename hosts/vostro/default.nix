@@ -18,7 +18,8 @@
         niri.enable = true;
         apps = {
           terminal = {
-            default = "foot";
+            default = "alacritty";
+            alacritty.enable = true;
             foot.enable = true;
           };
           nautilus.enable = true;

@@ -8,6 +8,7 @@ in
   options.modules.desktop.apps.terminal = {
     default = mkOption {
       type = types.enum [
+        "alacritty"
         "foot"
         "kitty"
       ];
