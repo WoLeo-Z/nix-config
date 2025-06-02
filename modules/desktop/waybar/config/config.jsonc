@@ -91,7 +91,7 @@
     "max-length": 80,
     "separate-outputs": false,
     "rewrite": {
-      "^.*~$": " Foot",
+      "^.*~$": " Term",
       "^.*( — Firefox|Firefox)$": "󰈹 Firefox",
       "^.*( — Zen Browser|Zen Browser)$": "󰈹 Zen",
       "^.*( — Brave|Brave)$": " Brave",

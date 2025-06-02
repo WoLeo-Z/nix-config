@@ -12,7 +12,7 @@
       "^.*( — Brave|Brave)$": " Brave",
       "^.*( — Chromium|Chromium)$": " Chromium",
       "^.*v( .*|$)": " Neovim",
-      "^.*~$": " Foot",
+      "^.*~$": " Term",
       "^.*(- Spotify|Spotify)$": "󰏤 Spotify",
       "^.*(- Code|Code)$": " VSCode",
       "^.*(- Cursor|Cursor)$": " Cursor",

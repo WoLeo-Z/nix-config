@@ -21,9 +21,8 @@ in
     ];
 
     programs.nautilus-open-any-terminal = {
-      # FIXME: not working?
       enable = true;
-      terminal = "foot";
+      terminal = config.modules.desktop.apps.terminal.default;
     };
 
     services.gnome.sushi.enable = true;
