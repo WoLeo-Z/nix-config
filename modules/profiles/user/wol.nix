@@ -20,6 +20,7 @@ mkIf (username == "wol") (mkMerge [
     user.name = username;
     user.description = "WoL";
     i18n.defaultLocale = "zh_CN.UTF-8";
+    user.shell = pkgs.nushell;
 
     # modules.shell.vaultwarden.settings.server = "vault.home.lissner.net";
 
