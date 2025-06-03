@@ -1,5 +1,6 @@
 # Referenced from: https://github.com/sukhmancs/nixos-configs/blob/4578594ef84c39e4e92558fa45e99dfebc5dc635/modules/shared/nix/default.nix
-{ pkgs, ... }:
+{ pkgs, config, ... }:
+
 {
   nix = {
     package = pkgs.lix;
@@ -15,7 +16,7 @@
     # Garbage collection weekly and delete generations
     # older than 10 days
     gc = {
-      automatic = true;
+      automatic = !config.programs.nh.clean.enable;
       dates = "Sat *-*-* 03:00";
       options = "--delete-older-than 10d";
     };
