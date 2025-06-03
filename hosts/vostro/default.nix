@@ -81,8 +81,9 @@
     # GPU 1: AMD Radeon RX 550 / 550 Series [Discrete]
     hardware.amdgpu = {
       initrd.enable = true;
-      amdvlk.enable = true;
-      amdvlk.support32Bit.enable = true;
+      # Disable AMDVLK to slightly improve performance (maybe?)
+      amdvlk.enable = false;
+      amdvlk.support32Bit.enable = false;
       # opencl.enable = true;
     };
 
