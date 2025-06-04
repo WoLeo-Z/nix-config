@@ -17,6 +17,10 @@ in
 
   config = mkIf cfg.enable {
     hm = {
+      home.packages = with pkgs; [
+        package-version-server # https://github.com/NixOS/nixpkgs/issues/356100
+      ];
+
       programs.zed-editor = {
         enable = true;
         userSettings = lib.mkMerge [
