@@ -292,7 +292,6 @@ layout {
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
 
-spawn-at-startup "waybar"
 spawn-at-startup "sh" "-c" "sleep 3 && fcitx5 -r"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 

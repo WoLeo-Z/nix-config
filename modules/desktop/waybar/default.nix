@@ -16,7 +16,11 @@ in
 
   config = mkIf cfg.enable {
     hm = {
-      programs.waybar.enable = true;
+      programs.waybar = {
+        enable = true;
+        systemd.enable = true;
+      };
+
       home.packages = with pkgs; [
         playerctl # mpris
       ];
