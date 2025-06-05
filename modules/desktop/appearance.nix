@@ -17,7 +17,7 @@ in
     enable = mkEnableOption' { default = config.modules.desktop.enable; };
     image = mkOption {
       type = types.path;
-      default = ../../assets/wallpapers/nix-black-4k.png;
+      default = ../../assets/wallpapers/windows11-dark.jpg;
     };
   };
 
