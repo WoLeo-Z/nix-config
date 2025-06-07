@@ -1,0 +1,12 @@
+{
+  "ActiveProfile": 0,
+  "ColorProfiles": [
+    {
+      "BgColors": ["#ff1e1e2e"],
+      "FgColors": ["#ff00ffff", "#ff62a0ea", "#ff6b72e6"],
+      "Name": "Default",
+      "Theme": 1
+    }
+  ],
+  "ShowControls": true
+}
