@@ -41,7 +41,7 @@
           utils = {
             gnome-control-center.enable = true;
           };
-          flatpak.enable = true;
+          flatpak.enable = false;
           telegram.enable = true;
           steam.enable = true;
           bottles.enable = true;
