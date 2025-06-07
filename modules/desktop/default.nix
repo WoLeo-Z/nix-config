@@ -79,5 +79,9 @@ in
       nerd-fonts.jetbrains-mono
       material-icons
     ];
+
+    hm.home.packages = with pkgs; [
+      baobab # Disk Usage Analyzer
+    ];
   };
 }
