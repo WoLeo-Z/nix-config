@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   system.stateVersion = "24.11";
@@ -30,6 +35,9 @@
     # System
     pciutils # lspci
     usbutils # lsusb
+
+    # Nix
+    inputs.nix-tree.packages."x86_64-linux".default
 
     # Misc
     which

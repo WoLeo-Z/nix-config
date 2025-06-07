@@ -60,6 +60,11 @@
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
+    nix-tree = {
+      url = "github:utdemir/nix-tree";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
