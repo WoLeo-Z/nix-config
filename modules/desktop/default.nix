@@ -47,6 +47,9 @@ in
           };
         };
       };
+      # greetd enables graphical-desktop enables speechd
+      # disable speechd to save space
+      speechd.enable = false;
 
       gnome.gnome-keyring.enable = true;
     };

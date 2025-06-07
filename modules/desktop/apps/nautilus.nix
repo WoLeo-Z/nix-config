@@ -25,7 +25,7 @@ in
       terminal = config.modules.desktop.apps.terminal.default;
     };
 
-    services.gnome.sushi.enable = true;
+    # services.gnome.sushi.enable = true; # To preview files in Nautilus
     services.gvfs.enable = true;
 
     # Removable disk automounter
