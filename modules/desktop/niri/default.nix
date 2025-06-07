@@ -12,6 +12,8 @@ let
   package = pkgs.niri-unstable;
 in
 {
+  imports = [ inputs.niri.nixosModules.niri ];
+
   options.modules.desktop.niri = {
     enable = mkEnableOption' { };
   };
