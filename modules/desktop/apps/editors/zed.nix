@@ -63,9 +63,6 @@ in
               };
             };
             lsp = {
-              "clangd" = {
-                binary.path = "${lib.getExe' pkgs.clang-tools "clangd"}";
-              };
               "nixd" = {
                 binary.path = "${lib.getExe pkgs.nixd}";
               };
