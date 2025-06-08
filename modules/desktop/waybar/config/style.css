@@ -43,5 +43,5 @@ tooltip label {
 }
 
 #workspaces button.active {
-  background: rgba(60, 60, 60, 0.9)
+  background: rgba(60, 60, 60, 0.9);
 }

@@ -1,11 +1,11 @@
 @define-color foreground #e4e1e9;
 /* @define-color background #121318; */
-@define-color back #0B0A10;
-@define-color cursor #D9E0EE;
+@define-color back #0b0a10;
+@define-color cursor #d9e0ee;
 
 /*-----All Colors--------*/
 
-@define-color background #0B0A10;
+@define-color background #0b0a10;
 
 @define-color error #ffb4ab;
 
@@ -45,7 +45,7 @@
 
 @define-color on_tertiary #44263d;
 
-@define-color on_tertiary_container #FFD7F3;
+@define-color on_tertiary_container #ffd7f3;
 
 @define-color on_tertiary_fixed #2d1228;
 
@@ -89,7 +89,7 @@
 
 @define-color surface_container_low #1b1b21;
 
-@define-color surface_container_lowest #0B0A10;
+@define-color surface_container_lowest #0b0a10;
 
 @define-color surface_dim #121318;
 
@@ -99,7 +99,7 @@
 
 @define-color tertiary #e6bad7;
 
-@define-color tertiary_container #4C3349;
+@define-color tertiary_container #4c3349;
 
 @define-color tertiary_fixed #ffd7f1;
 

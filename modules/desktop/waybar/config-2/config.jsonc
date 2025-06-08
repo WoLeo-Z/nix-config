@@ -13,7 +13,6 @@
   "modules-left": [
     "niri/window",
     "group/apps"
-
     //"custom/playerlabel"
   ],
 
@@ -24,7 +23,6 @@
     "group/info",
     "niri/workspaces",
     "group/utils"
-
     //"tray",
     //"custom/notifications"
   ],
