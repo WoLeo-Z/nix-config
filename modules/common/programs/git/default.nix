@@ -76,7 +76,7 @@
           showUntrackedFiles = "all"
 
       [init]
-          defaultBranch = "master"
+          defaultBranch = "main"
 
       [core]
           quotePath = false
