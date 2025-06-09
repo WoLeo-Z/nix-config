@@ -37,7 +37,7 @@ in
             terminal = {
               font_family = "JetBrainsMono Nerd Font";
               env = {
-                EDITOR = "zed --wait";
+                EDITOR = "${lib.getExe pkgs.zed-editor} --wait";
               };
             };
 
