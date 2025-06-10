@@ -386,6 +386,23 @@
         "type": "github"
       }
     },
+    "nix-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1749556227,
+        "narHash": "sha256-tzLoFJtiQ+21AUEfvfhdWAC+JMl21DC6nnHX7Sofpgo=",
+        "ref": "refs/heads/main",
+        "rev": "629eddeab0dc54789b4f5b71363d5344b7ff9334",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/WoLeo-Z/nix-secrets.git"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/WoLeo-Z/nix-secrets.git"
+      }
+    },
     "nix-tree": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -528,15 +545,37 @@
         "impermanence": "impermanence",
         "niri": "niri",
         "nix-flatpak": "nix-flatpak",
+        "nix-secrets": "nix-secrets",
         "nix-tree": "nix-tree",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-small": "nixpkgs-small",
         "nur": "nur",
+        "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
         "systems": "systems_4",
         "treefmt-nix": "treefmt-nix_3"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747603214,
+        "narHash": "sha256-lAblXm0VwifYCJ/ILPXJwlz0qNY07DDYdLD+9H+Wc8o=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "8d215e1c981be3aa37e47aeabd4e61bb069548fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "spicetify-nix": {

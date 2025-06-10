@@ -40,9 +40,20 @@
       };
     };
 
+    # My secrets
+    nix-secrets = {
+      url = "git+ssh://git@github.com/WoLeo-Z/nix-secrets.git?shallow=1";
+      flake = false;
+    };
+
     # Others
 
     impermanence.url = "github:nix-community/impermanence";
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     niri = {
       url = "github:sodiboo/niri-flake";
