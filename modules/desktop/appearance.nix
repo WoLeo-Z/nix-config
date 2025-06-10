@@ -17,7 +17,7 @@ in
     enable = mkEnableOption' { default = config.modules.desktop.enable; };
     image = mkOption {
       type = types.path;
-      default = ../../assets/wallpapers/windows11-dark.jpg;
+      default = "${inputs.self.outPath}/assets/wallpapers/wall1.png";
     };
   };
 
