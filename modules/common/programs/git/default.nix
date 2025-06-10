@@ -108,6 +108,9 @@
           enabled = true
           autoupdate = true
 
+      [url "git@github.com:"]
+          insteadOf = https://github.com/
+
       # Alias
       [alias]
           kill-reflog = "reflog expire --all --expire=now --expire-unreachable=now"
