@@ -38,16 +38,23 @@ with lib;
       };
       grub = {
         efiSupport = true;
-        device = "nodev";
-
+        devices = [ "nodev" ];
         useOSProber = mkDefault false;
-
+        # extraGrubInstallArgs = [ "--bootloader-id=${host}" ];
+        # configurationName = "${host}";
+        extraConfig = ''
+          insmod kbd
+          set keymap=us
+        '';
         extraEntries = ''
           menuentry "Reboot" {
             reboot
           }
           menuentry "Poweroff" {
             halt
+          }
+          menuentry "UEFI Firmware Settings" {
+            fwsetup
           }
         '';
       };
