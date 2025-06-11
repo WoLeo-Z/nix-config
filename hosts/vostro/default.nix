@@ -10,8 +10,6 @@
         user = "wol";
       };
 
-      kernel = "xanmod";
-
       desktop = {
         enable = true;
         appearance.enable = true;
@@ -57,14 +55,6 @@
         ssh.enable = true;
         mihomo.enable = true;
         sunshine.enable = true;
-      };
-
-      system = {
-        boot = {
-          loader = {
-            grub.enable = true;
-          };
-        };
       };
     };
   };

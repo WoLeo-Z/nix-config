@@ -1,16 +1,15 @@
-{ lib, config, ... }:
+{ lib, pkgs, ... }:
 
 with lib;
-let
-  cfg = config.modules.system.boot.loader.grub;
-in
 {
-  options.modules.system.boot.loader.grub = {
-    enable = mkEnableOption' { };
-  };
+  boot = {
+    # Kernel
 
-  config = mkIf cfg.enable {
-    boot.loader = {
+    # kernelPackages = pkgs.linuxPackages
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
+    # Bootloader: Grub
+    loader = {
       timeout = 3;
       efi = {
         canTouchEfiVariables = true;
@@ -32,7 +31,7 @@ in
         '';
       };
     };
-
-    stylix.targets.grub.enable = true;
   };
+
+  stylix.targets.grub.enable = true;
 }

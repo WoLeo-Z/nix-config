@@ -42,14 +42,6 @@
         ssh.enable = true;
         mihomo.enable = true;
       };
-
-      system = {
-        boot = {
-          loader = {
-            grub.enable = true;
-          };
-        };
-      };
     };
 
     # TODO: Remove this for vm. Use key auth instead.
