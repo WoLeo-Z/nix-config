@@ -28,6 +28,7 @@
           media = {
             spotify.enable = true;
             cavalier.enable = true;
+            obs-studio.enable = false;
           };
           editors = {
             vscode.enable = true;
