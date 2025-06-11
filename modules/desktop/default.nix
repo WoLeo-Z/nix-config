@@ -43,7 +43,17 @@ in
           default_session = {
             user = config.modules.profiles.user;
             # command = "$HOME/.wayland-session";
-            command = "${lib.getExe pkgs.greetd.tuigreet} --time --remember --remember-session --cmd niri-session";
+            command =
+              "${lib.getExe pkgs.greetd.tuigreet}"
+              # + " --cmd niri-session" # command to run
+              # + " --greeting 'lol'" # show custom text above login prompt
+              + " --time" # display the current date and time
+              + " --time-format '%A, %B %d, %Y - %I:%M:%S %p'" # custom strftime format for displaying date and time
+              + " --remember" # remember last logged-in username
+              + " --remember-session" # remember last selected session
+              # + " --user-menu" # allow graphical selection of users from a menu
+              + " --asterisks" # display asterisks when a secret is typed
+            ;
           };
         };
       };
