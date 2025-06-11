@@ -61,5 +61,12 @@ with lib;
     };
   };
 
+  # Use sched-ext schedulers with linux-cachyos
+  services.scx = {
+    enable = true;
+    scheduler = "scx_rusty";
+    package = pkgs.scx_git.full;
+  };
+
   stylix.targets.grub.enable = true;
 }
