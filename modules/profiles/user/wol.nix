@@ -5,6 +5,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -21,6 +22,13 @@ mkIf (username == "wol") (mkMerge [
     user.description = "WoL";
     i18n.defaultLocale = "zh_CN.UTF-8";
     user.shell = pkgs.nushell;
+
+    sops.secrets."passwords/users/wol" = {
+      sopsFile = "${inputs.nix-secrets}/secrets.yaml";
+      # key = "passwords/users/wol"; # Specify the location of this secret
+      neededForUsers = true;
+    };
+    user.hashedPasswordFile = config.sops.secrets."passwords/users/wol".path;
 
     # modules.shell.vaultwarden.settings.server = "vault.home.lissner.net";
 

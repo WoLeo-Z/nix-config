@@ -58,9 +58,10 @@
   };
   boot.kernelModules = [ "tcp_bbr" ];
 
-  # Change me later!
-  user.initialPassword = "nixos";
-  users.users.root.initialPassword = "nixos";
+  # Now we use hashedPasswordFile to set the passwords
+  # user.initialPassword = "nixos";
+  # users.users.root.initialPassword = "nixos";
+  users.mutableUsers = false;
 
   # Harden SSH client
   programs.ssh = {
