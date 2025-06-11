@@ -48,6 +48,8 @@
 
     # Others
 
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
     impermanence.url = "github:nix-community/impermanence";
 
     sops-nix = {
@@ -167,6 +169,8 @@
                   hostConfig.hardware
 
                   home-manager.nixosModules.home-manager
+
+                  inputs.chaotic.nixosModules.default
                 ] ++ modules;
               };
           in

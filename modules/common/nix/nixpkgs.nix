@@ -27,11 +27,14 @@
       # electron packages go when they reach EOL.
       permittedInsecurePackages = [ ];
 
-      # Nixpkgs sets internal package aliases to ease migration from other
-      # distributions easier, or for convenience's sake. Even though the manual
-      # and the description for this option recommends this to be true, I prefer
-      # explicit naming conventions, i.e., no aliases.
-      allowAliases = false;
+      # # Nixpkgs sets internal package aliases to ease migration from other
+      # # distributions easier, or for convenience's sake. Even though the manual
+      # # and the description for this option recommends this to be true, I prefer
+      # # explicit naming conventions, i.e., no aliases.
+      # allowAliases = false;
+
+      # https://github.com/chaotic-cx/nyx/issues/931
+      allowAliases = true;
 
       # Enable parallel building by default. This, in theory, should speed up building
       # derivations, especially rust ones. However setting this to true causes a mass rebuild

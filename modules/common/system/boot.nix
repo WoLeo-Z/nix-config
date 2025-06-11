@@ -6,7 +6,8 @@ with lib;
     # Kernel
 
     # kernelPackages = pkgs.linuxPackages
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    # kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos-lto;
 
     # Bootloader: Grub
     loader = {
