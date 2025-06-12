@@ -12,13 +12,10 @@
 with lib;
 let
   cfg = config.modules.profiles;
-  username = cfg.user;
-  # role = cfg.role;
-  # TODO: key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB71rSnjuC06Qq3NLXQJwSz7jazoB+umydddrxL6vg1a";
 in
-mkIf (username == "wol") (mkMerge [
+mkIf (cfg.user == "wol") (mkMerge [
   {
-    user.name = username;
+    user.name = "wol";
     user.description = "WoL";
     i18n.defaultLocale = "zh_CN.UTF-8";
     user.shell = pkgs.nushell;

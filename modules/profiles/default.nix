@@ -9,8 +9,4 @@ with lib;
     hardware = mkOpt (listOf str) [ ];
     networks = mkOpt (listOf str) [ ];
   };
-
-  config = {
-    # users.mutableUsers = false; # TODO: set user password and set this to true
-  };
 }
