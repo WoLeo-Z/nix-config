@@ -2,26 +2,20 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }:
 
 with lib;
 let
   cfg = config.modules.desktop.niri;
-  package = pkgs.niri-unstable;
+  package = pkgs.niri;
 in
 {
-  imports = [ inputs.niri.nixosModules.niri ];
-
   options.modules.desktop.niri = {
     enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {
-    # To use pkgs.niri-unstable with niri-flake
-    nixpkgs.overlays = [ inputs.niri.overlays.niri ];
-
     programs.niri = {
       enable = true;
       package = package;
