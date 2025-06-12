@@ -2,7 +2,9 @@
 
 {
   networking = {
+    # networkmanager
     networkmanager.enable = true;
+    networkmanager.dns = "systemd-resolved"; # one of "default", "dnsmasq", "systemd-resolved", "none"
 
     # iwd
     wireless.iwd.enable = true;
