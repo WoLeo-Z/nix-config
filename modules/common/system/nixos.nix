@@ -18,13 +18,6 @@
     vim
     fd
 
-    # Networking
-    wget
-    curl
-    dnsutils # `dig` + `nslookup`
-    ldns # replacement of `dig`, it provide the command `drill`
-    nmap
-
     # Archives
     zip
     xz
