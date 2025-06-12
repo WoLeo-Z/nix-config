@@ -16,7 +16,11 @@
     # Core
     git
     vim
-    fd
+    bat # better cat
+    duf # better df
+    fd # better find
+    ripgrep # better grep
+    zoxide # fast cd
 
     # Archives
     zip
