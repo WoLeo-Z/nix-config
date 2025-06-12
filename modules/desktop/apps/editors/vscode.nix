@@ -21,7 +21,7 @@ in
         package =
           (pkgs.vscode.override {
             commandLineArgs =
-              lib.chromiumArgs
+              lib.constants.chromiumArgs
               # https://code.visualstudio.com/docs/editor/settings-sync#_troubleshooting-keychain-issues
               # gnome or gnome-keyring doesn't work
               ++ [ "--password-store=gnome-libsecret" ];

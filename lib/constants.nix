@@ -1,11 +1,13 @@
 { ... }:
 
 {
-  chromiumArgs = [
-    "--ozone-platform-hint=auto"
-    "--enable-features=WaylandWindowDecorations"
-    "--enable-wayland-ime"
-    "--wayland-text-input-version=3"
-    "--enable-features=TouchpadOverscrollHistoryNavigation"
-  ];
+  constants = {
+    chromiumArgs = [
+      "--ozone-platform-hint=auto"
+      "--enable-features=WaylandWindowDecorations"
+      "--enable-wayland-ime"
+      "--wayland-text-input-version=3"
+      "--enable-features=TouchpadOverscrollHistoryNavigation"
+    ];
+  };
 }

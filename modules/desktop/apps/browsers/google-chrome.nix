@@ -13,7 +13,7 @@ in
     hm = {
       programs.google-chrome = {
         enable = true;
-        commandLineArgs = lib.chromiumArgs;
+        commandLineArgs = lib.constants.chromiumArgs;
       };
 
       xdg.mimeApps.defaultApplications = {
