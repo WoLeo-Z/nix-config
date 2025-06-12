@@ -17,7 +17,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       nautilus
-      kdePackages.ark
+      xarchiver
     ];
 
     programs.nautilus-open-any-terminal = {
