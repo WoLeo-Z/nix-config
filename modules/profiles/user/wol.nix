@@ -27,6 +27,8 @@ mkIf (cfg.user == "wol") (mkMerge [
     };
     user.hashedPasswordFile = config.sops.secrets."passwords/users/wol".path;
 
+    user.openssh.authorizedKeys.keys = [ lib.constants.users.wol.publicKey ];
+
     # modules.shell.vaultwarden.settings.server = "vault.home.lissner.net";
 
     # Be slightly more restrictive about SSH access to workstations, which I
