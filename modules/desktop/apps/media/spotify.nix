@@ -31,9 +31,8 @@ in
         betterGenres
       ];
       experimentalFeatures = true;
-      # Managed by stylix
-      # theme = spicePkgs.themes.catppuccin;
-      # colorScheme = "mocha";
+      theme = spicePkgs.themes.catppuccin;
+      colorScheme = "mocha";
     };
 
     # Local discovery https://nixos.wiki/wiki/Spotify
@@ -42,6 +41,6 @@ in
       5353 # To enable discovery of Google Cast devices (and possibly other Spotify Connect devices) in the same network
     ];
 
-    stylix.targets.spicetify.enable = true;
+    # stylix.targets.spicetify.enable = true;
   };
 }
