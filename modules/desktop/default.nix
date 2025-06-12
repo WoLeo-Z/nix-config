@@ -62,6 +62,8 @@ in
       speechd.enable = false;
 
       gnome.gnome-keyring.enable = true;
+      tumbler.enable = true; # A D-Bus thumbnailer service.
+      libinput.enable = true;
     };
 
     # Borrowed from https://github.com/sjcobb2022/nixos-config/blob/main/hosts/common/optional/greetd.nix
