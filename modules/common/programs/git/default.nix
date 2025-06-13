@@ -1,5 +1,13 @@
 { lib, pkgs, ... }:
 
+let
+  allowedSigners = pkgs.writeText "git-allowed-signers" ''
+    ${lib.constants.users.wol.email} ${lib.constants.users.wol.publicKey}
+  '';
+  signingKey = pkgs.writeText "git-signing-key" ''
+    ${lib.constants.users.wol.publicKey}
+  '';
+in
 {
   hm = {
     home.packages = with pkgs; [
@@ -10,30 +18,27 @@
 
     xdg.configFile."git/config".text = ''
       [user]
-          name = "WoLeo-Z"
-          email = "45914900+WoLeo-Z@users.noreply.github.com"
+          name = ${lib.constants.users.wol.usernames.github}
+          email = ${lib.constants.users.wol.email}
       [github]
-          user = WoLeo-Z
+          user = ${lib.constants.users.wol.usernames.github}
       [gitlab]
-          user = WoLeo-Z
-      [credential]
-          helper = "store --file=$/{config.sops.secrets."git_cred".path}"
+          user = ${lib.constants.users.wol.usernames.gitlab}
 
-      # TODO:Signing
       [user]
-      #     signingKey = "$/{config.sops.secrets."privkey_teapot".path}"
+          signingKey = "${signingKey}"
 
       [gpg]
           format = "ssh"
 
       [gpg "ssh"]
-      #     allowedSignersFile = "$/{allowedSigners}"
+          allowedSignersFile = "${allowedSigners}"
 
       [commit]
-      #     gpgSign = true
+          gpgSign = true
 
       [tag]
-      #     gpgSign = true
+          gpgSign = true
 
       # ---
 
@@ -108,8 +113,9 @@
           enabled = true
           autoupdate = true
 
-      [url "git@github.com:"]
+      [url "ssh://git@ssh.github.com:443/"]
           insteadOf = https://github.com/
+          insteadOf = git@github.com:
 
       # Alias
       [alias]
