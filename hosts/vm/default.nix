@@ -39,7 +39,7 @@
       };
 
       services = {
-        ssh.enable = true;
+        openssh.enable = true;
         mihomo.enable = true;
       };
     };

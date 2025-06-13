@@ -53,7 +53,7 @@
           enable = true;
           jamesdsp.enable = true;
         };
-        ssh.enable = true;
+        openssh.enable = true;
         mihomo.enable = true;
         sunshine.enable = true;
       };
