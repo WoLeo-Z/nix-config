@@ -7,10 +7,6 @@
 {
   imports = [ inputs.sops-nix.nixosModules.sops ];
 
-  hm = {
-    imports = [ inputs.sops-nix.homeManagerModules.sops ];
-  };
-
   environment.systemPackages = with pkgs; [
     age
     sops
