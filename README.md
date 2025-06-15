@@ -1,0 +1,1 @@
+![nix-config](https://socialify.git.ci/WoLeo-Z/nix-config/image?description=1&font=JetBrains+Mono&logo=https%3A%2F%2Fgithub.com%2FNixOS%2Fnixos-artwork%2Fraw%2Frefs%2Fheads%2Fmaster%2Flogo%2Fnix-snowflake-colours.svg&name=1&owner=1&pattern=Plus&theme=Dark)
