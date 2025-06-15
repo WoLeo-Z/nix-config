@@ -57,7 +57,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -125,7 +124,10 @@
         nixosConfigurations =
           let
             # Import our custom lib which merges helpers with nixpkgs.lib
-            lib = import ./lib { lib = nixpkgs.lib // home-manager.lib; };
+            lib = import ./lib {
+              inherit inputs;
+              lib = nixpkgs.lib // home-manager.lib;
+            };
 
             # Import modules
             modules = lib.collectModules ./modules;
