@@ -1,4 +1,19 @@
 {
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
+
+{
+  programs.ssh = {
+    startAgent = true;
+  };
+
+  environment.shellInit = ''
+    ${lib.getExe' pkgs.openssh "ssh-add"}
+  '';
+
   hm = {
     programs.ssh = {
       enable = true;
@@ -17,5 +32,10 @@
         };
       };
     };
+  };
+
+  sops.secrets."private_keys/users/wol" = {
+    sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
+    key = "users/wol"; # Specify the location of this secret
   };
 }
