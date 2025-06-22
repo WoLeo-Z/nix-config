@@ -56,6 +56,7 @@
         openssh.enable = true;
         mihomo.enable = true;
         sunshine.enable = true;
+        tailscale.enable = true;
       };
     };
   };

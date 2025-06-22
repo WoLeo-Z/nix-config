@@ -13,7 +13,7 @@
   ];
 
   sops = {
-    # defaultSopsFile = "${inputs.nix-secrets}/secrets.yaml";
+    defaultSopsFile = "${inputs.nix-secrets}/secrets.yaml";
     age = {
       # This will automatically import SSH keys as age keys
       sshKeyPaths = [
