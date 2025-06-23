@@ -24,14 +24,12 @@ in
       home.packages = with pkgs; [
         playerctl # mpris
       ];
-
-      # stylix.targets.waybar.enable = true;
     };
 
     services.power-profiles-daemon.enable = true;
 
     home'.configFile."waybar" = {
-      source = ./config;
+      source = lib.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/waybar/config";
       recursive = true;
     };
   };

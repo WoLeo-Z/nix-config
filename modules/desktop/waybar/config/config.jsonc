@@ -1,9 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  // doesn't apply, but setting this value can let waybar use static height
-  "height": "0",
+  "height": 0,
   "spacing": 0,
+  "margin-top": 6,
+  "margin-left": 6,
+  "margin-right": 6,
   "reload_style_on_change": true,
   "modules-left": ["niri/workspaces", "niri/window"],
   "modules-center": ["clock"],
@@ -123,7 +125,7 @@
   "tray": {
     "icon-size": 16,
     "reverse-direction": true,
-    "spacing": 10
+    "spacing": 12
   },
   "wireplumber": {
     "format": "{icon} {volume}%",

@@ -1,17 +1,27 @@
 * {
   font-family: "monospace";
   font-size: 14px;
-  padding-top: 2px;
-  padding-bottom: 2px;
 }
 
-/* window#waybar {
-  background: rgba(43, 43, 43, 0.9);
-  color: #eeeeee;
-} */
+window#waybar {
+  background: transparent;
+  border-radius: 1rem;
+}
 
 tooltip label {
   font-family: "sans-serif";
+}
+
+.modules-left,
+.modules-right,
+.modules-center {
+  background: rgba(49, 50, 68, 0.8);
+  border-radius: 1rem;
+  padding: 0px 4px;
+}
+
+.modules-left {
+  padding: 0px 4px 0px 0px;
 }
 
 #backlight,
@@ -28,8 +38,10 @@ tooltip label {
 #wireplumber,
 #workspaces,
 #window {
-  padding: 0 5px;
-  margin: 0 2px;
+  background: transparent;
+  margin: 4px;
+  border-radius: 1rem;
+  padding: 0px 2px;
 }
 
 #tray {
@@ -39,9 +51,9 @@ tooltip label {
 
 #workspaces button {
   padding: 0 4px;
-  border-radius: 999px;
+  border-radius: 1rem;
 }
 
 #workspaces button.active {
-  background: rgba(60, 60, 60, 0.9);
+  background: rgba(24, 24, 37, 0.9);
 }
