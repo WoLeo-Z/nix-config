@@ -102,6 +102,11 @@ in
         configHome = mkForce cfg.configDir;
         dataHome = mkForce cfg.dataDir;
         stateHome = mkForce cfg.stateDir;
+
+        userDirs = {
+          enable = true;
+          createDirectories = true;
+        };
       };
     };
   };
