@@ -32,6 +32,8 @@
     # System
     pciutils # lspci
     usbutils # lsusb
+    dmidecode
+    lshw
 
     # Nix
     inputs.nix-tree.packages."x86_64-linux".default
