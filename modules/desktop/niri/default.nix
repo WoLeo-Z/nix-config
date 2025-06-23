@@ -24,7 +24,7 @@ in
     modules.desktop.waybar.enable = true;
     modules.desktop.wofi.enable = true;
     modules.desktop.swayidle.enable = true;
-    modules.desktop.swaybg.enable = true;
+    modules.desktop.swww.enable = true;
     modules.desktop.swaync.enable = true;
     modules.desktop.xwayland-satellite.enable = true;
 
