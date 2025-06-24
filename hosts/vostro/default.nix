@@ -14,6 +14,7 @@
           "gpu/disable-igpu"
           "audio"
           "bluetooth"
+          "printing/wireless"
         ];
       };
 
