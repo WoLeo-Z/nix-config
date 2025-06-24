@@ -24,8 +24,8 @@ in
             };
           };
           font = {
-            size = 12;
             # Managed by stylix
+            # size = 12;
             # normal = {
             #   family = "JetBrainsMono Nerd Font";
             # };

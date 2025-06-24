@@ -29,11 +29,6 @@ in
       image = cfg.image;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
-      opacity = {
-        terminal = 0.9;
-        popups = 0.8;
-      };
-
       cursor = {
         package = pkgs.bibata-cursors;
         name = "Bibata-Modern-Classic";
@@ -41,6 +36,11 @@ in
       };
 
       fonts = {
+        sizes = {
+          applications = 12;
+          desktop = 10;
+          terminal = 12;
+        };
         serif = {
           package = pkgs.noto-fonts-cjk-serif;
           name = "Noto Serif CJK SC";
