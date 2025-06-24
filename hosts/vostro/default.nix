@@ -19,6 +19,7 @@
             default = "alacritty";
             alacritty.enable = true;
             foot.enable = true;
+            ghostty.enable = true;
             kitty.enable = true;
           };
           nautilus.enable = true;

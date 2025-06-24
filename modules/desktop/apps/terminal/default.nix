@@ -10,6 +10,7 @@ in
       type = types.enum [
         "alacritty"
         "foot"
+        "ghostty"
         "kitty"
       ];
       default = null;
