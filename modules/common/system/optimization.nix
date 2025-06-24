@@ -1,6 +1,4 @@
 {
-  boot.kernelParams = [ "intel_pstate=active" ]; # TODO: Move to profiles.hardware.cpu.intel
-
   services = {
     power-profiles-daemon.enable = true;
   };

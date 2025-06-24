@@ -45,4 +45,6 @@
   ];
 
   stylix.targets.console.enable = true;
+
+  hardware.enableRedistributableFirmware = true;
 }

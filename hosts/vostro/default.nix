@@ -8,6 +8,13 @@
     modules = {
       profiles = {
         user = "wol";
+        hardware = [
+          "cpu/intel"
+          "gpu/amd"
+          "gpu/disable-igpu"
+          "audio"
+          "bluetooth"
+        ];
       };
 
       desktop = {
@@ -51,10 +58,6 @@
       };
 
       services = {
-        audio = {
-          enable = true;
-          jamesdsp.enable = true;
-        };
         openssh.enable = true;
         mihomo.enable = true;
         sunshine.enable = true;
@@ -67,36 +70,10 @@
     # Disable it to save time ...
     # boot.loader.grub.useOSProber = true; # Dual boot
 
-    hardware.enableRedistributableFirmware = true;
-
     # CPU: Intel(R) Core(TM) i3-10100 (8) @ 4.30 GHz
-    hardware.cpu.intel.updateMicrocode = true;
-
     # GPU 1: AMD Radeon RX 550 / 550 Series [Discrete]
-    hardware.amdgpu = {
-      initrd.enable = true;
-      # Disable AMDVLK to slightly improve performance (maybe?)
-      amdvlk.enable = false;
-      amdvlk.support32Bit.enable = false;
-      # opencl.enable = true;
-    };
-
-    # Disable iGPU
-    # GPU 2: Intel UHD Graphics 630 [Integrated]
-    boot.blacklistedKernelModules = [ "i915" ];
-    boot.kernelParams = [ "i915.modeset=0" ];
-
+    # GPU 2 (Disabled): Intel UHD Graphics 630 [Integrated]
     # Bluetooth
-    hardware.bluetooth = {
-      enable = true;
-      settings = {
-        General = {
-          Experimental = true; # Showing battery charge of bluetooth devices
-        };
-      };
-    };
-    services.blueman.enable = true;
-    hm.services.mpris-proxy.enable = true; # Using Bluetooth headset buttons to control media player
 
     # FileSystems
     boot.supportedFilesystems = [ "ntfs" ];
