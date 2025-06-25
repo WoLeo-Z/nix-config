@@ -50,6 +50,9 @@
           utils = {
             gnome-control-center.enable = true;
           };
+          games = {
+            osu-lazer.enable = true;
+          };
           flatpak.enable = false;
           telegram.enable = true;
           steam.enable = true;
