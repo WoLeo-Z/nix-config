@@ -36,9 +36,10 @@
             google-chrome.enable = true;
           };
           media = {
-            spotify.enable = true;
             cavalier.enable = true;
+            mpv.enable = true;
             obs-studio.enable = false;
+            spotify.enable = true;
           };
           editors = {
             vscode.enable = true;
