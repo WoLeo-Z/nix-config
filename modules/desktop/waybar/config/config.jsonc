@@ -125,7 +125,7 @@
   "tray": {
     "icon-size": 16,
     "reverse-direction": true,
-    "spacing": 12
+    "spacing": 10
   },
   "wireplumber": {
     "format": "{icon} {volume}%",
