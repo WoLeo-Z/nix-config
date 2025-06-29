@@ -29,7 +29,7 @@ in
     services.power-profiles-daemon.enable = true;
 
     home'.configFile."waybar" = {
-      source = lib.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/waybar/config";
+      source = mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/waybar/config";
       recursive = true;
     };
   };

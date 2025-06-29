@@ -45,5 +45,21 @@ mkIf (cfg.user == "wol") (mkMerge [
     # users.users.root.openssh.authorizedKeys.keys = [
     #   ''from="10.0.0.0/8" ${key} ${username}''
     # ];
+
+    hm.home.file = {
+      ".ssh/id_ed25519" = {
+        source = mkOutOfStoreSymlink config.sops.secrets."private_keys/users/wol".path;
+      };
+      ".ssh/id_ed25519.pub" = {
+        text = lib.constants.users.wol.publicKey;
+      };
+    };
+
+    sops.secrets."private_keys/users/wol" = {
+      sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
+      key = "users/wol"; # Specify the location of this secret
+      mode = "0600";
+      owner = config.user.name;
+    };
   }
 ])

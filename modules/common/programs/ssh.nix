@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, lib, ... }:
 
 {
   programs.ssh.startAgent = true;
@@ -31,10 +26,5 @@
         };
       };
     };
-  };
-
-  sops.secrets."private_keys/users/wol" = {
-    sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
-    key = "users/wol"; # Specify the location of this secret
   };
 }
