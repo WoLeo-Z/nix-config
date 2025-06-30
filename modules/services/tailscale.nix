@@ -18,7 +18,7 @@ in
     };
 
     sops.secrets.tailscale_key = {
-      key = "tailscale_key/${config.networking.hostName}";
+      key = "tailscale_key/vostro"; # TODO: don't use vostro
       restartUnits = [ config.systemd.services.tailscaled.name ];
     };
   };
