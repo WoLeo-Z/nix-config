@@ -23,6 +23,10 @@ in
 
       programs.zed-editor = {
         enable = true;
+        extensions = [
+          "nix"
+          "catppuccin"
+        ];
         userSettings = lib.mkMerge [
           {
             autosave = "on_focus_change";
