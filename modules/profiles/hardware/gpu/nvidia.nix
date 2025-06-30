@@ -41,11 +41,15 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
     environment = {
       systemPackages = with pkgs; [
         # Respect XDG conventions, damn it!
-        (mkWrapper config.hardware.nvidia.package.settings ''
-          wrapProgram "$out/bin/nvidia-settings" \
-            --run 'mkdir -p "$XDG_CONFIG_HOME/nvidia"' \
-            --append-flags '--config="$XDG_CONFIG_HOME/nvidia/rc.conf"'
-        '')
+        #
+        # TODO: custom lib: mkWrapper
+        # https://github.com/hlissner/dotfiles/blob/254aea2230e1350409a7ae7b6566bcd98f5b5360/lib/pkgs.nix#L17
+        #
+        # (mkWrapper config.hardware.nvidia.package.settings ''
+        #   wrapProgram "$out/bin/nvidia-settings" \
+        #     --run 'mkdir -p "$XDG_CONFIG_HOME/nvidia"' \
+        #     --append-flags '--config="$XDG_CONFIG_HOME/nvidia/rc.conf"'
+        # '')
 
         cudaPackages.cudatoolkit # required for CUDA support
       ];
