@@ -434,10 +434,10 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1751190017,
-        "narHash": "sha256-tHheryeLchfw3IPgeYze/+ZJxQ8rLEbC2PqndLesaig=",
+        "lastModified": 1751253541,
+        "narHash": "sha256-hkM30vcQo+3WUa03PGDTS4k0pK1sRTodaVfgWbrMimQ=",
         "ref": "refs/heads/main",
-        "rev": "0c78f1035a453b08d5405005e3df264b5d79cefd",
+        "rev": "329d7d65361d304d55edacf5310f78f7c66db118",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/WoLeo-Z/nix-secrets.git"

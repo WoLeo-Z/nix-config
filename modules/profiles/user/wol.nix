@@ -53,11 +53,23 @@ mkIf (cfg.user == "wol") (mkMerge [
       ".ssh/id_ed25519.pub" = {
         text = lib.constants.users.wol.publicKey;
       };
+
+      # Age key, for using sops to edit secrets
+      ".config/sops/age/keys.txt" = {
+        source = mkOutOfStoreSymlink config.sops.secrets."private_keys/users/wol_age".path;
+      };
     };
 
     sops.secrets."private_keys/users/wol" = {
       sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
       key = "users/wol"; # Specify the location of this secret
+      mode = "0600";
+      owner = config.user.name;
+    };
+
+    sops.secrets."private_keys/users/wol_age" = {
+      sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
+      key = "users/wol_age"; # Specify the location of this secret
       mode = "0600";
       owner = config.user.name;
     };
