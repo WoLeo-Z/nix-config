@@ -51,11 +51,12 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
         #     --append-flags '--config="$XDG_CONFIG_HOME/nvidia/rc.conf"'
         # '')
 
-        cudaPackages.cudatoolkit # required for CUDA support
+        # cudaPackages.cudatoolkit # required for CUDA support
       ];
       variables = {
-        CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
-        CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+        # # CUDA
+        # CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
+        # CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
 
         # $EXTRA_LDFLAGS and $EXTRA_CCFLAGS are sometimes necessary too, but I
         # set those in nix-shells instead.
