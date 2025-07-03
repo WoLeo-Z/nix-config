@@ -17,6 +17,10 @@ in
       useRoutingFeatures = "none";
     };
 
+    systemd.services.tailscaled.serviceConfig = {
+      TimeoutStopSec = 1; # It hangs on shutdown
+    };
+
     sops.secrets.tailscale_key = {
       key = "tailscale_key/vostro"; # TODO: don't use vostro
       restartUnits = [ config.systemd.services.tailscaled.name ];
