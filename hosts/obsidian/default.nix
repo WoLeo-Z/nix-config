@@ -78,6 +78,16 @@
     # GPU 1: (TODO)
     # WiFi + Bluetooth
 
+    # Sensor it8622-isa-0a40
+    boot.kernelModules = [
+      "coretemp"
+      "it87"
+    ];
+    boot.extraModprobeConfig = ''
+      options it87 ignore_resource_conflict=1 force_id=0x8622
+    '';
+    # boot.kernelParams = [ "acpi_enforce_resources=lax" ]; # no need
+
     # FileSystems
     boot.supportedFilesystems = [ "ntfs" ];
 

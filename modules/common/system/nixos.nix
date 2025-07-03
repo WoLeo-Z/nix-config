@@ -34,6 +34,7 @@
     usbutils # lsusb
     dmidecode
     lshw
+    lm_sensors # sensors
 
     # Nix
     inputs.nix-tree.packages."x86_64-linux".default
