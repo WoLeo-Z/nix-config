@@ -88,7 +88,7 @@
         "flakes" # flakes
         "nix-command" # experimental nix commands
         # "recursive-nix" # let nix invoke itself # Lix 2.93 does not support this
-        "ca-derivations" # content addressed nix
+        # "ca-derivations" # content addressed nix # removed since Lix 2.94
         "auto-allocate-uids" # allow nix to automatically pick UIDs, rather than creating nixbld* user accounts
         "cgroups" # allow nix to execute builds inside cgroups
       ];
