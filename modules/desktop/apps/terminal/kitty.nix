@@ -18,6 +18,7 @@ in
           window_padding_width = "3 5";
           # background_blur = 64; # not working
           # dim_opacity = 0.8; # increase dim opacity # FIXME: not working
+          cursor_trail = 3;
         };
         keybindings = {
           # Switch Ctrl+C & Ctrl+Shift+C
