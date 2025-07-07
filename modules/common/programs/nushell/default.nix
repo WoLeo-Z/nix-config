@@ -71,5 +71,7 @@
       '';
     };
     programs.starship.enableNushellIntegration = true;
+
+    stylix.targets.nushell.enable = true;
   };
 }
