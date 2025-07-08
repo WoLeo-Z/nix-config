@@ -14,6 +14,7 @@
           "audio"
           "bluetooth"
           "printing/wireless"
+          "security-keys"
         ];
       };
 
