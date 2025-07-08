@@ -26,9 +26,16 @@ in
           "ctrl+v" = "paste_from_clipboard";
           "ctrl+shift+c" = "send_text all \\u0003"; # send SIGINT
         };
+
+        themeFile = "Catppuccin-Mocha";
+        font = {
+          inherit (config.stylix.fonts.monospace) package name;
+          size = config.stylix.fonts.sizes.terminal;
+        };
+        settings.background_opacity = toString config.stylix.opacity.terminal;
       };
 
-      stylix.targets.kitty.enable = true;
+      # stylix.targets.kitty.enable = true;
     };
   };
 }
