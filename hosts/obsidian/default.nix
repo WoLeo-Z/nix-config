@@ -24,10 +24,10 @@
         niri.enable = true;
         apps = {
           terminal = {
-            default = "alacritty";
+            default = "kitty";
             alacritty.enable = true;
             foot.enable = true;
-            ghostty.enable = true;
+            ghostty.enable = false;
             kitty.enable = true;
           };
           nautilus.enable = true;

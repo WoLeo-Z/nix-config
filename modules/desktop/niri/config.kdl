@@ -368,7 +368,7 @@ binds {
     // Most actions that you can bind here can also be invoked programmatically with
     // `niri msg action do-something`.
 
-    Mod+RETURN { spawn "alacritty"; }
+    Mod+RETURN { spawn "kitty"; }
     Mod+D { spawn "wofi"; }
     Mod+E { spawn "nautilus" "--new-window";  }
     Super+Alt+L { spawn "swaylock"; }
