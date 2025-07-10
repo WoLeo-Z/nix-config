@@ -50,7 +50,7 @@
             };
           };
           utils = {
-            gnome-control-center.enable = true;
+            gnome-control-center.enable = false;
           };
           games = {
             osu-lazer.enable = true;
