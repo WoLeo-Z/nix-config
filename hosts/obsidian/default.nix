@@ -15,6 +15,7 @@
           "bluetooth"
           "printing/wireless"
           "security-keys"
+          "mouse-fix"
         ];
       };
 
