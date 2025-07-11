@@ -68,6 +68,16 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
     #   "media.ffmpeg.vaapi.enabled" = true;
     #   "gfx.webrender.enabled" = true;
     # };
+
+    nixpkgs.overlays = [
+      (self: super: {
+        btop = super.btop.override {
+          # GPU Support
+          # https://github.com/aristocratos/btop/issues/426#issuecomment-2103598718
+          cudaSupport = true;
+        };
+      })
+    ];
   }
 
   # (mkIf (config.modules.desktop.type == "wayland") {
