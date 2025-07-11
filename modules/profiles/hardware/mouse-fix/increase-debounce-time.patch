@@ -7,7 +7,7 @@ index 32ca0eb3..9d2f874e 100644
  		   uint64_t time)
  {
 -	const int DEBOUNCE_TIMEOUT_BOUNCE = ms2us(25);
-+	const int DEBOUNCE_TIMEOUT_BOUNCE = ms2us(80);
++	const int DEBOUNCE_TIMEOUT_BOUNCE = ms2us(65);
  
  	libinput_timer_set(&fallback->debounce.timer,
  			   time + DEBOUNCE_TIMEOUT_BOUNCE);
@@ -16,7 +16,7 @@ index 32ca0eb3..9d2f874e 100644
  			 uint64_t time)
  {
 -	const int DEBOUNCE_TIMEOUT_SPURIOUS = ms2us(12);
-+	const int DEBOUNCE_TIMEOUT_SPURIOUS = ms2us(80);
++	const int DEBOUNCE_TIMEOUT_SPURIOUS = ms2us(12);
  
  	libinput_timer_set(&fallback->debounce.timer_short,
  			   time + DEBOUNCE_TIMEOUT_SPURIOUS);
