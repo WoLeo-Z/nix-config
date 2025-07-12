@@ -47,7 +47,7 @@ in
 
     hm.xdg.desktopEntries.steam-gamescope = {
       name = "Steam Gamescope";
-      exec = "gamemoderun gamescope -W 1920 -H 1080 -w 1920 -h 1080 -f -e -- steam -gamepadui";
+      exec = "gamemoderun gamescope -w 2560 -h 1440 -r 180 --hdr-enabled -O DP-1 -f -e -- steam -gamepadui";
       icon = "steam";
       terminal = false;
       type = "Application";
