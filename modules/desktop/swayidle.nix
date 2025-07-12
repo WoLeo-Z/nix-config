@@ -41,10 +41,10 @@ in
               timeout = 300;
               command = "${lib.getExe' pkgs.systemd "loginctl"} lock-session";
             }
-            {
-              timeout = 1800;
-              command = "${lib.getExe' pkgs.systemd "systemctl"} suspend";
-            }
+            # {
+            #   timeout = 1800;
+            #   command = "${lib.getExe' pkgs.systemd "systemctl"} suspend";
+            # }
           ];
         };
       };
