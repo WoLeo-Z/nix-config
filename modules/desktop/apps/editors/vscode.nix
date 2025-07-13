@@ -25,10 +25,58 @@ in
             # gnome or gnome-keyring doesn't work
             ++ [ "--password-store=gnome-libsecret" ];
         };
-        profiles.default.extensions = with pkgs.vscode-extensions; [
-          ms-ceintl.vscode-language-pack-zh-hans
-          jnoortheen.nix-ide
-        ];
+        profiles.default = {
+          userSettings = {
+            # Text Editor
+            "editor.smoothScrolling" = true;
+            "editor.tabSize" = 2;
+            "editor.cursorSmoothCaretAnimation" = "on";
+            "editor.formatOnPaste" = true;
+            "editor.formatOnSave" = true;
+            "diffEditor.experimental.showMoves" = true;
+            "files.autoSave" = "onFocusChange";
+            "files.readonlyFromPermissions" = true;
+
+            # Window
+            "window.controlsStyle" = "hidden";
+
+            # Features
+            "extensions.ignoreRecommendations" = true;
+
+            # Application
+            "telemetry.telemetryLevel" = "off";
+
+            # Extensions
+
+            # Git
+            "git.allowForcePush" = true;
+            "git.autofetch" = true;
+
+            # GitHub
+            "github.gitProtocol" = "ssh";
+
+            # Nix
+            "nix.enableLanguageServer" = true;
+            "nix.serverPath" = "${lib.getExe pkgs.nixd}";
+            "nix.serverSettings" = {
+              # check https://github.com/nix-community/nixd/blob/main/nixd/docs/configuration.md for all nixd config
+              "nixd" = {
+                "formatting" = {
+                  "command" = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+                  arguments = [ "--strict" ];
+                };
+              };
+            };
+            "nix.hiddenLanguageServerErrors" = [
+              # Fix: https://github.com/nix-community/vscode-nix-ide/issues/482
+              "textDocument/definition"
+            ];
+          };
+          extensions = with pkgs.vscode-extensions; [
+            ms-ceintl.vscode-language-pack-zh-hans
+            jnoortheen.nix-ide
+          ];
+        };
       };
 
       stylix.targets.vscode.enable = true;
