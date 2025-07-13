@@ -18,15 +18,20 @@ in
     hm = {
       programs.vscode = {
         enable = true;
-        package =
-          (pkgs.vscode.override {
-            commandLineArgs =
-              lib.constants.chromiumArgs
-              # https://code.visualstudio.com/docs/editor/settings-sync#_troubleshooting-keychain-issues
-              # gnome or gnome-keyring doesn't work
-              ++ [ "--password-store=gnome-libsecret" ];
-          }).fhs;
+        package = pkgs.vscode.override {
+          commandLineArgs =
+            lib.constants.chromiumArgs
+            # https://code.visualstudio.com/docs/editor/settings-sync#_troubleshooting-keychain-issues
+            # gnome or gnome-keyring doesn't work
+            ++ [ "--password-store=gnome-libsecret" ];
+        };
+        profiles.default.extensions = with pkgs.vscode-extensions; [
+          ms-ceintl.vscode-language-pack-zh-hans
+          jnoortheen.nix-ide
+        ];
       };
+
+      stylix.targets.vscode.enable = true;
     };
   };
 }
