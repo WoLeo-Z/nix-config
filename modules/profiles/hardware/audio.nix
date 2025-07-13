@@ -46,7 +46,7 @@ mkMerge [
         Service = {
           ExecStart = "${lib.getExe pkgs.jamesdsp} --tray";
           ExecStop = "${lib.getExe' pkgs.procps "pkill"} jamesdsp";
-          Restart = "on-failure";
+          Restart = "no";
           RestartSec = 5;
         };
       };
