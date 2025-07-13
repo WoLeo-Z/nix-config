@@ -51,6 +51,7 @@
           };
           utils = {
             gnome-control-center.enable = false;
+            motrix.enable = true;
           };
           games = {
             osu-lazer.enable = true;
