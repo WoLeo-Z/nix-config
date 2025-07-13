@@ -7,8 +7,13 @@
   "margin-left": 8,
   "margin-right": 8,
   "reload_style_on_change": true,
-  "modules-left": ["niri/workspaces", "niri/window"],
-  "modules-center": ["clock"],
+  "modules-left": [
+    "niri/workspaces",
+    "niri/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
   "modules-right": [
     "systemd-failed-units",
     "privacy",
@@ -25,13 +30,35 @@
   ],
   "backlight": {
     "format": "{icon} {percent}%",
-    "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"],
+    "format-icons": [
+      "󱩎",
+      "󱩏",
+      "󱩐",
+      "󱩑",
+      "󱩒",
+      "󱩓",
+      "󱩔",
+      "󱩕",
+      "󱩖",
+      "󰛨"
+    ],
     "on-scroll-down": "brightnessctl set 1%-",
     "on-scroll-up": "brightnessctl set +1%"
   },
   "battery": {
     "format": "{icon} {capacity}%",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
   },
   "clock": {
     "format": "{:%F, %a, %R}",
@@ -129,7 +156,11 @@
   },
   "wireplumber": {
     "format": "{icon} {volume}%",
-    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    "format-icons": [
+      "󰕿",
+      "󰖀",
+      "󰕾"
+    ],
     "format-muted": "󰖁 {volume}%",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "scroll-step": "0.25"
