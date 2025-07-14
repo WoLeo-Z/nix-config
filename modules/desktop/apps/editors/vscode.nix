@@ -37,6 +37,9 @@ in
             "files.autoSave" = "onFocusChange";
             "files.readonlyFromPermissions" = true;
 
+            # Workbench
+            "workbench.editor.empty.hint" = "hidden";
+
             # Window
             "window.controlsStyle" = "hidden";
 
