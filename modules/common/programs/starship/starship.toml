@@ -1,33 +1,80 @@
-# Disable the blank line at the start of the prompt
-add_newline = false
+add_newline = true
 
 format = """
-$hostname$directory$git_branch
-$character
+[╭](fg:current_line)\
+$status\
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$cmd_duration\
+$time\
+$line_break\
+[╰](fg:current_line)\
+$character\
 """
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+palette = "catppuccin_mocha"
 
-# [os]
-# format = "[$symbol]($style)"
-# style = "bold white"
-# disabled = false
+[palettes.catppuccin_mocha]
+foreground = '#D9E0EE'
+background = '#1E1E2E'
+current_line = '#2E2E3E'
+primary = '#313244'
+box = '#2E2E3E'
+blue = '#8AADF4'
+cyan = '#76E3F6'
+green = '#A6E3A1'
+orange = '#F9AF74'
+pink = '#F5BDE6'
+purple = '#CBA6F7'
+red = '#F38BA8'
+yellow = '#F9E2AF'
+status = "#E23140"
 
-# [os.symbols]
-# # NixOS = "❄️ "
-# NixOS = " " # Use Nerd Font
+[status]
+format = "[─](fg:current_line)[](fg:status)[](fg:primary bg:status)[](fg:status bg:box)[ $status](fg:foreground bg:box)[](fg:box)"
+pipestatus = true
+pipestatus_separator = "-"
+pipestatus_segment_format = "$status"
+pipestatus_format = "[─](fg:current_line)[](fg:status)[](fg:primary bg:status)[](fg:status bg:box)[ $pipestatus](fg:foreground bg:box)[](fg:box)"
+disabled = false
 
 [directory]
-truncation_length = 5
-# truncation_symbol = '…/'
+format = "[─](fg:current_line)[](fg:pink)[](fg:primary bg:pink)[](fg:pink bg:box)[ $read_only$truncation_symbol$path](fg:foreground bg:box)[](fg:box)"
+truncation_length = 0
 
-[directory.substitutions]
-"Desktop" = "  "
-"Documents" = "  "
-"Downloads" = "  "
-"Music" = " 󰎈 "
-"Pictures" = "  "
-"Videos" = "  "
-"Other" = "  "
+[git_branch]
+format = '[─](fg:current_line)[](fg:green)[$symbol](fg:primary bg:green)[](fg:green bg:box)[ $branch](fg:foreground bg:box)'
+symbol = ''
+
+[git_status]
+format = '[$all_status](fg:green bg:box)[](fg:box)'
+conflicted = ' ='
+up_to_date = ''
+untracked = ' ?${count}'
+stashed = ' $'
+modified = ' !${count}'
+staged = ' +'
+renamed = ' »'
+deleted = ' ✘'
+ahead = ' ⇡${count}'
+diverged = ' ⇕⇡${ahead_count}⇣${behind_count}'
+behind = ' ⇣${count}'
+
+[fill]
+symbol = '─'
+style = 'fg:current_line'
+
+[cmd_duration]
+min_time = 500
+format = '[─](fg:current_line)[](fg:orange)[](fg:primary bg:orange)[](fg:orange bg:box)[ $duration](fg:foreground bg:box)[](fg:box)'
+
+[time]
+format = '[─](fg:current_line)[](fg:purple)[󰥔](fg:primary bg:purple)[](fg:purple bg:box)[ $time](fg:foreground bg:box)[](fg:box)'
+time_format = '%H:%M'
+disabled = false
+
+[character]
+success_symbol = '[](fg:bold white)'
+error_symbol = '[×](fg:bold red)'
