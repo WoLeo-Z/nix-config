@@ -70,7 +70,6 @@
         use aliases/bat/bat-aliases.nu *
       '';
     };
-    programs.starship.enableNushellIntegration = true;
 
     stylix.targets.nushell.enable = true;
   };
