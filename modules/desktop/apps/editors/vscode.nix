@@ -41,6 +41,7 @@ in
             "window.controlsStyle" = "hidden";
 
             # Features
+            "explorer.confirmDelete" = false;
             "extensions.ignoreRecommendations" = true;
 
             # Application
