@@ -19,20 +19,6 @@
           + "[╰](fg:base02)"
           + "$character";
 
-        palettes.catppuccin_mocha = {
-          white = "#D9E0EE";
-          base02 = "#2E2E3E";
-          blue = "#8AADF4";
-          cyan = "#76E3F6";
-          green = "#A6E3A1";
-          orange = "#F9AF74";
-          pink = "#F5BDE6";
-          magenta = "#CBA6F7";
-          red = "#F38BA8";
-          yellow = "#F9E2AF";
-          status = "#E23140";
-        };
-
         status = {
           format = "[─](fg:base02)[](fg:orange)[](fg:base02 bg:orange)[](fg:orange bg:base02)[ $status](fg:white bg:base02)[](fg:base02)";
           pipestatus = true;

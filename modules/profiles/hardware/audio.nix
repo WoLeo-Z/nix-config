@@ -29,7 +29,6 @@ mkMerge [
     ];
 
     # JamesDSP
-    # FIXME: Hide tray icon in waybar
     hm = {
       home.packages = with pkgs; [ jamesdsp ];
       systemd.user.services.jamesdsp = {

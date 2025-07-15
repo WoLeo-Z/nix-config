@@ -92,8 +92,6 @@ in
       #
       #  See also https://grahamc.com/blog/erase-your-darlings/
 
-      # TODO: WIP...
-
       stateless = {
         directories = [
           "/etc/NetworkManager/system-connections"

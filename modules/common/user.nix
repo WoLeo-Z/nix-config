@@ -18,11 +18,6 @@ with lib;
   };
 
   config = {
-    environment.sessionVariables = mkOrder 10 {
-      # DOTFILES_HOME = config.dir; # TODO
-      NIXPKGS_ALLOW_UNFREE = "1"; # Forgive me Stallman-senpai.
-    };
-
     # FIXME: Make this optional
     user = {
       description = mkDefault "The primary user account";

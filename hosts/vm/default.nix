@@ -1,5 +1,3 @@
-{ lib, ... }:
-
 {
   hostName = "vm";
   system = "x86_64-linux";
@@ -44,9 +42,6 @@
         mihomo.enable = true;
       };
     };
-
-    # TODO: Remove this for vm. Use key auth instead.
-    services.openssh.settings.PasswordAuthentication = lib.mkForce true;
   };
 
   hardware = {
