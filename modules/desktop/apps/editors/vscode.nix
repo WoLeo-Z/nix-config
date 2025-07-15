@@ -39,6 +39,7 @@ in
 
             # Workbench
             "workbench.editor.empty.hint" = "hidden";
+            "workbench.startupEditor" = "none";
 
             # Window
             "window.controlsStyle" = "hidden";
@@ -79,6 +80,7 @@ in
           extensions = with pkgs.vscode-extensions; [
             ms-ceintl.vscode-language-pack-zh-hans
             jnoortheen.nix-ide
+            gruntfuggly.todo-tree
           ];
         };
       };
