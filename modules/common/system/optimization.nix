@@ -9,7 +9,7 @@
   };
 
   zramSwap = {
-    enable = true;
+    enable = false;
     priority = 100;
     memoryPercent = 30;
     swapDevices = 1;
