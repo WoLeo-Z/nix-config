@@ -35,23 +35,6 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
       };
     };
 
-    # REVIEW: Remove when NixOS/nixpkgs#324921 is backported to stable
-    boot.kernelParams = [ "nvidia-drm.fbdev=1" ];
-
-    environment = {
-      systemPackages = with pkgs; [
-        # cudaPackages.cudatoolkit # required for CUDA support
-      ];
-      variables = {
-        # # CUDA
-        # CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
-        # CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
-
-        # $EXTRA_LDFLAGS and $EXTRA_CCFLAGS are sometimes necessary too, but I
-        # set those in nix-shells instead.
-      };
-    };
-
     # # Cajole Firefox into video-acceleration (or try).
     # modules.desktop.browsers.librewolf.settings = {
     #   "media.ffmpeg.vaapi.enabled" = true;
@@ -89,6 +72,22 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
       # If you face problems with Discord windows not displaying or screen
       # sharing not working in Zoom, remove or comment this:
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    };
+  })
+
+  (mkIf (elem "gpu/nvidia/cuda" hardware) {
+    environment = {
+      systemPackages = with pkgs; [
+        cudaPackages.cudatoolkit # required for CUDA support
+      ];
+      variables = {
+        # CUDA
+        CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
+        CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
+
+        # $EXTRA_LDFLAGS and $EXTRA_CCFLAGS are sometimes necessary too, but I
+        # set those in nix-shells instead.
+      };
     };
   })
 ])
