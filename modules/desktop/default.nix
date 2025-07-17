@@ -82,16 +82,6 @@ in
       TTYVTDisallocate = true;
     };
 
-    fonts.packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-color-emoji
-      # jetbrains-mono
-      nerd-fonts.jetbrains-mono
-      material-icons
-    ];
-
     hm.home.packages = with pkgs; [
       baobab # Disk Usage Analyzer
     ];

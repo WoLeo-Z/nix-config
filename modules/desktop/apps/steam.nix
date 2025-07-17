@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }:
 
@@ -43,7 +42,7 @@ in
       };
     };
 
-    environment.systemPackages = with pkgs; [ mangohud ];
+    # environment.systemPackages = with pkgs; [ mangohud ];
 
     hm.xdg.desktopEntries.steam-gamescope = {
       name = "Steam Gamescope";
