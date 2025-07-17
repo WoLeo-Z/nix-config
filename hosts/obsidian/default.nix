@@ -51,6 +51,7 @@
           };
           utils = {
             gnome-control-center.enable = false;
+            kdeconnect.enable = false;
             motrix.enable = false;
           };
           games = {
