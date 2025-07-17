@@ -26,8 +26,8 @@
         apps = {
           terminal = {
             default = "kitty";
-            alacritty.enable = true;
-            foot.enable = true;
+            alacritty.enable = false;
+            foot.enable = false;
             ghostty.enable = false;
             kitty.enable = true;
           };
@@ -45,13 +45,13 @@
           editors = {
             vscode.enable = true;
             zed = {
-              enable = true;
+              enable = false;
               enableAI = true;
             };
           };
           utils = {
             gnome-control-center.enable = false;
-            motrix.enable = true;
+            motrix.enable = false;
           };
           games = {
             osu-lazer.enable = true;
