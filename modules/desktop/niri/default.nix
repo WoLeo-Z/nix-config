@@ -42,6 +42,7 @@ in
 
     xdg.portal = {
       enable = true;
+      wlr.enable = true;
       config = {
         niri = {
           default = [
