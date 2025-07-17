@@ -17,7 +17,7 @@ in
     enable = mkEnableOption' { default = config.modules.desktop.enable; };
     image = mkOption {
       type = types.path;
-      default = "${inputs.self.outPath}/assets/wallpapers/nix-wallpaper-nineish-catppuccin-mocha-alt.png";
+      default = "${config.programs.nh.flake}/assets/wallpapers/nix-wallpaper-nineish-catppuccin-mocha-alt.png";
     };
   };
 

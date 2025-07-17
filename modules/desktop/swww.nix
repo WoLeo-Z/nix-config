@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }:
 
@@ -10,7 +9,7 @@ with lib;
 let
   cfg = config.modules.desktop.swww;
   wallpaper = config.modules.desktop.appearance.image;
-  wallpaperDir = "${inputs.self.outPath}/assets/wallpapers";
+  wallpaperDir = "${config.programs.nh.flake}/assets/wallpapers";
 
   change-wallpaper = pkgs.writeShellScriptBin "change-wallpaper" ''
     if [ -n "$1" ]; then
@@ -26,7 +25,7 @@ let
 
     fi
 
-    swww img "$wallpaper" \
+    ${lib.getExe pkgs.swww} img "$wallpaper" \
       --transition-fps 240 \
       --transition-type "grow" \
       --transition-duration 0.5
@@ -42,7 +41,7 @@ in
       services.swww.enable = true;
       systemd.user.services.swww = {
         Service = {
-          ExecStartPost = "${lib.getExe change-wallpaper} ${wallpaper}";
+          ExecStartPost = "${lib.getExe pkgs.swww} img ${wallpaper}";
         };
       };
 
