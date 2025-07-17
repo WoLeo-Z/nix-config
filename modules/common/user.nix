@@ -18,6 +18,10 @@ with lib;
   };
 
   config = {
+    environment.sessionVariables = mkOrder 10 {
+      NIXPKGS_ALLOW_UNFREE = "1"; # Forgive me Stallman-senpai.
+    };
+
     # FIXME: Make this optional
     user = {
       description = mkDefault "The primary user account";
