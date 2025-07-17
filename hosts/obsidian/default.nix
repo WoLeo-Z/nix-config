@@ -53,6 +53,7 @@
             gnome-control-center.enable = false;
             kdeconnect.enable = false;
             motrix.enable = false;
+            wireshark.enable = true;
           };
           games = {
             osu-lazer.enable = true;
