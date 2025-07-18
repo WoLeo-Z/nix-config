@@ -71,7 +71,7 @@
         openssh.enable = true;
         sunshine.enable = true;
         tailscale.enable = true;
-        xiu.enable = true;
+        xiu.enable = false;
       };
     };
   };
