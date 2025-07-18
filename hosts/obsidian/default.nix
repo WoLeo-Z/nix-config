@@ -39,7 +39,7 @@
           media = {
             cavalier.enable = true;
             mpv.enable = true;
-            obs-studio.enable = false;
+            obs-studio.enable = true;
             spotify.enable = true;
           };
           editors = {

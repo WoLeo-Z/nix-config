@@ -22,22 +22,7 @@ in
         wlrobs
         obs-pipewire-audio-capture
         obs-vaapi
-        obs-teleport
         obs-vkcapture
-        obs-gstreamer
-        droidcam-obs
-        # obs-3d-effect
-        # input-overlay
-        # obs-multi-rtmp
-        # obs-source-clone
-        # obs-shaderfilter
-        # obs-source-record
-        # obs-livesplit-one
-        # looking-glass-obs
-        # obs-vintage-filter
-        # obs-command-source
-        # obs-move-transition
-        # obs-backgroundremoval
       ];
     };
   };
