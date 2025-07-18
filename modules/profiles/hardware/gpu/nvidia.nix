@@ -41,15 +41,19 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
     #   "gfx.webrender.enabled" = true;
     # };
 
-    nixpkgs.overlays = [
-      (self: super: {
-        btop = super.btop.override {
-          # GPU Support
-          # https://github.com/aristocratos/btop/issues/426#issuecomment-2103598718
-          cudaSupport = true;
-        };
-      })
-    ];
+    # nixpkgs.overlays = [
+    #   (self: super: {
+    #     btop = super.btop.override {
+    #       # GPU Support
+    #       # https://github.com/aristocratos/btop/issues/426#issuecomment-2103598718
+    #       cudaSupport = true;
+    #     };
+    #     obs-studio = super.obs-studio.override {
+    #       cudaSupport = true;
+    #     };
+    #   })
+    # ];
+    nixpkgs.config.cudaSupport = true;
   }
 
   # (mkIf (config.modules.desktop.type == "wayland") {
