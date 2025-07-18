@@ -67,10 +67,11 @@
       };
 
       services = {
-        openssh.enable = true;
         mihomo.enable = true;
+        openssh.enable = true;
         sunshine.enable = true;
         tailscale.enable = true;
+        xiu.enable = true;
       };
     };
   };
