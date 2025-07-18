@@ -67,7 +67,7 @@
       };
 
       services = {
-        mediamtx.enable = true;
+        mediamtx.enable = false;
         mihomo.enable = true;
         openssh.enable = true;
         sunshine.enable = true;
