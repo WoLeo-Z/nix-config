@@ -28,44 +28,37 @@ with lib;
       ];
       kernelModules = [ ];
     };
-
-    # Bootloader: Grub
-    loader = {
-      timeout = 3;
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
-      };
-      grub = {
-        efiSupport = true;
-        devices = [ "nodev" ];
-        useOSProber = mkDefault false;
-        # extraGrubInstallArgs = [ "--bootloader-id=${host}" ];
-        # configurationName = "${host}";
-        extraConfig = ''
-          insmod kbd
-          set keymap=us
-        '';
-        extraEntries = ''
-          menuentry "Reboot" {
-            reboot
-          }
-          menuentry "Poweroff" {
-            halt
-          }
-          menuentry "UEFI Firmware Settings" {
-            fwsetup
-          }
-        '';
-      };
-    };
   };
 
-  # Use sched-ext schedulers with linux-cachyos
-  services.scx = {
-    enable = true;
-    scheduler = "scx_rusty";
-    # package = pkgs.scx_git.full;
+  # Bootloader: Grub
+  boot.loader = {
+    timeout = 3;
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+    grub = {
+      efiSupport = true;
+      devices = [ "nodev" ];
+      useOSProber = mkDefault false;
+      # extraGrubInstallArgs = [ "--bootloader-id=${host}" ];
+      # configurationName = "${host}";
+      extraConfig = ''
+        insmod kbd
+        set keymap=us
+      '';
+      extraEntries = ''
+        menuentry "Reboot" {
+          reboot
+        }
+        menuentry "Poweroff" {
+          halt
+        }
+        menuentry "UEFI Firmware Settings" {
+          fwsetup
+        }
+      '';
+    };
   };
 
   stylix.targets.grub.enable = true;
