@@ -3,7 +3,6 @@
 
   inputs = {
     systems.url = "github:nix-systems/default-linux";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     # NixOS stable
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
@@ -169,7 +168,8 @@
                   home-manager.nixosModules.home-manager
 
                   inputs.chaotic.nixosModules.default
-                ] ++ modules;
+                ]
+                ++ modules;
               };
           in
           builtins.mapAttrs mkNixosConfiguration hostConfigs;
