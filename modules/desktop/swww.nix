@@ -39,10 +39,18 @@ in
   config = mkIf cfg.enable {
     hm = {
       services.swww.enable = true;
-      systemd.user.services.swww = {
-        Service = {
-          ExecStartPost = "${lib.getExe pkgs.swww} img ${wallpaper}";
+      systemd.user.services.swww-after = {
+        Unit = {
+          Description = "Set wallpaper after swww.service is started.";
+          PartOf = [ "swww.service" ];
+          After = [ "swww.service" ];
         };
+        Service = {
+          Type = "oneshot";
+          ExecStart = "${lib.getExe pkgs.swww} img ${wallpaper}";
+          RemainAfterExit = "yes";
+        };
+        Install.WantedBy = [ "swww.service" ];
       };
 
       home.packages = [ change-wallpaper ];
