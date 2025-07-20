@@ -9,8 +9,11 @@ mkMerge [
     hardware.bluetooth = {
       enable = true;
       settings = {
+        # https://github.com/bluez/bluez/blob/master/src/main.conf
         General = {
+          ControllerMode = "bredr"; # "dual", "bredr", "le"
           Experimental = true; # Showing battery charge of bluetooth devices
+          # KernelExperimental = true;
         };
       };
     };
