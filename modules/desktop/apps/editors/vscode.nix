@@ -49,6 +49,8 @@ in
             "extensions.ignoreRecommendations" = true;
 
             # Application
+            "update.mode" = "none";
+            "update.showReleaseNotes" = false;
             "telemetry.telemetryLevel" = "off";
 
             # Extensions
