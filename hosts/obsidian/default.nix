@@ -43,6 +43,7 @@
             spotify.enable = true;
           };
           editors = {
+            obsidian.enable = true;
             vscode.enable = true;
             zed = {
               enable = false;
