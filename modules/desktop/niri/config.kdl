@@ -80,7 +80,7 @@ output "PNP(AOC) Q27G3XMN 1APR2JA001175" {
     mode "2560x1440@180.002"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1.20
+    scale 1.25
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
