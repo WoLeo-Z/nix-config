@@ -35,6 +35,7 @@
           browsers = {
             firefox.enable = true;
             google-chrome.enable = true;
+            zen-browser.enable = true;
           };
           media = {
             cavalier.enable = true;

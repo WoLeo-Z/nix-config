@@ -13,9 +13,13 @@ in
     hm.programs.firefox = {
       enable = true;
       policies = {
+        AutofillAddressesEnabled = false;
+        AutoFillCreditCardEnabled = false;
         DisableAppUpdate = true;
         DisablePocket = true;
         DisableSetDesktopBackground = true;
+        DisableTelemetry = true;
+        DontCheckDefaultBrowser = true;
         FirefoxHome = {
           Search = true;
           TopSites = false;
