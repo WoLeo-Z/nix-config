@@ -1,6 +1,6 @@
 {
   hm.programs.fastfetch = {
-    enable = true;
+    enable = false;
 
     settings = {
       # display = {

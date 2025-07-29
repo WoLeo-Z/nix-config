@@ -43,6 +43,7 @@
     which
     tree
     findutils
+    nitch
   ];
 
   stylix.targets.console.enable = true;
