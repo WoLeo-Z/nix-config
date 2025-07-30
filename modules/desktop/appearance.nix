@@ -60,24 +60,29 @@ in
       };
     };
 
-    # GTK
-    hm = {
-      gtk = {
-        enable = true;
-        iconTheme = {
-          name = "Adwaita-dark";
-          package = pkgs.adwaita-icon-theme;
-          # Papirus-Dark papirus-icon-theme
-          # kora kora-icon-theme
-          # ? fluent-icon-theme
-          # Adwaita-dark adwaita-icon-theme
-        };
-      };
+    hm.stylix.icons = {
+      enable = true;
 
-      stylix.targets.gtk.enable = true; # Home-manager options
-      stylix.targets.gnome.enable = true; # Needed by some apps (e.g. bottles, ...)
+      # Papirus
+      package = pkgs.papirus-icon-theme;
+      light = "Papirus-Light";
+      dark = "Papirus-Dark";
+
+      # Adwaita
+      # package = pkgs.adwaita-icon-theme;
+      # light = "Adwaita";
+      # dark = "Adwaita-dark";
+
+      # Kora
+      # package = pkgs.kora-icon-theme;
+      # light = "kora-light";
+      # dark = "kora";
     };
+
+    # GTK
     stylix.targets.gtk.enable = true; # NixOS options
+    hm.stylix.targets.gtk.enable = true; # Home-manager options
+    hm.stylix.targets.gnome.enable = true; # Needed by some apps (e.g. bottles, ...)
 
     # QT
     hm.stylix.targets.qt.enable = true;
