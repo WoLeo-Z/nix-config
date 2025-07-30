@@ -16,9 +16,7 @@ in
 
   config = mkIf cfg.enable {
     hm = {
-      home.packages = with pkgs; [
-        libreoffice
-      ];
+      home.packages = with pkgs; [ libreoffice ];
     };
   };
 }
