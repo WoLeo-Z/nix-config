@@ -82,5 +82,13 @@ in
     # QT
     hm.stylix.targets.qt.enable = true;
     stylix.targets.qt.enable = true;
+
+    # Wallpapers Symlink
+    hm.home.file = {
+      "Pictures/Wallpapers" = {
+        source = mkOutOfStoreSymlink "${config.programs.nh.flake}/assets/wallpapers";
+        recursive = true;
+      };
+    };
   };
 }
