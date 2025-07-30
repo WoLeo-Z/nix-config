@@ -65,12 +65,12 @@ in
       gtk = {
         enable = true;
         iconTheme = {
-          name = "Papirus-Dark";
-          package = pkgs.papirus-icon-theme;
+          name = "Adwaita-dark";
+          package = pkgs.adwaita-icon-theme;
           # Papirus-Dark papirus-icon-theme
           # kora kora-icon-theme
           # ? fluent-icon-theme
-          # ? adwaita-icon-theme
+          # Adwaita-dark adwaita-icon-theme
         };
       };
 
