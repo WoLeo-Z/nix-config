@@ -78,11 +78,18 @@ in
               # Fix: https://github.com/nix-community/vscode-nix-ide/issues/482
               "textDocument/definition"
             ];
+
+            # JSON
+            "json.format.enable" = false;
+            "[json]" = {
+              "editor.defaultFormatter" = "esbenp.prettier-vscode";
+            };
           };
           extensions = with pkgs.vscode-extensions; [
             ms-ceintl.vscode-language-pack-zh-hans
             jnoortheen.nix-ide
             gruntfuggly.todo-tree
+            esbenp.prettier-vscode
           ];
         };
       };
