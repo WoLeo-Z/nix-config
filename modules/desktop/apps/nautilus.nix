@@ -29,7 +29,10 @@ in
     services.gvfs.enable = true;
 
     # Removable disk automounter
-    hm.services.udiskie.enable = true;
+    hm.services.udiskie = {
+      enable = true;
+      tray = "never";
+    };
     services.udisks2.enable = true;
 
     hm = {
