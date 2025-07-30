@@ -94,6 +94,11 @@ in
         source = ./rime;
         recursive = true;
       };
+
+      # home.activation.forceRebuildRime = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
+      #   rm --recursive --force \
+      #     "${config.home'.dataDir}/fcitx5/rime"
+      # '';
     };
   };
 }

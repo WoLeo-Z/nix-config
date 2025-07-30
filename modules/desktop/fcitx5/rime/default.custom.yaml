@@ -13,5 +13,7 @@ patch:
     Control_R: commit_text
     Eisu_toggle: clear
   key_binder/bindings/+:
+    - { when: paging, accept: minus, send: Page_Up }
+    - { when: has_menu, accept: equal, send: Page_Down }
     - { when: paging, accept: comma, send: Page_Up }
     - { when: has_menu, accept: period, send: Page_Down }
