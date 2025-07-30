@@ -21,11 +21,14 @@ in
       package = package;
     };
 
-    modules.desktop.waybar.enable = true;
+    modules.desktop.caelestia-shell.enable = true;
+
+    modules.desktop.waybar.enable = false;
+    modules.desktop.swww.enable = false;
+    modules.desktop.swaync.enable = false;
+
     modules.desktop.wofi.enable = true;
     modules.desktop.swayidle.enable = true;
-    modules.desktop.swww.enable = true;
-    modules.desktop.swaync.enable = true;
     modules.desktop.xwayland-satellite.enable = true;
 
     hm = {

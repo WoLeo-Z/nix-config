@@ -1,0 +1,9 @@
+{
+  "background": {
+    "enabled": true
+  },
+  "border": {
+    "rounding": 20,
+    "thickness": 10
+  }
+}
