@@ -60,7 +60,7 @@ in
       };
     };
 
-    hm.stylix.icons = {
+    hm.stylix.iconTheme = {
       enable = true;
 
       # Papirus
