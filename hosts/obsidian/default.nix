@@ -33,7 +33,7 @@
           };
           nautilus.enable = true;
           browsers = {
-            firefox.enable = true;
+            firefox.enable = false;
             google-chrome.enable = true;
             zen-browser.enable = true;
           };
