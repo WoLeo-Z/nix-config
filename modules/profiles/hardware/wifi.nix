@@ -13,14 +13,14 @@ mkMerge [
   (mkIf (any (s: hasPrefix "wifi" s) hardware) {
     # iwd
     networking = {
-      wireless.enable = true;
       wireless.iwd.enable = true;
+      networkmanager.wifi.backend = "iwd";
     };
-    networking.networkmanager.wifi.backend = "iwd";
 
     # NetworkManager
-    networking.networkmanager.enable = true;
-    networking.networkmanager.dns = lib.mkDefault "default";
+    networking.networkmanager = {
+      enable = true;
+    };
 
     environment.systemPackages = with pkgs; [ networkmanagerapplet ];
 
