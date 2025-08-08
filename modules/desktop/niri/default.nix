@@ -41,7 +41,8 @@ in
       ];
     };
 
-    home'.configFile."niri/config.kdl".source = ./config.kdl;
+    home'.configFile."niri/config.kdl".source =
+      mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/niri/config.kdl";
 
     xdg.portal = {
       enable = true;
