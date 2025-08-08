@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }:
 
@@ -22,7 +21,7 @@ mkMerge [
       enable = true;
     };
 
-    environment.systemPackages = with pkgs; [ networkmanagerapplet ];
+    programs.nm-applet.enable = true; # GUI
 
     systemd = {
       services.NetworkManager-wait-online.enable = false;
