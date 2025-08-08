@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   networking = {
     # networkmanager
     networkmanager.enable = true;
-    networkmanager.dns = "systemd-resolved"; # one of "default", "dnsmasq", "systemd-resolved", "none"
+    networkmanager.dns = lib.mkDefault "default";
 
     # iwd
     wireless.iwd.enable = true;
