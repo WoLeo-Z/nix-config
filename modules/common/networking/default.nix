@@ -1,5 +1,4 @@
 {
-  lib,
   options,
   pkgs,
   ...
@@ -7,10 +6,6 @@
 
 {
   networking = {
-    firewall.enable = lib.mkDefault false;
-    firewall.checkReversePath = lib.mkDefault false;
-    nftables.enable = lib.mkDefault true;
-    useDHCP = false;
     timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
     nameservers = [
       # IPv4
