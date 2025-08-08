@@ -19,6 +19,7 @@ mkMerge [
     # NetworkManager
     networking.networkmanager = {
       enable = true;
+      unmanaged = [ "interface-type:ethernet" ]; # use systemd-networkd for ethernet
     };
 
     programs.nm-applet.enable = true; # GUI
