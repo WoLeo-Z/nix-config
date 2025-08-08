@@ -52,5 +52,7 @@ in
         cp -n "${wallpaperPathFile}" "${config.home'.stateDir}/caelestia/wallpaper/path.txt"
       '';
     };
+
+    services.power-profiles-daemon.enable = true;
   };
 }

@@ -6,10 +6,6 @@
   #   package = pkgs.scx_git.full;
   # };
 
-  services = {
-    power-profiles-daemon.enable = true;
-  };
-
   powerManagement = {
     enable = true;
     cpuFreqGovernor = "schedutil"; # schedutil, powersave, performance

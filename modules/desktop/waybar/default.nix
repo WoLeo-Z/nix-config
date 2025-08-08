@@ -26,11 +26,11 @@ in
       ];
     };
 
-    services.power-profiles-daemon.enable = true;
-
     home'.configFile."waybar" = {
       source = mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/waybar/config";
       recursive = true;
     };
+
+    services.power-profiles-daemon.enable = true;
   };
 }
