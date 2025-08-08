@@ -13,8 +13,6 @@ with lib;
 
     kernelParams = [
       "nowatchdog"
-      "modprobe.blacklist=iTCO_wdt" # watchdog for Intel
-      "modprobe.blacklist=sp5100_tco" # watchdog for AMD
       "pcie_aspm=off" # Fix: log spam: PCIe Bus Error ...
     ];
 

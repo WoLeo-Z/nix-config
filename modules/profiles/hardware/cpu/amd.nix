@@ -7,6 +7,9 @@ in
 mkMerge [
   (mkIf (any (s: hasPrefix "cpu/amd" s) hardware) {
     hardware.cpu.amd.updateMicrocode = mkDefault config.hardware.enableRedistributableFirmware;
-    boot.kernelParams = [ "amd_pstate=active" ]; # For Linux 6.3+
+    boot.kernelParams = [
+      "amd_pstate=active"
+      "modprobe.blacklist=sp5100_tco" # watchdog for AMD
+    ];
   })
 ]

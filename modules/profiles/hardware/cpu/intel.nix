@@ -7,7 +7,10 @@ in
 mkMerge [
   (mkIf (any (s: hasPrefix "cpu/intel" s) hardware) {
     hardware.cpu.intel.updateMicrocode = mkDefault config.hardware.enableRedistributableFirmware;
-    boot.kernelParams = [ "intel_pstate=active" ];
+    boot.kernelParams = [
+      "intel_pstate=active"
+      "modprobe.blacklist=iTCO_wdt" # watchdog for Intel
+    ];
   })
 
   # (mkIf (elem "cpu/intel/kaby-lake" hardware) {
