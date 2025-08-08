@@ -22,8 +22,6 @@
     ];
   };
 
-  # systemd.network.enable = true;
-
   # Tools & Packages
   programs = {
     mtr.enable = true;

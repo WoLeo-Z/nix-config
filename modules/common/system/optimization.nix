@@ -6,11 +6,6 @@
   #   package = pkgs.scx_git.full;
   # };
 
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "schedutil"; # schedutil, powersave, performance
-  };
-
   zramSwap = {
     enable = false;
     priority = 100;
