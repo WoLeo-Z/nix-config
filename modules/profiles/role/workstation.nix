@@ -68,7 +68,7 @@ mkIf (config.modules.profiles.role == "workstation") (mkMerge [
           "30-wired" = {
             enable = true;
             name = "en*";
-            networkConfig.DHCP = "ipv6";
+            networkConfig.DHCP = lib.mkDefault "ipv6";
             networkConfig.IPv6PrivacyExtensions = "kernel";
             linkConfig.RequiredForOnline = "no"; # don't hang at boot (if dc'ed)
             dhcpV4Config.RouteMetric = 1024;
