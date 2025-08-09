@@ -55,49 +55,49 @@ mkIf (config.modules.profiles.role == "workstation") (mkMerge [
 
     powerManagement.cpuFreqGovernor = mkDefault "performance";
 
-    # Use systemd-{network,resolve}d; a more unified networking backend that's
-    # easier to reconfigure downstream, especially where split-DNS setups (e.g.
-    # VPNs) are concerned.
-    networking = {
-      useDHCP = false;
-      useNetworkd = true;
-    };
-    systemd = {
-      network = {
-        networks = {
-          "30-wired" = {
-            enable = true;
-            name = "en*";
-            networkConfig.DHCP = lib.mkDefault "ipv6";
-            networkConfig.IPv6PrivacyExtensions = "kernel";
-            linkConfig.RequiredForOnline = "no"; # don't hang at boot (if dc'ed)
-            dhcpV4Config.RouteMetric = 1024;
-          };
-          # "30-wireless" = {
-          #   enable = true;
-          #   name = "wl*";
-          #   networkConfig.DHCP = "yes";
-          #   networkConfig.IPv6PrivacyExtensions = "kernel";
-          #   linkConfig.RequiredForOnline = "no"; # don't hang at boot (if dc'ed)
-          #   dhcpV4Config.RouteMetric = 2048; # prefer wired
-          # };
-        };
+    # # Use systemd-{network,resolve}d; a more unified networking backend that's
+    # # easier to reconfigure downstream, especially where split-DNS setups (e.g.
+    # # VPNs) are concerned.
+    # networking = {
+    #   useDHCP = false;
+    #   useNetworkd = true;
+    # };
+    # systemd = {
+    #   network = {
+    #     networks = {
+    #       "60-wired" = {
+    #         enable = true;
+    #         name = "en*";
+    #         networkConfig.DHCP = lib.mkDefault "ipv6";
+    #         networkConfig.IPv6PrivacyExtensions = "kernel";
+    #         linkConfig.RequiredForOnline = "no"; # don't hang at boot (if dc'ed)
+    #         dhcpV4Config.RouteMetric = 1024;
+    #       };
+    #       # "30-wireless" = {
+    #       #   enable = true;
+    #       #   name = "wl*";
+    #       #   networkConfig.DHCP = "yes";
+    #       #   networkConfig.IPv6PrivacyExtensions = "kernel";
+    #       #   linkConfig.RequiredForOnline = "no"; # don't hang at boot (if dc'ed)
+    #       #   dhcpV4Config.RouteMetric = 2048; # prefer wired
+    #       # };
+    #     };
 
-        # systemd-networkd-wait-online waits forever for *all* interfaces to be
-        # online before passing; which is unlikely to ever happen.
-        wait-online = {
-          anyInterface = true;
-          timeout = 30;
+    #     # systemd-networkd-wait-online waits forever for *all* interfaces to be
+    #     # online before passing; which is unlikely to ever happen.
+    #     wait-online = {
+    #       anyInterface = true;
+    #       timeout = 30;
 
-          # The anyInterface setting is still finnicky for some networks, so I
-          # simply turn off the whole check altogether.
-          enable = false;
-        };
-      };
-    };
-    boot.initrd.systemd.network.wait-online = {
-      anyInterface = true;
-      timeout = 10;
-    };
+    #       # The anyInterface setting is still finnicky for some networks, so I
+    #       # simply turn off the whole check altogether.
+    #       enable = false;
+    #     };
+    #   };
+    # };
+    # boot.initrd.systemd.network.wait-online = {
+    #   anyInterface = true;
+    #   timeout = 10;
+    # };
   }
 ])

@@ -15,21 +15,5 @@ mkMerge [
       wireless.iwd.enable = true;
       networkmanager.wifi.backend = "iwd";
     };
-
-    # NetworkManager
-    networking.networkmanager = {
-      enable = true;
-      unmanaged = [ "interface-type:ethernet" ]; # use systemd-networkd for ethernet
-    };
-
-    programs.nm-applet.enable = true; # GUI
-
-    systemd = {
-      services.NetworkManager-wait-online.enable = false;
-      # Disables the service because it hangs on boot.
-      services.NetworkManager-dispatcher.enable = false;
-    };
-
-    user.extraGroups = [ "networkmanager" ];
   })
 ]
