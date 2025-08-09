@@ -67,5 +67,25 @@ in
         xdg-desktop-portal-gnome
       ];
     };
+
+    # Environment variables for Wayland
+    environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1"; # for Chromium and Electron
+      MOZ_ENABLE_WAYLAND = "1"; # for Firefox
+      QT_QPA_PLATFORM = "wayland"; # for Qt
+
+      # Chromium/Electron
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      CHROMIUM_FLAGS = lib.concatStringsSep " " [
+        "--enable-features=UseOzonePlatform,VaapiVideoDecoder,VaapiVideoEncoder,WaylandWindowDecorations"
+        "--ozone-platform=wayland"
+        "--enable-wayland-ime"
+        "--wayland-text-input-version=3"
+        "--disable-gpu-sandbox"
+        "--enable-zero-copy"
+        "--ignore-gpu-blacklist"
+        "--enable-gpu-rasterization"
+      ];
+    };
   };
 }
