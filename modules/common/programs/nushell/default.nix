@@ -10,7 +10,7 @@
         # `use` and `source` commands.
         const NU_LIB_DIRS = $NU_LIB_DIRS ++ ['${pkgs.nu_scripts}/share/nu_scripts']
 
-        # completion
+        # Completion
 
         # We use external_completer instead
         # use custom-completions/curl/curl-completions.nu *
@@ -23,26 +23,33 @@
         # use custom-completions/tar/tar-completions.nu *
 
         # external_completer
+        # Source: https://www.nushell.sh/cookbook/external_completers.html
+
         let fish_completer = {|spans|
-            fish --command $"complete '--do-complete=($spans | str join ' ')'"
+            fish --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
             | from tsv --flexible --noheaders --no-infer
             | rename value description
-            | update value {
-                if ($in | path exists) {$'"($in | str replace "\"" "\\\"" )"'} else {$in}
+            | update value {|row|
+              let value = $row.value
+              let need_quote = ['\' ',' '[' ']' '(' ')' ' ' '\t' "'" '"' "`"] | any {$in in $value}
+              if ($need_quote and ($value | path exists)) {
+                let expanded_path = if ($value starts-with ~) {$value | path expand --no-symlink} else {$value}
+                $'"($expanded_path | str replace --all "\"" "\\\"")"'
+              } else {$value}
             }
         }
 
         let carapace_completer = {|spans: list<string>|
             carapace $spans.0 nushell ...$spans
             | from json
-            | if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
+            | if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }
         }
 
         # This completer will use carapace by default
         let external_completer = {|spans|
             let expanded_alias = scope aliases
             | where name == $spans.0
-            | get -i 0.expansion
+            | get -o 0.expansion
 
             let spans = if $expanded_alias != null {
                 $spans
@@ -64,7 +71,7 @@
             completer: $external_completer
         }
 
-        # alias
+        # Aliases
         use aliases/git/git-aliases.nu *
         use aliases/eza/eza-aliases.nu *
         use aliases/bat/bat-aliases.nu *
