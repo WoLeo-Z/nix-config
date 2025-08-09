@@ -60,9 +60,13 @@
             }
 
             match $spans.0 {
+                # carapace completions are incorrect for nu
+                nu => $fish_completer
                 # fish completes commits and branch names in a nicer way
-                # git => $fish_completer
-                _ => $fish_completer
+                git => $fish_completer
+                # carapace doesn't have completions for asdf
+                asdf => $fish_completer
+                _ => $carapace_completer
             } | do $in $spans
         }
 
@@ -79,5 +83,7 @@
     };
 
     stylix.targets.nushell.enable = true;
+
+    home.packages = with pkgs; [ carapace ];
   };
 }
