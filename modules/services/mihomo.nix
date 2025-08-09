@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }:
 
@@ -21,7 +20,7 @@ in
       package = pkgs.mihomo;
       tunMode = true;
       # webui = pkgs.zashboard;
-      configFile = config.sops.secrets.mihomo-config.path;
+      configFile = "${config.home'.configDir}/mihomo/config.yaml";
     };
 
     services.lighttpd = {
@@ -36,11 +35,11 @@ in
       "127.0.0.88" = [ "dash.local" ]; # Dashboard
     };
 
-    # Encrypt whole yaml (binary format):
-    # sops encrypt /home/wol/.config/mihomo/config.yaml --input-type binary | save mihomo_config.yaml
-    sops.secrets.mihomo-config = {
-      sopsFile = "${inputs.nix-secrets}/mihomo_config.yaml";
-      key = "data";
-    };
+    # # Encrypt whole yaml (binary format):
+    # # sops encrypt /home/wol/.config/mihomo/config.yaml --input-type binary | save mihomo_config.yaml
+    # sops.secrets.mihomo-config = {
+    #   sopsFile = "${inputs.nix-secrets}/mihomo_config.yaml";
+    #   key = "data";
+    # };
   };
 }
