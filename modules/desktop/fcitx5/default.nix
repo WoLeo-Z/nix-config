@@ -50,11 +50,11 @@ in
       home.sessionVariables = lib.mkMerge [
         {
           # LANG = "zh_CN.UTF-8"; # not working?
-          XMODIFIERS = "@im=fcitx";
+          XMODIFIERS = "@im=fcitx"; # for x11
         }
         (lib.optionalAttrs (!config.services.desktopManager.plasma6.enable) {
-          GTK_IM_MODULE = "wayland"; # `wayland` to use tiv3, `fcitx` to use fcitx im module
-          QT_IM_MODULE = "fcitx";
+          GTK_IM_MODULE = "wayland"; # `wayland` to use text-input-version 3, `fcitx` to use fcitx im module
+          QT_IM_MODULE = "fcitx"; # for qt
           QT_IM_MODULES = "wayland;fcitx;ibus";
         })
       ];
