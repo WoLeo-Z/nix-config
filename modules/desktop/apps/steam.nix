@@ -52,7 +52,9 @@ in
     };
 
     # Better for steam proton games
-    systemd.extraConfig = "DefaultLimitNOFILE=1048576";
+    systemd.settings.Manager = {
+      DefaultLimitNOFILE = 1048576;
+    };
 
     # Support Xbox wireless controllers
     hardware.xpadneo.enable = true;

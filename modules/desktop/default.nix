@@ -44,7 +44,7 @@ in
             user = config.modules.profiles.user;
             # command = "$HOME/.wayland-session";
             command = lib.concatStringsSep " " [
-              "${lib.getExe pkgs.greetd.tuigreet}"
+              "${lib.getExe pkgs.tuigreet}"
               # "--cmd niri-session" # command to run
               # "--greeting 'lol'" # show custom text above login prompt
               "--time" # display the current date and time
