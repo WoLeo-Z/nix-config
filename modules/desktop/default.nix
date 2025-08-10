@@ -41,7 +41,7 @@ in
         enable = true;
         settings = {
           default_session = {
-            user = config.modules.profiles.user;
+            user = config.user.name;
             # command = "$HOME/.wayland-session";
             command = lib.concatStringsSep " " [
               "${lib.getExe pkgs.tuigreet}"
@@ -54,6 +54,10 @@ in
               # "--user-menu" # allow graphical selection of users from a menu
               "--asterisks" # display asterisks when a secret is typed
             ];
+          };
+          initial_session = {
+            user = config.user.name;
+            command = "${config.user.home}/.wayland-session";
           };
         };
       };

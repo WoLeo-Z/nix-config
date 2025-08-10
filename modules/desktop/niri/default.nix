@@ -87,5 +87,11 @@ in
         "--enable-gpu-rasterization"
       ];
     };
+
+    # For greetd initial_session
+    hm.home.file.".wayland-session" = {
+      source = "${lib.getExe' package "niri-session"}";
+      executable = true;
+    };
   };
 }
