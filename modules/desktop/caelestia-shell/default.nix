@@ -27,6 +27,7 @@ in
       home.packages = [
         caelestia-shell
         caelestia-cli
+        pkgs.libnotify # for notify-send
       ];
 
       systemd.user.services.caelestia-shell = {
