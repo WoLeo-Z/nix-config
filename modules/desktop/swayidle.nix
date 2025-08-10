@@ -29,17 +29,17 @@ in
           events = [
             {
               event = "lock";
-              command = lib.getExe pkgs.swaylock;
+              command = "${lib.getExe pkgs.swaylock} -fF";
             }
             {
               event = "before-sleep";
-              command = "${lib.getExe' pkgs.systemd "loginctl"} lock-session";
+              command = "${lib.getExe pkgs.swaylock} -fF";
             }
           ];
           timeouts = [
             {
               timeout = 300;
-              command = "${lib.getExe' pkgs.systemd "loginctl"} lock-session";
+              command = "${lib.getExe pkgs.swaylock} -fF";
             }
             # {
             #   timeout = 1800;
