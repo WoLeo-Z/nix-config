@@ -40,8 +40,8 @@ in
       '')
     ];
 
-    # hm.home.packages = with pkgs; [
-    #   moonlight # Sunshine Client
-    # ];
+    hm.home.packages = with pkgs; [
+      moonlight-qt # Sunshine Client
+    ];
   };
 }
