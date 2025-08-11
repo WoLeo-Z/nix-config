@@ -1,8 +1,11 @@
+{ pkgs, ... }:
+
 {
   # NetworkManager
   networking.networkmanager.enable = true;
 
-  programs.nm-applet.enable = true; # GUI
+  # GUI
+  environment.systemPackages = with pkgs; [ networkmanagerapplet ];
 
   systemd = {
     services.NetworkManager-wait-online.enable = false;
