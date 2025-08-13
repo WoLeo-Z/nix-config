@@ -40,6 +40,13 @@ in
       };
 
       # stylix.targets.kitty.enable = true;
+
+      # Fix: E558: Terminal entry not found in terminfo
+      # 'xterm-kitty' not known.
+      programs.ssh.extraConfig = ''
+        Host *
+          SetEnv TERM=xterm-256color
+      '';
     };
   };
 }
