@@ -73,11 +73,12 @@
       };
 
       services = {
+        apollo.enable = true;
         mediamtx.enable = false;
         mihomo.enable = true;
         openssh.enable = true;
         safeeyes.enable = true;
-        sunshine.enable = true;
+        sunshine.enable = false;
         tailscale.enable = true;
       };
     };
