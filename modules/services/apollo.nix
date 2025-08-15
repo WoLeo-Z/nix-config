@@ -33,7 +33,7 @@ in
 
     services.apollo = {
       enable = true;
-      package = inputs.apollo-flake.packages.${pkgs.system}.default;
+      package = inputs.apollo-flake.packages.${pkgs.system}.sunshine-cuda; # Apollo with cudaSupport
       autoStart = true;
       capSysAdmin = true;
       openFirewall = true;
