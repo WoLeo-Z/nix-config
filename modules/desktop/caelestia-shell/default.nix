@@ -37,7 +37,7 @@ in
           After = [ "graphical-session.target" ];
         };
         Service = {
-          ExecStart = "${lib.getExe caelestia-cli} shell";
+          ExecStart = "${lib.getExe caelestia-shell}";
           Restart = "on-failure";
         };
         Install.WantedBy = [ "graphical-session.target" ];
