@@ -34,7 +34,6 @@
             ghostty.enable = false;
             kitty.enable = true;
           };
-          nautilus.enable = true;
           browsers = {
             firefox.enable = false;
             google-chrome.enable = true;
@@ -64,11 +63,13 @@
           games = {
             osu-lazer.enable = true;
           };
-          flatpak.enable = false;
-          telegram.enable = true;
-          steam.enable = true;
-          bottles.enable = true;
+          android-studio.enable = false;
           bitwarden.enable = false;
+          bottles.enable = true;
+          flatpak.enable = false;
+          nautilus.enable = true;
+          steam.enable = true;
+          telegram.enable = true;
         };
       };
 
