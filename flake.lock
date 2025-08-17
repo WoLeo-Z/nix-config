@@ -10,11 +10,11 @@
       "locked": {
         "lastModified": 1755323391,
         "narHash": "sha256-MUkLvlX0wnFfoMdqassXDV8TXcM8k9kKULBLwx/LZe0=",
-        "path": "/home/wol/Project/apollo-flake",
+        "path": "/home/wol/Projects/apollo-flake",
         "type": "path"
       },
       "original": {
-        "path": "/home/wol/Project/apollo-flake",
+        "path": "/home/wol/Projects/apollo-flake",
         "type": "path"
       }
     },
