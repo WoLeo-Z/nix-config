@@ -37,10 +37,10 @@ in
             }
           ];
           timeouts = [
-            {
-              timeout = 300;
-              command = "${lib.getExe pkgs.swaylock} -fF";
-            }
+            # {
+            #   timeout = 300;
+            #   command = "${lib.getExe pkgs.swaylock} -fF";
+            # }
             # {
             #   timeout = 1800;
             #   command = "${lib.getExe' pkgs.systemd "systemctl"} suspend";
