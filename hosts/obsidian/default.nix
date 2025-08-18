@@ -68,6 +68,7 @@
           bottles.enable = true;
           flatpak.enable = false;
           nautilus.enable = true;
+          nemo.enable = true;
           steam.enable = true;
           telegram.enable = true;
         };

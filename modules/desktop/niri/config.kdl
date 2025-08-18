@@ -406,7 +406,8 @@ binds {
 
     Mod+RETURN { spawn "kitty"; }
     Mod+D { spawn "wofi"; }
-    Mod+E { spawn "nautilus" "--new-window";  }
+    // Mod+E { spawn "nautilus" "--new-window";  }
+    Mod+E { spawn "nemo";  }
     Super+Alt+L { spawn "swaylock"; }
     Super+Alt+Slash { spawn "bash" "-c" "systemctl suspend"; }
 
