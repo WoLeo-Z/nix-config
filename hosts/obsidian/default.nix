@@ -104,15 +104,6 @@
     '';
     # boot.kernelParams = [ "acpi_enforce_resources=lax" ]; # no need
 
-    # Fix: kernel: spd5118 1-0053: PM: failed to resume async: error -6
-    boot.blacklistedKernelModules = [ "spd5118" ];
-
-    # Not working?
-    # https://bbs.archlinux.org/viewtopic.php?id=300008
-    # boot.extraModprobeConfig = ''
-    #   options nvidia NVreg_PreserveVideoMemoryAllocations=1
-    # '';
-
     # FileSystems
     boot.supportedFilesystems = [ "ntfs" ];
 

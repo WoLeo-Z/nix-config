@@ -35,6 +35,17 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
       };
     };
 
+    boot.kernelParams = [
+      # Fix: kernel: spd5118 1-0053: PM: failed to resume async: error -6
+      # TODO: Check if working
+      # https://bbs.archlinux.org/viewtopic.php?id=300008
+      # https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend
+      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+      "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+
+      "nvidia.NVreg_DynamicPowerManagement=2" # slightly improve performance?
+    ];
+
     # # Cajole Firefox into video-acceleration (or try).
     # modules.desktop.browsers.librewolf.settings = {
     #   "media.ffmpeg.vaapi.enabled" = true;
