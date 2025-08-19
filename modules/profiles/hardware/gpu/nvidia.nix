@@ -65,6 +65,12 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
     #   })
     # ];
     nixpkgs.config.cudaSupport = true;
+
+    # TODO: remove this after NVIDIA fixed this
+    # https://forums.developer.nvidia.com/t/570-release-feedback-discussion/321956/248?page=13
+    environment.sessionVariables = {
+      GSK_RENDERER = "ngl";
+    };
   }
 
   # (mkIf (config.modules.desktop.type == "wayland") {
