@@ -28,16 +28,16 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
         # Only available from driver 515.43.04+. Currently alpha-quality/buggy,
         # so false is currently the recommended setting.
         open = mkDefault true;
-        # Save some idle watts.
-        powerManagement.enable = true; # see NixOS/nixos-hardware#348
+        powerManagement.enable = true;
         modesetting.enable = true;
         package = config.boot.kernelPackages.nvidiaPackages.beta;
       };
     };
 
     boot.kernelParams = [
-      # Fix: kernel: spd5118 1-0053: PM: failed to resume async: error -6
-      # TODO: Check if working
+      # FIXME: Doesn't work
+      # Try to fix: kernel: spd5118 1-0053: PM: failed to resume async: error -6
+      # My next GPU wont be NVIDIA.
       # https://bbs.archlinux.org/viewtopic.php?id=300008
       # https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
