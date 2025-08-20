@@ -16,15 +16,11 @@ in
 
   config = mkIf cfg.enable {
     hm = {
-      home.packages = with pkgs; [ obsidian ];
-    };
-
-    nixpkgs.overlays = [
-      (self: super: {
-        obsidian = super.obsidian.override {
+      home.packages = with pkgs; [
+        (obsidian.override {
           commandLineArgs = lib.constants.chromiumArgs; # Fix input method
-        };
-      })
-    ];
+        })
+      ];
+    };
   };
 }
