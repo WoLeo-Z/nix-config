@@ -63,7 +63,7 @@
           games = {
             osu-lazer.enable = true;
           };
-          android-studio.enable = false;
+          android-studio.enable = true;
           bitwarden.enable = false;
           bottles.enable = true;
           flatpak.enable = false;
