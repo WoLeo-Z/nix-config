@@ -10,8 +10,8 @@ with lib;
 let
   cfg = config.modules.desktop.caelestia-shell;
 
-  caelestia-shell = inputs.caelestia-shell.packages."x86_64-linux".default;
-  caelestia-cli = inputs.caelestia-cli.packages."x86_64-linux".default;
+  caelestia-shell = inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  caelestia-cli = inputs.caelestia-cli.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
   wallpaperPathFile = pkgs.writeText "caelestia-shell-wallpaper-path" ''
     ${config.modules.desktop.appearance.image}

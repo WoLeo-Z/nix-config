@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   inputs,
   ...
 }:
@@ -8,7 +9,7 @@
 with lib;
 let
   cfg = config.modules.desktop.apps.media.spotify;
-  spicePkgs = inputs.spicetify-nix.legacyPackages."x86_64-linux";
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   imports = [ inputs.spicetify-nix.nixosModules.default ];

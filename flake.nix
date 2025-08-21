@@ -165,7 +165,6 @@
                   in
                   config {
                     inherit inputs lib;
-                    # pkgs = nixpkgs.legacyPackages."x86_64-linux";
                   };
               in
               builtins.listToAttrs (

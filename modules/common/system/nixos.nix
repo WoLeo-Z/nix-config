@@ -37,7 +37,7 @@
     lm_sensors # sensors
 
     # Nix
-    inputs.nix-tree.packages."x86_64-linux".default
+    inputs.nix-tree.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Misc
     which
