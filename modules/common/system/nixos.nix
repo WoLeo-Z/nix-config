@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  inputs,
   ...
 }:
 
@@ -37,7 +36,7 @@
     lm_sensors # sensors
 
     # Nix
-    inputs.nix-tree.packages.${pkgs.stdenv.hostPlatform.system}.default
+    nix-tree
 
     # Misc
     which
