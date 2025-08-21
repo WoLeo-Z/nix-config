@@ -9,10 +9,10 @@ with lib;
 let
   cfg = config.modules.desktop.swayidle;
 
-  # After resume, if Swaylock is not unlocked for 60 seconds, system will automatically suspend.
+  # After resume, if Hyprlock is not unlocked for 60 seconds, system will automatically suspend.
   auto-suspend-after-resume = pkgs.writeShellScriptBin "auto-suspend-after-resume" ''
     ${lib.getExe' pkgs.coreutils "sleep"} 60
-    if ${lib.getExe' pkgs.procps "pgrep"} "swaylock" > /dev/null; then
+    if ${lib.getExe' pkgs.procps "pgrep"} "hyprlock" > /dev/null; then
       ${lib.getExe' pkgs.systemd "systemctl"} suspend
     fi
   '';
@@ -23,45 +23,35 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm = {
-      programs = {
-        swaylock.enable = true;
-      };
+    modules.desktop.hyprlock.enable = true;
 
-      stylix.targets.swaylock.enable = true;
-
-      services = {
-        swayidle = {
-          enable = true;
-          # extraArgs = lib.mkForce [ ]; # remove `-w` to avoid double lock bug
-          events = [
-            {
-              event = "lock";
-              command = "${lib.getExe pkgs.swaylock} -fF";
-            }
-            {
-              event = "before-sleep";
-              command = "${lib.getExe pkgs.swaylock} -fF";
-            }
-            {
-              event = "after-resume";
-              command = "${lib.getExe auto-suspend-after-resume}";
-            }
-          ];
-          timeouts = [
-            # {
-            #   timeout = 300;
-            #   command = "${lib.getExe pkgs.swaylock} -fF";
-            # }
-            # {
-            #   timeout = 1800;
-            #   command = "${lib.getExe' pkgs.systemd "systemctl"} suspend";
-            # }
-          ];
-        };
-      };
+    hm.services.swayidle = {
+      enable = true;
+      extraArgs = lib.mkForce [ ]; # remove `-w` to avoid double lock bug
+      events = [
+        {
+          event = "lock";
+          command = "${lib.getExe pkgs.hyprlock}";
+        }
+        {
+          event = "before-sleep";
+          command = "${lib.getExe pkgs.hyprlock}";
+        }
+        {
+          event = "after-resume";
+          command = "${lib.getExe auto-suspend-after-resume}";
+        }
+      ];
+      timeouts = [
+        # {
+        #   timeout = 300;
+        #   command = "${lib.getExe pkgs.hyprlock}";
+        # }
+        # {
+        #   timeout = 1800;
+        #   command = "${lib.getExe' pkgs.systemd "systemctl"} suspend";
+        # }
+      ];
     };
-
-    # security.pam.services.swaylock = { };
   };
 }
