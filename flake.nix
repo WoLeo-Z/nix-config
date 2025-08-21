@@ -147,38 +147,13 @@
             # Import modules
             modules = lib.collectModules ./modules;
 
-            # Import hosts
-            hostConfigs =
-              let
-                hostDirs = builtins.attrNames (builtins.readDir ./hosts);
-
-                getHostConfig =
-                  hostName:
-                  let
-                    hostPath = ./hosts + "/${hostName}/default.nix";
-                    config = import hostPath;
-                  in
-                  config {
-                    inherit inputs lib;
-                  };
-              in
-              builtins.listToAttrs (
-                builtins.map (hostName: {
-                  name = hostName;
-                  value = getHostConfig hostName;
-                }) hostDirs
-              );
-
             mkNixosConfiguration =
-              hostName: hostConfig:
+              hostName: system:
               nixpkgs.lib.nixosSystem {
-                system = hostConfig.system;
+                inherit system;
                 specialArgs = { inherit inputs lib; };
                 modules = [
-                  { networking.hostName = hostConfig.hostName; }
-
-                  hostConfig.config
-                  hostConfig.hardware
+                  (./hosts + "/${hostName}/default.nix")
 
                   home-manager.nixosModules.home-manager
 
@@ -187,7 +162,11 @@
                 ++ modules;
               };
           in
-          builtins.mapAttrs mkNixosConfiguration hostConfigs;
+          {
+            obsidian = mkNixosConfiguration "obsidian" "x86_64-linux";
+            vm = mkNixosConfiguration "vm" "x86_64-linux";
+            vostro = mkNixosConfiguration "vostro" "x86_64-linux";
+          };
       };
     };
 }
