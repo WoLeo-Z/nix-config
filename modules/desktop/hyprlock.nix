@@ -24,7 +24,7 @@ in
           };
 
           background = {
-            # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
+            # all these options are taken from hyprland, see https://wiki.hypr.land/Configuring/Variables/#blur for explanations
             blur_size = 4;
             blur_passes = 3; # 0 disables blurring
             noise = 0.0117;
