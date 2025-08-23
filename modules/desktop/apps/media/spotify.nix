@@ -43,5 +43,7 @@ in
     ];
 
     # stylix.targets.spicetify.enable = true;
+
+    hm.home.packages = with pkgs; [ spotdl ];
   };
 }
