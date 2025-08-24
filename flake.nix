@@ -55,6 +55,7 @@
 
     caelestia-shell = {
       url = "github:WoLeo-Z/caelestia-shell";
+      # url = "git+file:///home/wol/Projects/caelestia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
