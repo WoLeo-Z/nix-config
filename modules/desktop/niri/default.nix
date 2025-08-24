@@ -29,15 +29,23 @@ in
       package = package;
     };
 
+    modules.desktop.xwayland-satellite.enable = true;
+
+    # Astal Shell
+    # modules.desktop.astal-shell.enable = true;
+    # modules.desktop.swww.enable = true;
+    # modules.desktop.swaync.enable = true;
+
+    # Caelestia Shell
     modules.desktop.caelestia-shell.enable = true;
 
-    modules.desktop.waybar.enable = false;
-    modules.desktop.swww.enable = false;
-    modules.desktop.swaync.enable = false;
+    # Waybar
+    # modules.desktop.waybar.enable = true;
+    # modules.desktop.swww.enable = true;
+    # modules.desktop.swaync.enable = true;
 
     modules.desktop.wofi.enable = true;
     modules.desktop.swayidle.enable = true;
-    modules.desktop.xwayland-satellite.enable = true;
 
     hm = {
       home.packages = with pkgs; [

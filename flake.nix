@@ -53,6 +53,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    astal-shell.url = "github:knoopx/astal-shell";
+
     caelestia-shell = {
       url = "github:WoLeo-Z/caelestia-shell";
       # url = "git+file:///home/wol/Projects/caelestia-shell";
