@@ -137,8 +137,7 @@
     device = "/dev/disk/by-label/BOOT"; # sudo fatlabel /dev/vda1 BOOT
     fsType = "vfat";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "umask=0077"
     ];
   };
 }

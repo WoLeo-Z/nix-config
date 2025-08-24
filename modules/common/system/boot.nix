@@ -1,6 +1,5 @@
 { lib, pkgs, ... }:
 
-with lib;
 {
   boot = {
     # Kernel
@@ -24,34 +23,44 @@ with lib;
     };
   };
 
-  # Bootloader: Grub
+  # Bootloader
   boot.loader = {
     timeout = 3;
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
-    grub = {
-      efiSupport = true;
-      devices = [ "nodev" ];
-      useOSProber = mkDefault false;
-      # extraGrubInstallArgs = [ "--bootloader-id=${host}" ];
-      # configurationName = "${host}";
-      extraConfig = ''
-        insmod kbd
-        set keymap=us
-      '';
-      extraEntries = ''
-        menuentry "Reboot" {
-          reboot
-        }
-        menuentry "Poweroff" {
-          halt
-        }
-        menuentry "UEFI Firmware Settings" {
-          fwsetup
-        }
-      '';
+
+    # grub = {
+    #   efiSupport = true;
+    #   devices = [ "nodev" ];
+    #   useOSProber = lib.mkDefault false;
+    #   # extraGrubInstallArgs = [ "--bootloader-id=${host}" ];
+    #   # configurationName = "${host}";
+    #   extraConfig = ''
+    #     insmod kbd
+    #     set keymap=us
+    #   '';
+    #   extraEntries = ''
+    #     menuentry "Reboot" {
+    #       reboot
+    #     }
+    #     menuentry "Poweroff" {
+    #       halt
+    #     }
+    #     menuentry "UEFI Firmware Settings" {
+    #       fwsetup
+    #     }
+    #   '';
+    # };
+
+    systemd-boot = {
+      enable = true;
+      editor = true;
+      # we use Git for version control, so we don't need to keep too many generations.
+      configurationLimit = lib.mkDefault 10;
+      # pick the highest resolution for systemd-boot's console.
+      consoleMode = lib.mkDefault "max";
     };
   };
 
