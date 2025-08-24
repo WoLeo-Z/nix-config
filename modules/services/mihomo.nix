@@ -25,7 +25,6 @@ in
 
     systemd.services.mihomo.serviceConfig = {
       Restart = "on-failure";
-      RestartSec = 2;
     };
 
     services.lighttpd = {

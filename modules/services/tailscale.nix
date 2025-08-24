@@ -21,6 +21,10 @@ in
       TimeoutStopSec = 1; # It hangs on shutdown
     };
 
+    # nixos/tailscale: tailscaled-autoconnect.service prevents multi-user.target from reaching "active" state
+    # REVIEW: https://github.com/nixos/nixpkgs/issues/430756
+    systemd.services.tailscaled-autoconnect.serviceConfig.Type = lib.mkForce "simple";
+
     sops.secrets.tailscale_key = {
       key = "tailscale_key/vostro"; # TODO: don't use vostro
       restartUnits = [ config.systemd.services.tailscaled.name ];

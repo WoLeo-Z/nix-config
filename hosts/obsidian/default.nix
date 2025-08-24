@@ -13,7 +13,7 @@
         "gpu/nvidia"
         "audio"
         "bluetooth"
-        "printing/wireless"
+        # "printing/wireless"
         "security-keys"
         "mouse-fix"
         "rtw8852c-fix"
