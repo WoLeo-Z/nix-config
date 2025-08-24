@@ -78,6 +78,7 @@
       mediamtx.enable = false;
       mihomo.enable = true;
       openssh.enable = true;
+      restic.enable = true;
       safeeyes.enable = true;
       sunshine.enable = true;
       tailscale.enable = true;
