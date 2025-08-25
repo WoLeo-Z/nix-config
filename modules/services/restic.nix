@@ -29,7 +29,7 @@ in
         repository = "rclone:pan-moe-backup:obsidian";
 
         timerConfig = {
-          OnCalendar = "daily";
+          OnCalendar = "*-*-* 08:00:00";
           Persistent = true;
         };
         pruneOpts = [
