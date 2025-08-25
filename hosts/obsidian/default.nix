@@ -70,6 +70,7 @@
         nemo.enable = true;
         steam.enable = true;
         telegram.enable = true;
+        wechat.enable = true;
       };
     };
 
