@@ -1,4 +1,10 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}:
 
 {
   programs.ssh.startAgent = true;
@@ -24,7 +30,32 @@
           # required to prevent sending default identity files first.
           identitiesOnly = true;
         };
+        "do-sfo" = {
+          hostname = "do-sfo";
+          port = 22;
+          user = "root";
+          identityFile = config.sops.secrets."private_keys/hosts/do-sfo".path;
+        };
+        "ah-us" = {
+          hostname = "ah-us";
+          port = 22;
+          user = "root";
+          identityFile = config.sops.secrets."private_keys/hosts/ah-us".path;
+        };
       };
     };
+  };
+
+  sops.secrets."private_keys/hosts/do-sfo" = {
+    sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
+    key = "hosts/do-sfo"; # Specify the location of this secret
+    mode = "0600";
+    owner = config.user.name;
+  };
+  sops.secrets."private_keys/hosts/ah-us" = {
+    sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
+    key = "hosts/ah-us"; # Specify the location of this secret
+    mode = "0600";
+    owner = config.user.name;
   };
 }
