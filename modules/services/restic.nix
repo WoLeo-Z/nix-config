@@ -26,7 +26,7 @@ in
           "/home/wol/Documents"
           "/home/wol/Pictures"
         ];
-        repository = "rclone:pan-moe-backup:obsidian";
+        repository = "rclone:restic:obsidian";
 
         timerConfig = {
           OnCalendar = "*-*-* 08:00:00";
