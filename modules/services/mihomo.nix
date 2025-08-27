@@ -25,6 +25,11 @@ in
 
     systemd.services.mihomo.serviceConfig = {
       Restart = "on-failure";
+
+      # workaround: fix when loading config: Parse config error: [] is not a valid value
+      # maybe caused by LoadCredential?
+      # https://github.com/NixOS/nixpkgs/blob/0d00f23f023b7215b3f1035adb5247c8ec180dbc/nixos/modules/services/networking/mihomo.nix#L76
+      ExecStartPre = "${lib.getExe' pkgs.coreutils "sleep"} 0.5";
     };
 
     services.lighttpd = {
