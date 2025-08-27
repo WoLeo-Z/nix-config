@@ -583,7 +583,7 @@ binds {
     Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
+    Mod+G       { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
@@ -632,8 +632,9 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     // My custom bindings
-    Mod+Tab            { toggle-overview; }
-    Mod+Shift+W        { spawn "change-wallpaper"; }
-    Mod+Alt+Page_Up    allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
-    Mod+Alt+Page_Down  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
+    Mod+Tab             { toggle-overview; }
+    Mod+Shift+W         { spawn "change-wallpaper"; }
+    Mod+Alt+Page_Up     allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
+    Mod+Alt+Page_Down   allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
+    Mod+V               { spawn "sh" "-c" "cliphist list | wofi --dmenu | cliphist decode | wl-copy"; }
 }
