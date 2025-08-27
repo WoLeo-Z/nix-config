@@ -17,8 +17,11 @@
   hm = {
     programs.ssh = {
       enable = true;
-      addKeysToAgent = "yes";
+      enableDefaultConfig = false;
       matchBlocks = {
+        "*" = {
+          addKeysToAgent = "yes";
+        };
         "github.com" = {
           # "Using SSH over the HTTPS port for GitHub"
           # "(port 22 is banned by some proxies / firewalls)"
