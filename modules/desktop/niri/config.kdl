@@ -413,7 +413,7 @@ binds {
     Mod+D { spawn "wofi"; }
     Mod+E { spawn "nautilus" "--new-window";  }
     // Mod+E { spawn "nemo";  }
-    Super+Alt+L { spawn "hyprlock"; }
+    Super+Alt+L { spawn "swaylock"; }
     Super+Alt+Slash { spawn "bash" "-c" "systemctl suspend"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.

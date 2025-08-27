@@ -9,10 +9,10 @@ with lib;
 let
   cfg = config.modules.desktop.swayidle;
 
-  # After resume, if Hyprlock is not unlocked for 60 seconds, system will automatically suspend.
+  # After resume, if not unlocked for 60 seconds, system will automatically suspend.
   auto-suspend-after-resume = pkgs.writeShellScriptBin "auto-suspend-after-resume" ''
     ${lib.getExe' pkgs.coreutils "sleep"} 60
-    if ${lib.getExe' pkgs.procps "pgrep"} "hyprlock" > /dev/null; then
+    if ${lib.getExe' pkgs.procps "pgrep"} "swaylock" > /dev/null; then
       ${lib.getExe' pkgs.systemd "systemctl"} suspend
     fi
   '';
@@ -23,7 +23,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    modules.desktop.hyprlock.enable = true;
+    modules.desktop.swaylock.enable = true;
 
     hm.services.swayidle = {
       enable = true;
@@ -31,11 +31,11 @@ in
       events = [
         {
           event = "lock";
-          command = "${lib.getExe pkgs.hyprlock}";
+          command = "${lib.getExe pkgs.swaylock}";
         }
         {
           event = "before-sleep";
-          command = "${lib.getExe pkgs.hyprlock}";
+          command = "${lib.getExe pkgs.swaylock}";
         }
         {
           event = "after-resume";
@@ -45,7 +45,7 @@ in
       timeouts = [
         # {
         #   timeout = 300;
-        #   command = "${lib.getExe pkgs.hyprlock}";
+        #   command = "${lib.getExe pkgs.swaylock}";
         # }
         # {
         #   timeout = 1800;
