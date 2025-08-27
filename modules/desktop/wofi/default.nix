@@ -16,7 +16,7 @@ in
         settings = {
           # General
           show = "drun";
-          prompt = "Apps";
+          prompt = "Search";
           normal_window = true;
           layer = "top";
           term = config.modules.desktop.apps.terminal.default;
@@ -33,7 +33,7 @@ in
           # Images
           allow_markup = true;
           allow_images = true;
-          image_size = 24;
+          image_size = 32;
 
           # Search
           matching_mode = "fuzzy";
