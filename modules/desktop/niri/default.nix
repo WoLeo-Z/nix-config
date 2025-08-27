@@ -44,7 +44,9 @@ in
     # modules.desktop.swww.enable = true;
     # modules.desktop.swaync.enable = true;
 
+    modules.desktop.rofi.enable = true;
     modules.desktop.wofi.enable = true;
+
     modules.desktop.swayidle.enable = true;
 
     hm = {

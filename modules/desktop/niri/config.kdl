@@ -410,7 +410,7 @@ binds {
     // `niri msg action do-something`.
 
     Mod+RETURN { spawn "kitty"; }
-    Mod+D { spawn "wofi"; }
+    Mod+D { spawn "rofi-launcher"; }
     Mod+E { spawn "nautilus" "--new-window";  }
     // Mod+E { spawn "nemo";  }
     Super+Alt+L { spawn "swaylock"; }
