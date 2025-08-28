@@ -636,5 +636,5 @@ binds {
     Mod+Shift+W         { spawn "change-wallpaper"; }
     Mod+Alt+Page_Up     allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
     Mod+Alt+Page_Down   allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
-    Mod+V               { spawn "sh" "-c" "cliphist list | wofi --dmenu | cliphist decode | wl-copy"; }
+    Mod+V               { spawn "rofi-cliphist"; }
 }

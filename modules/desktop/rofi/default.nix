@@ -12,6 +12,9 @@ let
   rofi-launcher = pkgs.writeShellScriptBin "rofi-launcher" ''
     rofi -show drun -theme $HOME/.config/rofi/launcher/style.rasi
   '';
+  rofi-cliphist = pkgs.writeShellScriptBin "rofi-cliphist" ''
+    cliphist list | rofi -dmenu -theme $HOME/.config/rofi/cliphist/style.rasi | cliphist decode | wl-copy
+  '';
 in
 {
   options.modules.desktop.rofi = {
@@ -31,6 +34,7 @@ in
 
       home.packages = [
         rofi-launcher
+        rofi-cliphist
       ];
 
       xdg.configFile."rofi" = {
