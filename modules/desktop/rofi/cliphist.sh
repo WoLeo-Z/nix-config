@@ -1,0 +1,1 @@
+cliphist list | rofi -dmenu -theme $XDG_CONFIG_HOME/rofi/cliphist/style.rasi | cliphist decode | wl-copy

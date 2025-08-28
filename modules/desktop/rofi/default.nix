@@ -9,12 +9,8 @@ with lib;
 let
   cfg = config.modules.desktop.rofi;
 
-  rofi-launcher = pkgs.writeShellScriptBin "rofi-launcher" ''
-    rofi -show drun -theme $HOME/.config/rofi/launcher/style.rasi
-  '';
-  rofi-cliphist = pkgs.writeShellScriptBin "rofi-cliphist" ''
-    cliphist list | rofi -dmenu -theme $HOME/.config/rofi/cliphist/style.rasi | cliphist decode | wl-copy
-  '';
+  rofi-launcher = pkgs.writeShellScriptBin "rofi-launcher" ./launcher.sh;
+  rofi-cliphist = pkgs.writeShellScriptBin "rofi-cliphist" ./cliphist.sh;
 in
 {
   options.modules.desktop.rofi = {

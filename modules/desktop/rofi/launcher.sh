@@ -1,0 +1,1 @@
+rofi -show drun -theme $XDG_CONFIG_HOME/rofi/launcher/style.rasi
