@@ -413,8 +413,8 @@ binds {
     Mod+D { spawn "rofi-launcher"; }
     Mod+E { spawn "nautilus" "--new-window";  }
     // Mod+E { spawn "nemo";  }
-    Super+Alt+L { spawn "swaylock"; }
-    Super+Alt+Slash { spawn "bash" "-c" "systemctl suspend"; }
+    Mod+Alt+L { spawn "swaylock"; }
+    Mod+Alt+Slash { spawn "bash" "-c" "systemctl suspend"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -637,4 +637,5 @@ binds {
     Mod+Alt+Page_Up     allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
     Mod+Alt+Page_Down   allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
     Mod+V               { spawn "rofi-cliphist"; }
+    Mod+P               { spawn "rofi-powermenu"; }
 }
