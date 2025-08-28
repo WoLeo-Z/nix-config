@@ -23,7 +23,7 @@ in
     services.restic.backups = {
       obsidian = {
         paths = [
-          "/home/wol/Documents"
+          "/home/wol/Documents/Obsidian"
           "/home/wol/Pictures"
         ];
         repository = "rclone:restic:obsidian";
