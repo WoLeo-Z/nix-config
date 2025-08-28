@@ -21,5 +21,10 @@ in
 
       stylix.targets.swaylock.enable = true;
     };
+
+    # Important note:
+    # If you don't use the Sway module (programs.sway.enable)
+    # you need to set "security.pam.services.swaylock = {};" manually.
+    security.pam.services.swaylock = { };
   };
 }

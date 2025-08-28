@@ -27,19 +27,19 @@ in
 
     hm.services.swayidle = {
       enable = true;
-      extraArgs = lib.mkForce [ ]; # remove `-w` to avoid double lock bug
       events = [
         {
           event = "lock";
-          command = "${lib.getExe pkgs.swaylock}";
+          command = "${lib.getExe pkgs.swaylock} -fF";
         }
         {
           event = "before-sleep";
-          command = "${lib.getExe pkgs.swaylock}";
+          command = "${lib.getExe pkgs.swaylock} -fF";
         }
         {
           event = "after-resume";
-          command = "${lib.getExe auto-suspend-after-resume}";
+          # # use "&" run it in background, so swayidle won't wait for it
+          command = "${lib.getExe auto-suspend-after-resume} &";
         }
       ];
       timeouts = [
