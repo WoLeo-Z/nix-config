@@ -637,5 +637,4 @@ binds {
     Mod+Alt+Page_Up     allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
     Mod+Alt+Page_Down   allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
     Mod+V               { spawn "rofi-cliphist"; }
-    Mod+P               { spawn "rofi-powermenu"; }
 }
