@@ -227,11 +227,11 @@
         "quickshell": "quickshell_2"
       },
       "locked": {
-        "lastModified": 1756178843,
-        "narHash": "sha256-QUdplmGBHJP2Fha8E9gdlHRMhzy85b+v0nDigHlIBko=",
+        "lastModified": 1756563298,
+        "narHash": "sha256-yPi/GqsP5BQoDVt6cM3Zhzw6YJ5dHgYlOjMWiM/cdjs=",
         "owner": "WoLeo-Z",
         "repo": "caelestia-shell",
-        "rev": "f8fac55f8c833f40dcd70be78669d5b00728219f",
+        "rev": "f45b494dbf5682d6007ae7aba6f4ff8958e21784",
         "type": "github"
       },
       "original": {
