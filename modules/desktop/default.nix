@@ -88,6 +88,10 @@ in
 
     hm.home.packages = with pkgs; [
       baobab # Disk Usage Analyzer
+
+      # Audio Processing
+      ffmpeg
+      id3v2
     ];
   };
 }
