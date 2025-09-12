@@ -84,15 +84,33 @@ in
             "[json]" = {
               "editor.defaultFormatter" = "esbenp.prettier-vscode";
             };
+
+            # C/C++
+            "C_Cpp.clang_format_fallbackStyle" = "LLVM";
+
+            # Run Code configuration
+            "code-runner.runInTerminal" = true;
+            "code-runner.saveFileBeforeRun" = true;
           };
           extensions = with pkgs.vscode-extensions; [
             ms-ceintl.vscode-language-pack-zh-hans
             jnoortheen.nix-ide
             gruntfuggly.todo-tree
             esbenp.prettier-vscode
+
+            # C/C++
+            ms-vscode.cmake-tools
+            ms-vscode.cpptools
+            formulahendry.code-runner
           ];
         };
       };
+
+      home.packages = with pkgs; [
+        gcc
+        # gdb
+        # cmake
+      ];
 
       stylix.targets.vscode.enable = true;
     };
