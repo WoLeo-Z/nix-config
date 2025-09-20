@@ -65,6 +65,7 @@
         android-studio.enable = true;
         bitwarden.enable = false;
         bottles.enable = true;
+        claude-code.enable = true;
         flatpak.enable = false;
         nautilus.enable = true;
         nemo.enable = true;
