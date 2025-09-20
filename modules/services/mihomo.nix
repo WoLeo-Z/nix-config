@@ -55,6 +55,7 @@ in
         HTTPS_PROXY = http_proxy;
         all_proxy = http_proxy;
         ALL_PROXY = http_proxy;
+        NO_PROXY = "localhost,127.0.0.1,::1";
       };
 
     # # Encrypt whole yaml (binary format):
