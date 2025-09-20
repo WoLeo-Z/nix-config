@@ -31,8 +31,23 @@ in
 
       programs.vscode = {
         profiles.default = {
+          userSettings = {
+            # Recommended Settings for VS Code
+            # https://dartcode.org/docs/recommended-settings/
+
+            "debug.internalConsoleOptions" = "openOnSessionStart";
+            "[dart]" = {
+              "editor.formatOnSave" = true;
+              "editor.formatOnType" = true;
+              "editor.rulers" = [ 80 ];
+              "editor.selectionHighlight" = false;
+              "editor.tabCompletion" = "onlySnippets";
+              "editor.wordBasedSuggestions" = "off";
+            };
+          };
           extensions = with pkgs.vscode-extensions; [
             dart-code.flutter
+            dart-code.dart-code
           ];
         };
       };
