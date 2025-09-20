@@ -72,6 +72,9 @@
         telegram.enable = true;
         wechat.enable = true;
       };
+      develop = {
+        flutter.enable = true;
+      };
     };
 
     services = {
