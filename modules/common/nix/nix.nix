@@ -1,9 +1,10 @@
 # Referenced from: https://github.com/sukhmancs/nixos-configs/blob/4578594ef84c39e4e92558fa45e99dfebc5dc635/modules/shared/nix/default.nix
-{ pkgs, config, ... }:
+{ config, ... }:
 
 {
   nix = {
-    package = pkgs.lixPackageSets.latest.lix;
+    # We use Determinate Nix
+    # package = pkgs.lixPackageSets.latest.lix;
 
     # Run the Nix daemon on lowest possible priority so that my system
     # stays responsive during demanding tasks such as GC and builds.

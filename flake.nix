@@ -68,6 +68,8 @@
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
     impermanence.url = "github:nix-community/impermanence";
 
     sops-nix = {
@@ -171,6 +173,7 @@
                   home-manager.nixosModules.home-manager
 
                   inputs.chaotic.nixosModules.default
+                  inputs.determinate.nixosModules.default
                 ]
                 ++ modules;
               };
