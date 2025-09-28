@@ -72,6 +72,7 @@
         qemu.enable = false;
         steam.enable = true;
         telegram.enable = true;
+        virtualbox.enable = true;
         wechat.enable = true;
       };
       develop = {
