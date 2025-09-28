@@ -35,19 +35,20 @@ in
     # modules.desktop.astal-shell.enable = true;
     # modules.desktop.swww.enable = true;
     # modules.desktop.swaync.enable = true;
+    # modules.desktop.swayidle.enable = true;
 
     # Caelestia Shell
     modules.desktop.caelestia-shell.enable = true;
+    modules.desktop.swayidle.enable = true;
 
     # Waybar
     # modules.desktop.waybar.enable = true;
     # modules.desktop.swww.enable = true;
     # modules.desktop.swaync.enable = true;
+    # modules.desktop.swayidle.enable = true;
 
     modules.desktop.rofi.enable = true;
     modules.desktop.wofi.enable = true;
-
-    modules.desktop.swayidle.enable = true;
 
     hm = {
       home.packages = with pkgs; [
