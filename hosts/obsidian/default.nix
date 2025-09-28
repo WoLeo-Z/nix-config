@@ -69,6 +69,7 @@
         flatpak.enable = false;
         nautilus.enable = true;
         nemo.enable = true;
+        qemu.enable = false;
         steam.enable = true;
         telegram.enable = true;
         wechat.enable = true;
