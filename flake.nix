@@ -46,13 +46,6 @@
     };
 
     # Others
-    apollo-flake = {
-      # REVIEW: change to upstream:
-      # url = "github:nil-andreas/apollo-flake";
-      url = "path:/home/wol/Projects/apollo-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     astal-shell.url = "github:knoopx/astal-shell";
 
     caelestia-shell = {

@@ -22,24 +22,6 @@
         "type": "github"
       }
     },
-    "apollo-flake": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1755323391,
-        "narHash": "sha256-MUkLvlX0wnFfoMdqassXDV8TXcM8k9kKULBLwx/LZe0=",
-        "path": "/home/wol/Projects/apollo-flake",
-        "type": "path"
-      },
-      "original": {
-        "path": "/home/wol/Projects/apollo-flake",
-        "type": "path"
-      }
-    },
     "astal": {
       "inputs": {
         "nixpkgs": [
@@ -154,7 +136,7 @@
           "nix-ai-tools",
           "nixpkgs"
         ],
-        "systems": "systems_2"
+        "systems": "systems"
       },
       "locked": {
         "lastModified": 1755332143,
@@ -326,7 +308,7 @@
         "rev": "1e16c8f8a44573bb0648c76b6c98352436f5171e",
         "revCount": 304,
         "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/determinate/3.11.2/01993f0b-1215-7072-ac1a-f2b27b566115/source.tar.gz?rev=1e16c8f8a44573bb0648c76b6c98352436f5171e&revCount=304"
+        "url": "https://api.flakehub.com/f/pinned/DeterminateSystems/determinate/3.11.2/01993f0b-1215-7072-ac1a-f2b27b566115/source.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -517,24 +499,6 @@
       "original": {
         "type": "tarball",
         "url": "https://flakehub.com/f/DeterminateSystems/flake-schemas/%3D0.1.5.tar.gz"
-      }
-    },
-    "flake-utils": {
-      "inputs": {
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
       }
     },
     "fromYaml": {
@@ -1106,7 +1070,6 @@
     },
     "root": {
       "inputs": {
-        "apollo-flake": "apollo-flake",
         "astal-shell": "astal-shell",
         "caelestia-cli": "caelestia-cli",
         "caelestia-shell": "caelestia-shell_2",
@@ -1126,7 +1089,7 @@
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
-        "systems": "systems_5",
+        "systems": "systems_4",
         "treefmt-nix": "treefmt-nix_2",
         "zen-browser": "zen-browser"
       }
@@ -1177,7 +1140,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "systems": "systems_3"
+        "systems": "systems_2"
       },
       "locked": {
         "lastModified": 1757824114,
@@ -1206,7 +1169,7 @@
           "nixpkgs"
         ],
         "nur": "nur_2",
-        "systems": "systems_4",
+        "systems": "systems_3",
         "tinted-foot": "tinted-foot",
         "tinted-kitty": "tinted-kitty",
         "tinted-schemes": "tinted-schemes",
@@ -1273,21 +1236,6 @@
       }
     },
     "systems_4": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
-    "systems_5": {
       "locked": {
         "lastModified": 1689347949,
         "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",

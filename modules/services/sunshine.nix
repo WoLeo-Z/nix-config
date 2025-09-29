@@ -19,13 +19,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    assertions = [
-      {
-        assertion = !(config.modules.services.apollo.enable && config.modules.services.sunshine.enable);
-        message = "Apollo and Sunshine cannot be both enabled";
-      }
-    ];
-
     services.sunshine = {
       enable = true;
       autoStart = true;
