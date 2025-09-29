@@ -38,7 +38,11 @@ in
     # modules.desktop.swayidle.enable = true;
 
     # Caelestia Shell
-    modules.desktop.caelestia-shell.enable = true;
+    # modules.desktop.caelestia-shell.enable = true;
+    # modules.desktop.swayidle.enable = true;
+
+    # Caelestia Shell
+    modules.desktop.dankmaterialshell.enable = true;
     modules.desktop.swayidle.enable = true;
 
     # Waybar
