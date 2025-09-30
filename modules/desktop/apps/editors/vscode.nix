@@ -91,12 +91,18 @@ in
             # Run Code configuration
             "code-runner.runInTerminal" = true;
             "code-runner.saveFileBeforeRun" = true;
+
+            # Markdown
+            "[markdown]" = {
+              "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
+            };
           };
           extensions = with pkgs.vscode-extensions; [
             ms-ceintl.vscode-language-pack-zh-hans
             jnoortheen.nix-ide
             gruntfuggly.todo-tree
             esbenp.prettier-vscode
+            davidanson.vscode-markdownlint
 
             # C/C++
             ms-vscode.cmake-tools
