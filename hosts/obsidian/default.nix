@@ -78,6 +78,7 @@
       };
       develop = {
         flutter.enable = true;
+        lg.enable = true;
       };
     };
 
