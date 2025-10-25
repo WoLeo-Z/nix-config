@@ -70,10 +70,10 @@
         flatpak.enable = false;
         nautilus.enable = true;
         nemo.enable = true;
-        qemu.enable = false;
+        qemu.enable = true;
         steam.enable = true;
         telegram.enable = true;
-        virtualbox.enable = true;
+        virtualbox.enable = false;
         wechat.enable = true;
       };
       develop = {

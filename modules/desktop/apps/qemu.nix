@@ -34,12 +34,12 @@ in
         enable = true;
         qemu = {
           swtpm.enable = true;
-          ovmf.enable = true;
-          ovmf.packages = [ pkgs.OVMFFull.fd ];
+          vhostUserPackages = with pkgs; [
+            virtiofsd # for Shared folders
+          ];
         };
       };
       spiceUSBRedirection.enable = true;
     };
-    services.spice-vdagentd.enable = true;
   };
 }
