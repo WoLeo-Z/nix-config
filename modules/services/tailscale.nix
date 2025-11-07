@@ -22,7 +22,7 @@ in
     systemd.services.tailscaled-autoconnect.serviceConfig.Type = lib.mkForce "simple";
 
     sops.secrets.tailscale_key = {
-      key = "tailscale_key/vostro"; # TODO: don't use vostro
+      key = "tailscale/nix-secrets"; # TODO: don't use vostro
       restartUnits = [ config.systemd.services.tailscaled.name ];
     };
   };
