@@ -32,7 +32,6 @@ in
     ];
 
     services.udev.packages = [
-      pkgs.android-udev-rules
       edl-udev-rules
     ];
     # services.udev.extraRules = builtins.readFile ./51-edl.rules;

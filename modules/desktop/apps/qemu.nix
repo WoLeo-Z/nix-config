@@ -24,7 +24,7 @@ in
       spice
       spice-gtk
       spice-protocol
-      win-virtio
+      virtio-win
       win-spice
     ];
     programs.virt-manager.enable = true;

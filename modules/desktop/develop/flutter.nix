@@ -19,7 +19,7 @@ in
       home.packages = with pkgs; [
         flutter
 
-        glxinfo # provides eglinfo for "flutter doctor"
+        mesa-demos # provides eglinfo for "flutter doctor"
 
         # We need to install Android SDK & cmdline-tools in Android Studio manually.
         (android-studio.override {
