@@ -17,10 +17,6 @@ in
       useRoutingFeatures = "none";
     };
 
-    # nixos/tailscale: tailscaled-autoconnect.service prevents multi-user.target from reaching "active" state
-    # REVIEW: https://github.com/nixos/nixpkgs/issues/430756
-    systemd.services.tailscaled-autoconnect.serviceConfig.Type = lib.mkForce "simple";
-
     sops.secrets.tailscale_key = {
       key = "tailscale/nix-secrets"; # TODO: don't use vostro
       restartUnits = [ config.systemd.services.tailscaled.name ];
