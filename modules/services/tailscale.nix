@@ -18,7 +18,7 @@ in
     };
 
     sops.secrets.tailscale_key = {
-      key = "tailscale/nix-secrets"; # TODO: don't use vostro
+      key = "tailscale/nix-secrets";
       restartUnits = [ config.systemd.services.tailscaled.name ];
     };
   };
