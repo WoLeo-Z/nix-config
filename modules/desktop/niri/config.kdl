@@ -410,7 +410,7 @@ binds {
     // `niri msg action do-something`.
 
     Mod+RETURN { spawn "kitty"; }
-    Mod+D { spawn "rofi-launcher"; }
+    Mod+D repeat=false { spawn "vicinae" "toggle"; }
     Mod+E { spawn "nautilus" "--new-window";  }
     // Mod+E { spawn "nemo";  }
     Mod+Alt+L { spawn "swaylock"; }
@@ -636,5 +636,5 @@ binds {
     Mod+Shift+W         { spawn "change-wallpaper"; }
     Mod+Alt+Page_Up     allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
     Mod+Alt+Page_Down   allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
-    Mod+V               { spawn "rofi-cliphist"; }
+    Mod+V repeat=false  { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
 }

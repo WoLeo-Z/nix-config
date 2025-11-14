@@ -51,8 +51,9 @@ in
     # modules.desktop.swaync.enable = true;
     # modules.desktop.swayidle.enable = true;
 
-    modules.desktop.rofi.enable = true;
-    modules.desktop.wofi.enable = true;
+    # modules.desktop.rofi.enable = true;
+    # modules.desktop.wofi.enable = true;
+    modules.desktop.apps.utils.vicinae.enable = true;
 
     hm = {
       home.packages = with pkgs; [
