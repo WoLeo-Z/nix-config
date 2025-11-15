@@ -60,6 +60,9 @@
           wireshark.enable = true;
         };
         games = {
+          minecraft = {
+            lunar-client.enable = true;
+          };
           osu-lazer.enable = true;
           steam.enable = true;
         };
