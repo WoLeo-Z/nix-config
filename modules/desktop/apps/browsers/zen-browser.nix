@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   inputs,
   ...
 }:
@@ -62,7 +63,7 @@ in
         let
           value =
             let
-              zen-browser = inputs.zen-browser.packages.${system}.twilight; # or beta
+              zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight; # or beta
             in
             zen-browser.meta.desktopFileName;
 
@@ -79,7 +80,6 @@ in
                 "application/x-extension-htm"
                 "x-scheme-handler/unknown"
                 "x-scheme-handler/mailto"
-                "x-scheme-handler/chrome"
                 "x-scheme-handler/about"
                 "x-scheme-handler/https"
                 "x-scheme-handler/http"
@@ -91,7 +91,7 @@ in
           );
         in
         {
-          associations.added = associations;
+          # associations.added = associations;
           defaultApplications = associations;
         };
     };
