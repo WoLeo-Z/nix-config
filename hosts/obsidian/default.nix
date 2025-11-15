@@ -45,6 +45,7 @@
           spotify.enable = true;
         };
         editors = {
+          evince.enable = true;
           libreoffice.enable = true;
           obsidian.enable = true;
           vscode.enable = true;
