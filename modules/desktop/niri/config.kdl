@@ -334,7 +334,7 @@ layout {
 spawn-at-startup "sh" "-c" "sleep 3 && fcitx5 -r"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
-spawn-at-startup "AyuGram"
+// spawn-at-startup "AyuGram"
 spawn-at-startup "code"
 spawn-at-startup "zen"
 spawn-at-startup "spotify"
