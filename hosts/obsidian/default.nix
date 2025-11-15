@@ -61,6 +61,7 @@
         };
         games = {
           osu-lazer.enable = true;
+          steam.enable = true;
         };
         android-studio.enable = true;
         bitwarden.enable = false;
@@ -71,7 +72,6 @@
         nautilus.enable = true;
         nemo.enable = true;
         qemu.enable = false;
-        steam.enable = true;
         telegram.enable = true;
         virtualbox.enable = false;
         wechat.enable = true;

@@ -53,10 +53,10 @@
           };
           games = {
             osu-lazer.enable = true;
+            steam.enable = true;
           };
           flatpak.enable = false;
           telegram.enable = true;
-          steam.enable = true;
           bottles.enable = true;
           bitwarden.enable = false;
         };

@@ -2,10 +2,10 @@
 
 with lib;
 let
-  cfg = config.modules.desktop.apps.steam;
+  cfg = config.modules.desktop.apps.games.steam;
 in
 {
-  options.modules.desktop.apps.steam = {
+  options.modules.desktop.apps.games.steam = {
     enable = mkEnableOption' { };
   };
 
