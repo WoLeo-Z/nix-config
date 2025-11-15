@@ -62,19 +62,19 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
     #   "gfx.webrender.enabled" = true;
     # };
 
-    nixpkgs.overlays = [
-      (self: super: {
-        btop = super.btop.override {
-          # GPU Support
-          # https://github.com/aristocratos/btop/issues/426#issuecomment-2103598718
-          cudaSupport = true;
-        };
-        obs-studio = super.obs-studio.override {
-          cudaSupport = true;
-        };
-      })
-    ];
-    # nixpkgs.config.cudaSupport = true;
+    # nixpkgs.overlays = [
+    #   (self: super: {
+    #     btop = super.btop.override {
+    #       # GPU Support
+    #       # https://github.com/aristocratos/btop/issues/426#issuecomment-2103598718
+    #       cudaSupport = true;
+    #     };
+    #     obs-studio = super.obs-studio.override {
+    #       cudaSupport = true;
+    #     };
+    #   })
+    # ];
+    nixpkgs.config.cudaSupport = true;
 
     # TODO: remove this after NVIDIA fixed this
     # https://forums.developer.nvidia.com/t/570-release-feedback-discussion/321956/248?page=13
