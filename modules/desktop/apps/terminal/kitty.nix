@@ -39,6 +39,25 @@ in
         settings.background_opacity = toString config.stylix.opacity.terminal;
       };
 
+      xdg.mimeApps =
+        let
+          value = "kitty.desktop";
+
+          associations = builtins.listToAttrs (
+            map
+              (name: {
+                inherit name value;
+              })
+              [
+                "x-scheme-handler/terminal"
+              ]
+          );
+        in
+        {
+          # associations.added = associations;
+          defaultApplications = associations;
+        };
+
       # stylix.targets.kitty.enable = true;
 
       # Fix: E558: Terminal entry not found in terminfo
