@@ -92,6 +92,10 @@ in
       ];
     };
 
+    # Disable KDE polkit agent. We use GNOME polkit agent.
+    # https://github.com/sodiboo/niri-flake/blob/9b0c42a79bd092971e183d102365e549e4280002/README.md?plain=1#L126
+    systemd.user.services.niri-flake-polkit.enable = false;
+
     # Environment variables for Wayland
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1"; # for Chromium and Electron
