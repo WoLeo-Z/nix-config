@@ -15,7 +15,7 @@
         "bluetooth"
         # "printing/wireless"
         "security-keys"
-        "mouse-fix"
+        # "mouse/increase-debounce-time"
         "rtw8852c-fix"
         "wifi"
       ];

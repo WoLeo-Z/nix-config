@@ -5,7 +5,7 @@ let
   hardware = config.modules.profiles.hardware;
 in
 mkMerge [
-  (mkIf (any (s: hasPrefix "mouse-fix" s) hardware) {
+  (mkIf (any (s: hasPrefix "mouse/increase-debounce-time" s) hardware) {
     services.libinput = {
       enable = true;
     };
