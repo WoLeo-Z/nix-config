@@ -45,6 +45,12 @@
           user = "root";
           identityFile = config.sops.secrets."private_keys/hosts/ah-us".path;
         };
+        "alice-hk" = {
+          hostname = "alice-hk";
+          port = 22;
+          user = "root";
+          identityFile = config.sops.secrets."private_keys/hosts/alice-hk".path;
+        };
       };
     };
   };
@@ -58,6 +64,12 @@
   sops.secrets."private_keys/hosts/ah-us" = {
     sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
     key = "hosts/ah-us"; # Specify the location of this secret
+    mode = "0600";
+    owner = config.user.name;
+  };
+  sops.secrets."private_keys/hosts/alice-hk" = {
+    sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
+    key = "hosts/alice-hk"; # Specify the location of this secret
     mode = "0600";
     owner = config.user.name;
   };
