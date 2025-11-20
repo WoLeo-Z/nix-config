@@ -16,6 +16,7 @@
         # "printing/wireless"
         "security-keys"
         # "mouse/increase-debounce-time"
+        "mouse/button-remap"
         "rtw8852c-fix"
         "wifi"
       ];
