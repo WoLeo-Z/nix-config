@@ -271,17 +271,16 @@
     "dankMaterialShell": {
       "inputs": {
         "dgop": "dgop",
-        "dms-cli": "dms-cli",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1762564068,
-        "narHash": "sha256-IWrXHGg5fgUDRyDk+H2PYXvIzscuHgdgMJT6SJrqfqw=",
+        "lastModified": 1763780864,
+        "narHash": "sha256-OyUCEapj/eSrq8e4SWmlj1kExdbGdK37e3E6IWC1g/E=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "c8fcf50095d8f1c8b9317d8cc750b158d7e82da8",
+        "rev": "bcfa508da5e68935f5502240a0bd8d2216615d64",
         "type": "github"
       },
       "original": {
@@ -308,27 +307,6 @@
       "original": {
         "owner": "AvengeMedia",
         "repo": "dgop",
-        "type": "github"
-      }
-    },
-    "dms-cli": {
-      "inputs": {
-        "nixpkgs": [
-          "dankMaterialShell",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1762491516,
-        "narHash": "sha256-oGLH5Gje/p2Hc1kO3m8P5eAZ7JldBI30EmwzEET4cNU=",
-        "owner": "AvengeMedia",
-        "repo": "danklinux",
-        "rev": "050cf28a2963a7698ed4759736fe5fe77eee7cc2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AvengeMedia",
-        "repo": "danklinux",
         "type": "github"
       }
     },
