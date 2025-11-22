@@ -48,6 +48,4 @@
   stylix.targets.console.enable = true;
 
   hardware.enableRedistributableFirmware = true;
-
-  programs.nix-ld.enable = true;
 }
