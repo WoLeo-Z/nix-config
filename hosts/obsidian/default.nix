@@ -88,6 +88,7 @@
     };
 
     services = {
+      earlyoom.enable = false;
       mediamtx.enable = false;
       mihomo.enable = true;
       openssh.enable = true;
