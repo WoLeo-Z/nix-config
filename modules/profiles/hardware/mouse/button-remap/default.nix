@@ -24,7 +24,7 @@ mkMerge [
       evtest
     ];
 
-    environment.etc."udev/hwdb.d/99-mouse-button-remap.hwdb".text = ''
+    services.udev.extraHwdb = ''
       evdev:input:b0003v258Ap1007e0111*
         KEYBOARD_KEY_70029=back
         KEYBOARD_KEY_90004=btn_extra
