@@ -94,6 +94,7 @@
       openssh.enable = true;
       restic.enable = true;
       safeeyes.enable = true;
+      smartd.enable = true;
       sunshine.enable = true;
       tailscale.enable = true;
     };
