@@ -44,6 +44,7 @@
           mpv.enable = true;
           obs-studio.enable = true;
           spotify.enable = true;
+          tsukimi.enable = true;
         };
         editors = {
           evince.enable = true;
