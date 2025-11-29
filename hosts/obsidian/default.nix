@@ -65,6 +65,7 @@
         games = {
           minecraft = {
             lunar-client.enable = true;
+            prismlauncher.enable = true;
           };
           osu-lazer.enable = true;
           steam.enable = true;
