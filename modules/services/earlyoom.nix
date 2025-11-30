@@ -15,5 +15,12 @@ in
       enableNotifications = true;
       freeMemThreshold = 5;
     };
+
+    # fix: desktop notification
+    # https://github.com/NixOS/nixpkgs/pull/375649
+    # REVIEW: remove after NixOS/nixpkgs#375649 has been merged
+    systemd.services.earlyoom.serviceConfig.DynamicUser = mkDefault (
+      !config.services.earlyoom.enableNotifications || config.services.dbus.implementation != "dbus"
+    );
   };
 }
