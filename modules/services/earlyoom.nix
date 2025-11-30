@@ -15,7 +15,5 @@ in
       enableNotifications = true;
       freeMemThreshold = 5;
     };
-
-    services.systembus-notify.enable = true;
   };
 }
