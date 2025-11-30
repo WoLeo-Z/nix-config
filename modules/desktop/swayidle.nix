@@ -9,9 +9,9 @@ with lib;
 let
   cfg = config.modules.desktop.swayidle;
 
-  # After resume, if not unlocked for 60 seconds, system will automatically suspend.
+  # After resume, if not unlocked for 120 seconds, system will automatically suspend.
   auto-suspend-after-resume = pkgs.writeShellScriptBin "auto-suspend-after-resume" ''
-    ${lib.getExe' pkgs.coreutils "sleep"} 60
+    ${lib.getExe' pkgs.coreutils "sleep"} 120
     if ${lib.getExe' pkgs.procps "pgrep"} "swaylock" > /dev/null; then
       ${lib.getExe' pkgs.systemd "systemctl"} suspend
     fi
