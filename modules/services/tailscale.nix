@@ -17,6 +17,9 @@ in
       useRoutingFeatures = "none";
     };
 
+    # speed up entering multi-user.target
+    systemd.services.tailscaled-autoconnect.wantedBy = mkForce [ ];
+
     sops.secrets.tailscale_key = {
       key = "tailscale/nix-secrets";
       restartUnits = [ config.systemd.services.tailscaled.name ];
