@@ -158,4 +158,55 @@
       "umask=0077"
     ];
   };
+
+  # Networking
+  networking.interfaces."enp5s0".wakeOnLan.enable = true;
+  systemd.network.networks = {
+    "20-wired" = {
+      matchConfig = {
+        Name = "enp*";
+      };
+
+      dhcpConfig.RouteMetric = 20;
+
+      networkConfig = {
+        DHCP = "no";
+        IPv6AcceptRA = false;
+        IPv6PrivacyExtensions = false;
+      };
+
+      # ipv6AcceptRAConfig = {
+      #   UseAutonomousPrefix = true;
+      #   Token = "::12ff:e0ff:fee0:1420";
+      # };
+
+      address = [
+        "192.168.71.100/24"
+        # "240e:b8f:211:d700:2014:e0e0:ff10:741/128"
+        "240e:b8f:211:d700:12ff:e0ff:fee0:1420/64"
+        "fe80::12ff:e0ff:fee0:1420/64"
+      ];
+
+      routes = [
+        { Gateway = "192.168.71.1"; }
+
+        {
+          Gateway = "fe80::7a5:7cc9:26ef:39a";
+          GatewayOnLink = true;
+        }
+      ];
+    };
+
+    "30-wireless" = {
+      matchConfig = {
+        Name = "wlan*";
+      };
+
+      dhcpConfig.RouteMetric = 30;
+
+      networkConfig = {
+        DHCP = "yes";
+      };
+    };
+  };
 }

@@ -34,5 +34,6 @@
     ldns # replacement of `dig`, it provide the command `drill`
     nmap
     iperf3
+    ethtool
   ];
 }

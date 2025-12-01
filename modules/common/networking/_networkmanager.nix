@@ -1,3 +1,5 @@
+# _disabled
+
 { pkgs, ... }:
 
 {
@@ -15,7 +17,19 @@
 
   user.extraGroups = [ "networkmanager" ];
 
-  # dhcpcd
+  # use systemd-resolved
+  networking.networkmanager.dns = "systemd-resolved";
+  services.resolved = {
+    enable = true;
+    dnssec = "false"; # one of "true", "allow-downgrade", "false"
+    dnsovertls = "opportunistic";
+  };
+
+  # use NetworkManager internal DHCP
+  # networking.useDHCP = false;
+  # networking.networkmanager.dhcp = "internal";
+
+  # use dhcpcd
   networking.useDHCP = false;
   networking.dhcpcd = {
     enable = true;
