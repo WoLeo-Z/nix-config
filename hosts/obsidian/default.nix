@@ -99,6 +99,7 @@
       smartd.enable = true;
       sunshine.enable = true;
       tailscale.enable = true;
+      zerotierone.enable = true;
     };
   };
 
