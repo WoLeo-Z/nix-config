@@ -47,9 +47,9 @@
           tsukimi.enable = true;
         };
         editors = {
-          evince.enable = true;
           libreoffice.enable = true;
           obsidian.enable = true;
+          papers.enable = true;
           vscode.enable = true;
           zed = {
             enable = false;

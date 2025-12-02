@@ -7,20 +7,20 @@
 
 with lib;
 let
-  cfg = config.modules.desktop.apps.editors.evince;
+  cfg = config.modules.desktop.apps.editors.papers;
 in
 {
-  options.modules.desktop.apps.editors.evince = {
+  options.modules.desktop.apps.editors.papers = {
     enable = mkEnableOption' { };
   };
 
   config = mkIf cfg.enable {
     hm = {
-      home.packages = with pkgs; [ evince ];
+      home.packages = with pkgs; [ papers ];
 
       xdg.mimeApps =
         let
-          value = "org.gnome.Evince.desktop";
+          value = "org.gnome.Papers.desktop";
 
           associations = builtins.listToAttrs (
             map
