@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 
@@ -21,5 +22,9 @@ mkMerge [
 
       networkmanager.wifi.backend = "iwd";
     };
+
+    environment.systemPackages = with pkgs; [
+      impala # A TUI for iwd
+    ];
   })
 ]
