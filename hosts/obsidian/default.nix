@@ -76,6 +76,7 @@
         claude-code.enable = false;
         codex.enable = true;
         flatpak.enable = false;
+        gnome-apps.enable = true;
         nautilus.enable = true;
         nemo.enable = true;
         qemu.enable = false;
