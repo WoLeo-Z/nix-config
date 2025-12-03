@@ -86,7 +86,7 @@
       };
       develop = {
         flutter.enable = false;
-        lg.enable = true;
+        lg.enable = false;
       };
     };
 
@@ -100,7 +100,7 @@
       smartd.enable = true;
       sunshine.enable = true;
       tailscale.enable = true;
-      zerotierone.enable = true;
+      zerotierone.enable = false;
     };
   };
 
