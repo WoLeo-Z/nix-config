@@ -99,6 +99,7 @@
       safeeyes.enable = true;
       smartd.enable = true;
       sunshine.enable = true;
+      syncthing.enable = true;
       tailscale.enable = true;
       zerotierone.enable = false;
     };
