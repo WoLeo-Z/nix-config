@@ -85,13 +85,6 @@ in
               "editor.defaultFormatter" = "esbenp.prettier-vscode";
             };
 
-            # C/C++
-            "C_Cpp.clang_format_fallbackStyle" = "LLVM";
-
-            # Run Code configuration
-            "code-runner.runInTerminal" = true;
-            "code-runner.saveFileBeforeRun" = true;
-
             # Markdown
             "[markdown]" = {
               "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
@@ -103,11 +96,6 @@ in
             gruntfuggly.todo-tree
             esbenp.prettier-vscode
             davidanson.vscode-markdownlint
-
-            # C/C++
-            ms-vscode.cmake-tools
-            ms-vscode.cpptools
-            formulahendry.code-runner
           ];
         };
       };
