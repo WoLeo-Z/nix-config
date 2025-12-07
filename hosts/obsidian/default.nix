@@ -52,7 +52,7 @@
           papers.enable = true;
           vscode.enable = true;
           zed = {
-            enable = false;
+            enable = true;
             enableAI = true;
           };
         };
