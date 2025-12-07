@@ -24,22 +24,35 @@ in
       programs.zed-editor = {
         enable = true;
         extensions = [
-          "nix"
           "catppuccin"
+          "catppuccin-icons"
+          "nix"
         ];
+        mutableUserSettings = false;
         userSettings = lib.mkMerge [
           {
             autosave = "on_focus_change";
             theme = "Catppuccin Mocha";
             icon_theme = "Catppuccin Mocha";
-            auto_install_extension = {
+            auto_install_extensions = {
               catppuccin = true;
               catppuccin-icons = true;
               nix = true;
             };
 
+            buffer_font_family = config.stylix.fonts.monospace.name;
+            buffer_font_size = 16;
+            ui_font_family = ".ZedSans";
+            ui_font_size = 16;
+
+            tabs = {
+              "file_icons" = false;
+              "git_status" = true;
+              "show_diagnostics" = "all";
+            };
+
             terminal = {
-              font_family = "JetBrainsMono Nerd Font";
+              font_family = config.stylix.fonts.monospace.name;
               env = {
                 EDITOR = "${lib.getExe pkgs.zed-editor} --wait";
               };
@@ -50,7 +63,36 @@ in
               diagnostics = false;
               metrics = false;
             };
+
+            title_bar = {
+              "show_branch_icon" = false;
+              "show_branch_name" = true;
+              "show_project_items" = true;
+              "show_onboarding_banner" = true;
+              "show_user_picture" = false;
+              "show_sign_in" = true;
+              "show_menus" = false;
+            };
+
             # vim_mode = true;
+
+            project_panel = {
+              indent_size = 12;
+            };
+
+            git = {
+              path_style = "file_name_first";
+            };
+
+            git_panel = {
+              default_width = 360;
+              status_style = "label_color";
+            };
+
+            outline_panel = {
+              indent_size = 12;
+            };
+
             format_on_save = "off";
             languages = {
               "Nix" = {
@@ -71,27 +113,28 @@ in
                 binary.path = "${lib.getExe pkgs.nixd}";
               };
             };
+
             notification_panel = {
               dock = "left";
               button = false;
             };
+
             collaboration_panel.button = false;
           }
           (
             if cfg.enableAI then
               {
-                assistant = {
+                agent = {
                   default_model = {
                     provider = "zed.dev";
                     model = "claude-3-7-sonnet-latest";
                     # provider = "copilot_chat";
                     # model = "o1-mini";
                   };
-                  version = "2";
                 };
                 features = {
-                  inline_completion_provider = "zed";
-                  # inline_completion_provider = "copilot";
+                  edit_prediction_provider = "zed";
+                  # edit_prediction_provider = "copilot";
                 };
               }
             else
@@ -99,7 +142,7 @@ in
                 # https://github.com/zed-industries/zed/issues/7121#issuecomment-2434482066
 
                 features = {
-                  inline_completion_provider = "none";
+                  edit_prediction_provider = "none";
                   copilot = false;
                 };
                 assistant = {
