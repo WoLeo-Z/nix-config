@@ -90,13 +90,23 @@ in
               "editor.defaultFormatter" = "DavidAnson.vscode-markdownlint";
             };
           };
-          extensions = with pkgs.vscode-extensions; [
-            ms-ceintl.vscode-language-pack-zh-hans
-            jnoortheen.nix-ide
-            gruntfuggly.todo-tree
-            esbenp.prettier-vscode
-            davidanson.vscode-markdownlint
-          ];
+          extensions =
+            with pkgs.vscode-extensions;
+            [
+              ms-ceintl.vscode-language-pack-zh-hans
+              jnoortheen.nix-ide
+              gruntfuggly.todo-tree
+              esbenp.prettier-vscode
+              davidanson.vscode-markdownlint
+            ]
+            ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+              {
+                name = "BongoCat";
+                publisher = "pixl-garden";
+                version = "0.0.1";
+                sha256 = "AyFDJZojea8jmCujhLgKVYdLBKSAdbHKc+83j8KRCwU=";
+              }
+            ];
         };
       };
 
