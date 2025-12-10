@@ -27,21 +27,11 @@ in
 
     hm.services.swayidle = {
       enable = true;
-      events = [
-        {
-          event = "lock";
-          command = "${lib.getExe pkgs.swaylock} -fF";
-        }
-        {
-          event = "before-sleep";
-          command = "${lib.getExe pkgs.swaylock} -fF";
-        }
-        {
-          event = "after-resume";
-          # # use "&" run it in background, so swayidle won't wait for it
-          command = "${lib.getExe auto-suspend-after-resume} &";
-        }
-      ];
+      events = {
+        lock = "${lib.getExe pkgs.swaylock} -fF";
+        before-sleep = "${lib.getExe pkgs.swaylock} -fF";
+        after-resume = "${lib.getExe auto-suspend-after-resume} &"; # use "&" run it in background, so swayidle won't wait for it
+      };
       timeouts = [
         # {
         #   timeout = 300;
