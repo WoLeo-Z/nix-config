@@ -1,10 +1,11 @@
+{ pkgs, ... }:
+
 {
-  # Use sched-ext schedulers with linux-cachyos
-  # services.scx = {
-  #   enable = true;
-  #   scheduler = "scx_rusty";
-  #   package = pkgs.scx_git.full;
-  # };
+  services.scx = {
+    enable = true;
+    scheduler = "scx_rusty";
+    package = pkgs.scx_git.full;
+  };
 
   zramSwap = {
     enable = false;
