@@ -334,9 +334,8 @@ layout {
 spawn-sh-at-startup "sleep 3 && fcitx5 -r"
 spawn-sh-at-startup "vicinae server"
 
-// spawn-at-startup "AyuGram"
-spawn-at-startup "code"
 spawn-at-startup "zen"
+spawn-at-startup "zeditor"
 spawn-at-startup "spotify"
 
 environment {
