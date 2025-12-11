@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  inputs,
+  ...
+}:
 
 with lib;
 let
@@ -21,18 +26,35 @@ in
         # with authorizedKeys!
         PasswordAuthentication = false;
       };
-      # Removes the default RSA key (not that it represents a vulnerability, per
-      # se, but is one less key (that I don't plan to use) to the castle laying
-      # around) and improves the ed25519 key's entropy by generating it with 100
-      # rounds (default is 16).
+
       hostKeys = [
         {
-          comment = "${config.networking.hostName}.local";
-          path = "/etc/ssh/ssh_host_ed25519_key";
-          rounds = 100;
+          path = config.sops.secrets."ssh_host_ed25519_key".path;
           type = "ed25519";
         }
       ];
+
+      # We use sops-nix to manage hostKeys
+      # # Removes the default RSA key (not that it represents a vulnerability, per
+      # # se, but is one less key (that I don't plan to use) to the castle laying
+      # # around) and improves the ed25519 key's entropy by generating it with 100
+      # # rounds (default is 16).
+      # hostKeys = [
+      #   {
+      #     comment = "${config.networking.hostName}.local";
+      #     path = "/etc/ssh/ssh_host_ed25519_key";
+      #     rounds = 100;
+      #     type = "ed25519";
+      #   }
+      # ];
+    };
+
+    sops.secrets."ssh_host_ed25519_key" = {
+      sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
+      key = "hosts/${config.networking.hostName}"; # Specify the location of this secret
+      mode = "0600";
+      owner = "root";
+      group = "root";
     };
   };
 }
