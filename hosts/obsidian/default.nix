@@ -156,9 +156,7 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/BOOT"; # sudo fatlabel /dev/vda1 BOOT
     fsType = "vfat";
-    options = [
-      "umask=0077"
-    ];
+    options = [ "umask=0077" ];
   };
 
   # Networking

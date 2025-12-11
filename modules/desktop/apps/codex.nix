@@ -17,9 +17,7 @@ in
 
   config = mkIf cfg.enable {
     hm = {
-      home.packages = with inputs.nix-ai-tools.packages.${pkgs.stdenv.hostPlatform.system}; [
-        codex
-      ];
+      home.packages = with inputs.nix-ai-tools.packages.${pkgs.stdenv.hostPlatform.system}; [ codex ];
     };
   };
 }

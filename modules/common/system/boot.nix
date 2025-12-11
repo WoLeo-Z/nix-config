@@ -16,9 +16,7 @@
     ];
 
     initrd = {
-      availableKernelModules = [
-        "btrfs"
-      ];
+      availableKernelModules = [ "btrfs" ];
       kernelModules = [ ];
     };
   };

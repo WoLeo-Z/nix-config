@@ -31,9 +31,7 @@ in
       libusb1
     ];
 
-    services.udev.packages = [
-      edl-udev-rules
-    ];
+    services.udev.packages = [ edl-udev-rules ];
     # services.udev.extraRules = builtins.readFile ./51-edl.rules;
     boot.kernelParams = [ "usbcore.quirks=18d1:d00d:k" ];
     user.extraGroups = [ "plugdev" ];

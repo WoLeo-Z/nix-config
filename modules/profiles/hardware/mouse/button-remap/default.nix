@@ -20,9 +20,7 @@ mkMerge [
     # > sudo evtest
     # (use `evtest` to find the scancodes, like `70029`)
 
-    environment.systemPackages = with pkgs; [
-      evtest
-    ];
+    environment.systemPackages = with pkgs; [ evtest ];
 
     services.udev.extraHwdb = ''
       evdev:input:b0003v258Ap1007e0111*

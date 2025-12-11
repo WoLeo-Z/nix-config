@@ -44,13 +44,7 @@ in
           value = "kitty.desktop";
 
           associations = builtins.listToAttrs (
-            map
-              (name: {
-                inherit name value;
-              })
-              [
-                "x-scheme-handler/terminal"
-              ]
+            map (name: { inherit name value; }) [ "x-scheme-handler/terminal" ]
           );
         in
         {

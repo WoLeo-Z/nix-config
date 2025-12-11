@@ -21,9 +21,7 @@ in
     nixpkgs.overlays = [ inputs.astal-shell.overlays.default ];
 
     hm = {
-      home.packages = with pkgs; [
-        astal-shell
-      ];
+      home.packages = with pkgs; [ astal-shell ];
 
       systemd.user.services.astal-shell = {
         Unit = {

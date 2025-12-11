@@ -22,15 +22,7 @@ in
         let
           value = "org.gnome.Papers.desktop";
 
-          associations = builtins.listToAttrs (
-            map
-              (name: {
-                inherit name value;
-              })
-              [
-                "application/pdf"
-              ]
-          );
+          associations = builtins.listToAttrs (map (name: { inherit name value; }) [ "application/pdf" ]);
         in
         {
           # associations.added = associations;

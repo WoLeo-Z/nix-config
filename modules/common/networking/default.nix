@@ -1,8 +1,4 @@
-{
-  options,
-  pkgs,
-  ...
-}:
+{ options, pkgs, ... }:
 
 {
   networking = {
