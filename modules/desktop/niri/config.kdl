@@ -331,8 +331,8 @@ layout {
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
 
-spawn-at-startup "sh" "-c" "sleep 3 && fcitx5 -r"
-// spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-sh-at-startup "sleep 3 && fcitx5 -r"
+spawn-sh-at-startup "vicinae server"
 
 // spawn-at-startup "AyuGram"
 spawn-at-startup "code"
