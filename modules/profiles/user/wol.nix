@@ -18,7 +18,7 @@ mkIf (cfg.user == "wol") (mkMerge [
     user.name = "wol";
     user.description = "WoL";
     i18n.defaultLocale = "zh_CN.UTF-8";
-    user.shell = pkgs.nushell;
+    user.shell = pkgs.fish;
 
     sops.secrets."passwords/users/wol" = {
       sopsFile = "${inputs.nix-secrets}/secrets.yaml";
