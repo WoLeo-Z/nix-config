@@ -17,7 +17,7 @@ in
     enable = mkEnableOption' { default = config.modules.desktop.enable; };
     wallpaperDir = mkOption {
       type = types.path;
-      default = "${config.programs.nh.flake}/assets/wallpapers";
+      default = "${config.user.home}/Pictures/Wallpapers";
     };
     wallpaper = mkOption {
       type = types.path;
@@ -91,13 +91,5 @@ in
     # QT
     hm.stylix.targets.qt.enable = true;
     stylix.targets.qt.enable = true;
-
-    # Wallpapers Symlink
-    hm.home.file = {
-      "Pictures/Wallpapers" = {
-        source = mkOutOfStoreSymlink "${config.programs.nh.flake}/assets/wallpapers";
-        recursive = true;
-      };
-    };
   };
 }
