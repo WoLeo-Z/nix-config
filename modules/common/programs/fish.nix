@@ -7,7 +7,6 @@
         set -U fish_greeting # disable greeting
       '';
     };
-    programs.starship.enableFishIntegration = true;
   };
 
   # Disable to save time when rebuilding
