@@ -4,8 +4,11 @@
 { lib, config, ... }:
 
 with lib;
-mkIf (config.modules.profiles.role == "workstation") (mkMerge [
-  {
+let
+  roles = config.modules.profiles.roles;
+in
+mkMerge [
+  (mkIf (any (s: hasPrefix "workstation" s) roles) {
     boot = {
       # HACK I used to disable mitigations for spectre, meltdown, L1TF,
       #   retbleed, and other CPU vulnerabilities for a marginal performance
@@ -95,5 +98,5 @@ mkIf (config.modules.profiles.role == "workstation") (mkMerge [
     #   anyInterface = true;
     #   timeout = 10;
     # };
-  }
-])
+  })
+]

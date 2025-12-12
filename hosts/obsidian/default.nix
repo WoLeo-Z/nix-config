@@ -7,7 +7,10 @@
   modules = {
     profiles = {
       user = "wol";
-      role = "workstation";
+      roles = [
+        "workstation"
+        "cn"
+      ];
       hardware = [
         "cpu/intel"
         "gpu/nvidia"

@@ -31,6 +31,10 @@
     channel.enable = false;
 
     settings = {
+      # Path or URI of the global flake registry.
+      # When empty, disables the global flake registry.
+      flake-registry = "";
+
       # tell nix to use the xdg spec for base directories
       # while transitioning, any state must be carried over
       # manually, as Nix won't do it for us
@@ -102,6 +106,9 @@
       # whether to accept nix configuration from a flake without prompting
       accept-flake-config = false;
 
+      # allow nix to automatically pick UIDs, rather than creating nixbld* user accounts
+      auto-allocate-uids = true;
+
       # execute builds inside cgroups
       use-cgroups = true;
 
@@ -118,11 +125,6 @@
 
       # substituters to use
       substituters = [
-        # Status: https://mirrors.cernet.edu.cn/list/nix-channels
-        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=30"
-        # "https://mirrors.ustc.edu.cn/nix-channels/store?priority=30"
-
-        # Cache
         "https://cache.nixos.org" # funny binary cache
         "https://nix-community.cachix.org" # nix-community cache
         "https://cache.garnix.io" # garnix binary cache, hosts prismlauncher
