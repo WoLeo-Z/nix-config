@@ -15,9 +15,13 @@ in
 
   options.modules.desktop.appearance = {
     enable = mkEnableOption' { default = config.modules.desktop.enable; };
-    image = mkOption {
+    wallpaperDir = mkOption {
       type = types.path;
-      default = "${config.programs.nh.flake}/assets/wallpapers/nix-wallpaper-nineish-catppuccin-mocha-alt.png";
+      default = "${config.programs.nh.flake}/assets/wallpapers";
+    };
+    wallpaper = mkOption {
+      type = types.path;
+      default = "${cfg.wallpaperDir}/nix-wallpaper-nineish-catppuccin-mocha-alt.png";
     };
   };
 
@@ -26,7 +30,7 @@ in
       enable = true;
       autoEnable = false;
       polarity = "dark";
-      image = cfg.image;
+      image = cfg.wallpaper;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
       cursor = {

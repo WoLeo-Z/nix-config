@@ -8,8 +8,7 @@
 with lib;
 let
   cfg = config.modules.desktop.swww;
-  wallpaper = config.modules.desktop.appearance.image;
-  wallpaperDir = "${config.programs.nh.flake}/assets/wallpapers";
+  wallpaperDir = config.modules.desktop.appearance.wallpaperDir;
 
   change-wallpaper = pkgs.writeShellScriptBin "change-wallpaper" ''
     if [ -n "$1" ]; then

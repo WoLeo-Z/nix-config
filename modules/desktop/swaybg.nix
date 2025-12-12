@@ -8,7 +8,7 @@
 with lib;
 let
   cfg = config.modules.desktop.swaybg;
-  wallpaper = config.modules.desktop.appearance.image;
+  wallpaper = config.modules.desktop.appearance.wallpaper;
 in
 {
   options.modules.desktop.swaybg = {

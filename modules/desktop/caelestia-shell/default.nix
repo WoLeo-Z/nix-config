@@ -14,7 +14,7 @@ let
   caelestia-cli = inputs.caelestia-cli.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
   wallpaperPathFile = pkgs.writeText "caelestia-shell-wallpaper-path" ''
-    ${config.modules.desktop.appearance.image}
+    ${config.modules.desktop.appearance.wallpaper}
   '';
 in
 {
