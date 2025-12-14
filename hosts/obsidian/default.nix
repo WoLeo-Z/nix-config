@@ -75,6 +75,7 @@
         };
         android-studio.enable = true;
         bitwarden.enable = false;
+        blender.enable = true;
         bottles.enable = true;
         claude-code.enable = false;
         codex.enable = true;
