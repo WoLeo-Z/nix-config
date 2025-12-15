@@ -339,9 +339,9 @@ spawn-at-startup "zeditor"
 spawn-at-startup "spotify"
 
 environment {
-    DISPLAY ":42"
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+}
+xwayland-satellite {
+    path "/run/current-system/sw/bin/xwayland-satellite"
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
