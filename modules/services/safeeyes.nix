@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
@@ -10,8 +15,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    services.safeeyes = {
-      enable = true;
-    };
+    # we start safeeyes in window manager
+    # to fix "safeeyes: couldn't open display"
+    #
+    # services.safeeyes = {
+    #   enable = true;
+    # };
+
+    environment.systemPackages = with pkgs; [ safeeyes ];
   };
 }
