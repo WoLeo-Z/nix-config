@@ -20,6 +20,7 @@ in
 
     services.openssh = {
       enable = true;
+      ports = [ 10022 ];
       settings = {
         KbdInteractiveAuthentication = false;
         # Require keys over passwords. Ensure target machines are provisioned

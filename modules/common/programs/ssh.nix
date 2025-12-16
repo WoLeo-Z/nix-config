@@ -35,19 +35,19 @@
         };
         "do-sfo" = {
           hostname = "do-sfo";
-          port = 22;
+          port = 10022;
           user = "root";
           identityFile = config.sops.secrets."private_keys/hosts/do-sfo".path;
         };
         "ah-us" = {
           hostname = "ah-us";
-          port = 22;
+          port = 10022;
           user = "root";
           identityFile = config.sops.secrets."private_keys/hosts/ah-us".path;
         };
         "alice-hk" = {
           hostname = "alice-hk";
-          port = 22;
+          port = 10022;
           user = "root";
           identityFile = config.sops.secrets."private_keys/hosts/alice-hk".path;
         };
