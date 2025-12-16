@@ -67,11 +67,6 @@ in
     hm.stylix.icons = {
       enable = true;
 
-      # Papirus
-      package = pkgs.papirus-icon-theme;
-      light = "Papirus-Light";
-      dark = "Papirus-Dark";
-
       # Adwaita
       # package = pkgs.adwaita-icon-theme;
       # light = "Adwaita";
@@ -81,6 +76,16 @@ in
       # package = pkgs.kora-icon-theme;
       # light = "kora-light";
       # dark = "kora";
+
+      # MoreWaita
+      # package = pkgs.morewaita-icon-theme;
+      # light = "MoreWaita";
+      # dark = "MoreWaita-dark";
+
+      # Papirus
+      package = pkgs.papirus-icon-theme;
+      light = "Papirus-Light";
+      dark = "Papirus-Dark";
     };
 
     # GTK
