@@ -23,11 +23,15 @@ in
         loupe # Image Viewer
         gnome-logs # View detailed event logs
         showtime # Video Player
-        amberol # Music Player
-        mousai # Identify Songs
         gnome-solanum # Pomodoro Clock
         sysprof # Profile an application or entire system
         file-roller # Archive Manager
+
+        # GTK Apps
+        amberol # Music Player
+        turnon # Utility to send Wake On LAN magic packets
+        morphosis # Documents Converter (using Pandoc)
+        rnote # Sketch and take handwritten notes
       ];
 
       xdg.mimeApps = {
