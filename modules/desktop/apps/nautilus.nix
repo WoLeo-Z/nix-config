@@ -15,10 +15,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      nautilus
-      xarchiver
-    ];
+    environment.systemPackages = with pkgs; [ nautilus ];
 
     programs.nautilus-open-any-terminal = {
       enable = true;
