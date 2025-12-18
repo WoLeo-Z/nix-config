@@ -70,6 +70,7 @@
             lunar-client.enable = true;
             prismlauncher.enable = true;
           };
+          lutris.enable = true;
           osu-lazer.enable = true;
           steam.enable = true;
         };
