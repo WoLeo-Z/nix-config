@@ -60,8 +60,13 @@
     SystemMaxUse=1G
   '';
 
+  # Clear all coredumps that were created more than 3 days ago
+  systemd.tmpfiles.rules = [ "d /var/lib/systemd/coredump 0755 root root 3d" ];
+
+  # dbus-broker, which aims to provide high performance and reliability, while keeping compatibility to the D-Bus reference implementation
   services.dbus.implementation = "broker";
 
+  # nixos-init, a system for bashless initialization
   system.nixos-init.enable = true;
 
   documentation.enable = false;
