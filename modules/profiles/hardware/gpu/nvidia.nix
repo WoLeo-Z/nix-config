@@ -45,9 +45,9 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
     };
 
     boot.kernelParams = [
-      # FIXME: Doesn't work
-      # Try to fix: kernel: spd5118 1-0053: PM: failed to resume async: error -6
-      # My next GPU wont be NVIDIA.
+      # fix: cannot resume after suspend
+      # kernel: spd5118 1-0053: PM: failed to resume async: error -6
+      # but: My next GPU wont be NVIDIA.
       # https://bbs.archlinux.org/viewtopic.php?id=300008
       # https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
