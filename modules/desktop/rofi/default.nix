@@ -21,10 +21,6 @@ in
     hm = {
       programs.rofi = {
         enable = true;
-
-        # REVIEW: replace with pkgs.rofi when updated to 2.0.0
-        # Rofi now officially supports Wayland!
-        # https://github.com/davatorium/rofi/pull/2136
         package = pkgs.rofi;
       };
 
