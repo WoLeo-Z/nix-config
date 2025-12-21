@@ -16,7 +16,7 @@ in
 
   config = mkIf cfg.enable {
     hm = {
-      imports = [ inputs.dankMaterialShell.homeModules.dankMaterialShell.default ];
+      imports = [ inputs.dankMaterialShell.homeModules.dank-material-shell ];
 
       programs.dankMaterialShell = {
         enable = true;
