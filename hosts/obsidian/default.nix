@@ -101,7 +101,7 @@
       mihomo.enable = true;
       openssh.enable = true;
       restic.enable = true;
-      safeeyes.enable = true;
+      safeeyes.enable = false;
       smartd.enable = true;
       sunshine.enable = true;
       syncthing.enable = true;
