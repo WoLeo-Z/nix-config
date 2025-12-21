@@ -334,9 +334,6 @@ layout {
 spawn-sh-at-startup "sleep 3 && fcitx5 -r"
 spawn-sh-at-startup "vicinae server"
 
-// HACK: safeeyes ignore output noise "screen saver extension not supported"
-spawn-at-startup "sleep 3 && safeeyes &> /dev/null"
-
 spawn-at-startup "zen"
 spawn-at-startup "zeditor"
 spawn-at-startup "spotify"
