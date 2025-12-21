@@ -30,19 +30,6 @@ in
         pkgs.libnotify # for notify-send
       ];
 
-      systemd.user.services.caelestia-shell = {
-        Unit = {
-          Description = "A very segsy desktop shell";
-          PartOf = [ "graphical-session.target" ];
-          After = [ "graphical-session.target" ];
-        };
-        Service = {
-          ExecStart = "${lib.getExe caelestia-shell}";
-          Restart = "on-failure";
-        };
-        Install.WantedBy = [ "graphical-session.target" ];
-      };
-
       xdg.configFile."caelestia" = {
         source = mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/caelestia-shell/config";
         recursive = true;
@@ -52,6 +39,19 @@ in
         mkdir -p "${config.home'.stateDir}/caelestia/wallpaper"
         cp -n "${wallpaperPathFile}" "${config.home'.stateDir}/caelestia/wallpaper/path.txt"
       '';
+    };
+
+    systemd.user.services.caelestia-shell = {
+      wantedBy = [ "graphical-session.target" ];
+      unitConfig = {
+        Description = "A very segsy desktop shell";
+        PartOf = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
+      };
+      serviceConfig = {
+        ExecStart = "${lib.getExe caelestia-shell}";
+        Restart = "on-failure";
+      };
     };
 
     services.power-profiles-daemon.enable = true;

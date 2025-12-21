@@ -28,27 +28,26 @@ in
       # so that vicinae server can have correct environment variables
       #
       # https://github.com/nix-community/home-manager/blob/13cc1efd78b943b98c08d74c9060a5b59bf86921/modules/programs/vicinae.nix#L245-L265
-      # systemd.user.services.vicinae = {
-      #   Unit = {
-      #     Description = "Vicinae server daemon";
-      #     Documentation = [ "https://docs.vicinae.com" ];
-      #     After = [ "graphical-session.target" ];
-      #     PartOf = [ "graphical-session.target" ];
-      #   };
-      #   Service = {
-      #     EnvironmentFile = pkgs.writeText "vicinae-env" ''
-      #       USE_LAYER_SHELL=1
-      #     '';
-      #     Type = "simple";
-      #     ExecStart = "${lib.getExe' pkgs.vicinae "vicinae"} server";
-      #     Restart = "always";
-      #     RestartSec = 5;
-      #     KillMode = "process";
-      #   };
-      #   Install = {
-      #     WantedBy = [ "graphical-session.target" ];
-      #   };
-      # };
     };
+
+    # systemd.user.services.vicinae = {
+    #   wantedBy = [ "graphical-session.target" ];
+    #   unitConfig = {
+    #     Description = "Vicinae server daemon";
+    #     Documentation = [ "https://docs.vicinae.com" ];
+    #     After = [ "graphical-session.target" ];
+    #     PartOf = [ "graphical-session.target" ];
+    #   };
+    #   serviceConfig = {
+    #     EnvironmentFile = pkgs.writeText "vicinae-env" ''
+    #       USE_LAYER_SHELL=1
+    #     '';
+    #     Type = "simple";
+    #     ExecStart = "${lib.getExe' pkgs.vicinae "vicinae"} server";
+    #     Restart = "always";
+    #     RestartSec = 5;
+    #     KillMode = "process";
+    #   };
+    # };
   };
 }

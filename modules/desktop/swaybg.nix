@@ -16,18 +16,16 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm = {
-      systemd.user.services.swaybg = {
-        Unit = {
-          Description = "Wallpaper tool for Wayland compositors";
-          PartOf = [ "graphical-session.target" ];
-          After = [ "graphical-session.target" ];
-        };
-        Service = {
-          ExecStart = "${lib.getExe pkgs.swaybg} --image ${wallpaper} --mode fill";
-          Restart = "on-failure";
-        };
-        Install.WantedBy = [ "graphical-session.target" ];
+    systemd.user.services.swaybg = {
+      wantedBy = [ "graphical-session.target" ];
+      unitConfig = {
+        Description = "Wallpaper tool for Wayland compositors";
+        PartOf = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
+      };
+      servicConfig = {
+        ExecStart = "${lib.getExe pkgs.swaybg} --image ${wallpaper} --mode fill";
+        Restart = "on-failure";
       };
     };
   };

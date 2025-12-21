@@ -30,8 +30,10 @@ in
         gnome-keyring.enable = lib.mkDefault (!config.services.gnome.gnome-keyring.enable);
         polkit-gnome.enable = true;
       };
+    };
 
-      systemd.user.services."polkit-gnome".Unit.After = [ "graphical-session.target" ];
+    systemd.user.services."polkit-gnome".unitConfig = {
+      After = [ "graphical-session.target" ];
     };
 
     security = {
