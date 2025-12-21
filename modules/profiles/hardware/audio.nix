@@ -29,25 +29,22 @@ mkMerge [
     ];
 
     # JamesDSP
-    hm = {
-      home.packages = with pkgs; [ jamesdsp ];
-      systemd.user.services.jamesdsp = {
-        Unit = {
-          Description = "JamesDSP daemon";
-          Requires = [ "dbus.service" ];
-          After = [ "graphical-session.target" ];
-          PartOf = [
-            "graphical-session.target"
-            "pipewire.service"
-          ];
-        };
-        Install.WantedBy = [ "graphical-session.target" ];
-        Service = {
-          ExecStart = "${lib.getExe pkgs.jamesdsp} --tray";
-          ExecStop = "${lib.getExe' pkgs.procps "pkill"} jamesdsp";
-          Restart = "no";
-          RestartSec = 5;
-        };
+    systemd.user.services.jamesdsp = {
+      wantedBy = [ "graphical-session.target" ];
+      unitConfig = {
+        Description = "JamesDSP daemon";
+        Requires = [ "dbus.service" ];
+        After = [ "graphical-session.target" ];
+        PartOf = [
+          "graphical-session.target"
+          "pipewire.service"
+        ];
+      };
+      serviceConfig = {
+        ExecStart = "${lib.getExe pkgs.jamesdsp} --tray";
+        ExecStop = "${lib.getExe' pkgs.procps "pkill"} jamesdsp";
+        Restart = "no";
+        RestartSec = 5;
       };
     };
   })
