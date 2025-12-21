@@ -25,11 +25,6 @@ in
         SDL_VIDEODRIVER = "wayland";
         XDG_SESSION_TYPE = "wayland";
       };
-
-      services = {
-        gnome-keyring.enable = lib.mkDefault (!config.services.gnome.gnome-keyring.enable);
-        polkit-gnome.enable = true;
-      };
     };
 
     systemd.user.services."polkit-gnome".unitConfig = {
