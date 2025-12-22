@@ -43,33 +43,28 @@ in
       };
     };
 
+    environment.sessionVariables = {
+      XMODIFIERS = "@im=fcitx"; # for x11
+      GTK_IM_MODULE = "wayland"; # `wayland` to use text-input-version 3, `fcitx` to use fcitx im module
+      QT_IM_MODULE = "fcitx"; # for Qt
+      QT_IM_MODULES = "wayland;fcitx;ibus";
+    };
+
     hm = {
       # Reference: merrkry/decalratia/profiles/desktop/i18n.nix
       # https://github.com/merrkry/decalratia/blob/c25aab15b970b568f1670d655f1429a8a8a5832d/profiles/desktop/i18n.nix
-
-      home.sessionVariables = lib.mkMerge [
-        {
-          # LANG = "zh_CN.UTF-8"; # not working?
-          XMODIFIERS = "@im=fcitx"; # for x11
-        }
-        (lib.optionalAttrs (!config.services.desktopManager.plasma6.enable) {
-          GTK_IM_MODULE = "wayland"; # `wayland` to use text-input-version 3, `fcitx` to use fcitx im module
-          QT_IM_MODULE = "fcitx"; # for qt
-          QT_IM_MODULES = "wayland;fcitx;ibus";
-        })
-      ];
 
       xdg.configFile."fcitx5" = {
         source = ./config;
         recursive = true;
       };
 
-      home.activation.removeExistingFcitx5Profile = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
-        rm --recursive --force \
-          "${config.home'.configDir}/fcitx5/profile" \
-          "${config.home'.configDir}/fcitx5/config" \
-          "${config.home'.configDir}/fcitx5/conf"
-      '';
+      # home.activation.removeExistingFcitx5Profile = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
+      #   rm --recursive --force \
+      #     "${config.home'.configDir}/fcitx5/profile" \
+      #     "${config.home'.configDir}/fcitx5/config" \
+      #     "${config.home'.configDir}/fcitx5/conf"
+      # '';
 
       home.file."${config.home'.dataDir}/fcitx5/rime" = {
         source = ./rime;
