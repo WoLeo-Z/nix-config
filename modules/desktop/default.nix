@@ -19,27 +19,8 @@ in
 
     modules.desktop.greetd.enable = true;
 
-    hm = {
-      home.sessionVariables = {
-        QT_QPA_PLATFORM = "wayland";
-        SDL_VIDEODRIVER = "wayland";
-        XDG_SESSION_TYPE = "wayland";
-      };
-    };
-
-    systemd.user.services."polkit-gnome".unitConfig = {
-      After = [ "graphical-session.target" ];
-    };
-
-    security = {
-      polkit.enable = true;
-    };
-
-    services = {
-      gnome.gnome-keyring.enable = true;
-      tumbler.enable = true; # A D-Bus thumbnailer service.
-      libinput.enable = true;
-    };
+    security.polkit.enable = true;
+    services.gnome.gnome-keyring.enable = true;
 
     hm.home.packages = with pkgs; [
       # Audio Processing

@@ -22,8 +22,9 @@ in
       terminal = config.modules.desktop.apps.terminal.default;
     };
 
+    services.tumbler.enable = true; # A D-Bus thumbnailer service.
     # services.gnome.sushi.enable = true; # To preview files in Nautilus
-    services.gvfs.enable = true;
+    services.gvfs.enable = true; # Virtual Filesystem support library
 
     # Removable disk automounter
     hm.services.udiskie = {
