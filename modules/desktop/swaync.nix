@@ -19,12 +19,11 @@ in
       services.swaync = {
         enable = true;
       };
-
-      home.packages = with pkgs; [
-        libnotify # provide notify-send
-      ];
-
       stylix.targets.swaync.enable = true;
     };
+
+    user.packages = with pkgs; [
+      libnotify # provide notify-send
+    ];
   };
 }

@@ -9,13 +9,13 @@ let
   '';
 in
 {
-  hm = {
-    home.packages = with pkgs; [
-      git
-      git-lfs
-      gh
-    ];
+  user.packages = with pkgs; [
+    git
+    git-lfs
+    gh
+  ];
 
+  hm = {
     xdg.configFile."git/config".text = ''
       [user]
           name = ${lib.constants.users.wol.usernames.github}

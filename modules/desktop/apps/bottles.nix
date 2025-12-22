@@ -15,8 +15,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm = {
-      home.packages = with pkgs; [ (bottles.override { removeWarningPopup = true; }) ];
-    };
+    user.packages = with pkgs; [ (bottles.override { removeWarningPopup = true; }) ];
   };
 }

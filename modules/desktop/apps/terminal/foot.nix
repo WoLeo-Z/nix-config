@@ -16,10 +16,6 @@ in
 
   config = mkIf cfg.enable {
     hm = {
-      home.packages = with pkgs; [
-        libsixel # image support in foot
-      ];
-
       programs.foot = {
         enable = true;
         server.enable = true;
@@ -42,5 +38,9 @@ in
 
       stylix.targets.foot.enable = true;
     };
+
+    user.packages = with pkgs; [
+      libsixel # image support in foot
+    ];
   };
 }

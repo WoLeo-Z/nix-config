@@ -15,11 +15,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm = {
-      home.packages = with pkgs; [
-        blender
-        # (blender.override { cudaSupport = true; })
-      ];
-    };
+    user.packages = with pkgs; [
+      blender
+      # (blender.override { cudaSupport = true; })
+    ];
   };
 }

@@ -14,5 +14,5 @@ in
     enable = mkEnableOption' { };
   };
 
-  config = mkIf cfg.enable { hm.home.packages = with pkgs; [ tsukimi ]; };
+  config = mkIf cfg.enable { user.packages = with pkgs; [ tsukimi ]; };
 }

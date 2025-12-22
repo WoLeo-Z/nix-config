@@ -38,7 +38,7 @@ in
   config = mkIf cfg.enable {
     hm = {
       services.swww.enable = true;
-      home.packages = [ change-wallpaper ];
     };
+    user.packages = [ change-wallpaper ];
   };
 }

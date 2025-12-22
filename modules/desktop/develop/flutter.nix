@@ -15,20 +15,20 @@ in
   };
 
   config = mkIf cfg.enable {
+    user.packages = with pkgs; [
+      flutter
+
+      mesa-demos # provides eglinfo for "flutter doctor"
+
+      # We need to install Android SDK & cmdline-tools in Android Studio manually.
+      (android-studio.override {
+        # Fix Wayland HiDPI, scaling too large
+        # https://wiki.archlinux.org/title/HiDPI#JetBrains_IDEs
+        forceWayland = true;
+      })
+    ];
+
     hm = {
-      home.packages = with pkgs; [
-        flutter
-
-        mesa-demos # provides eglinfo for "flutter doctor"
-
-        # We need to install Android SDK & cmdline-tools in Android Studio manually.
-        (android-studio.override {
-          # Fix Wayland HiDPI, scaling too large
-          # https://wiki.archlinux.org/title/HiDPI#JetBrains_IDEs
-          forceWayland = true;
-        })
-      ];
-
       programs.vscode = {
         profiles.default = {
           userSettings = {

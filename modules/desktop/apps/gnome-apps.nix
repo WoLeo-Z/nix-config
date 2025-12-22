@@ -15,25 +15,25 @@ in
   };
 
   config = mkIf cfg.enable {
+    user.packages = with pkgs; [
+      # GNOME Apps
+      gnome-clocks
+      baobab # Disk Usage Analyzer
+      loupe # Image Viewer
+      gnome-logs # View detailed event logs
+      showtime # Video Player
+      gnome-solanum # Pomodoro Clock
+      sysprof # Profile an application or entire system
+      file-roller # Archive Manager
+
+      # GTK Apps
+      amberol # Music Player
+      turnon # Utility to send Wake On LAN magic packets
+      morphosis # Documents Converter (using Pandoc)
+      rnote # Sketch and take handwritten notes
+    ];
+
     hm = {
-      home.packages = with pkgs; [
-        # GNOME Apps
-        gnome-clocks
-        baobab # Disk Usage Analyzer
-        loupe # Image Viewer
-        gnome-logs # View detailed event logs
-        showtime # Video Player
-        gnome-solanum # Pomodoro Clock
-        sysprof # Profile an application or entire system
-        file-roller # Archive Manager
-
-        # GTK Apps
-        amberol # Music Player
-        turnon # Utility to send Wake On LAN magic packets
-        morphosis # Documents Converter (using Pandoc)
-        rnote # Sketch and take handwritten notes
-      ];
-
       xdg.mimeApps = {
         defaultApplications =
           let

@@ -15,12 +15,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm = {
-      home.packages = with pkgs; [
-        (obsidian.override {
-          commandLineArgs = lib.constants.chromiumArgs; # Fix input method
-        })
-      ];
-    };
+    user.packages = with pkgs; [
+      (obsidian.override {
+        commandLineArgs = lib.constants.chromiumArgs; # Fix input method
+      })
+    ];
   };
 }

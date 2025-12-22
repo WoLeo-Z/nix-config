@@ -15,19 +15,16 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm = {
-      home.packages = with pkgs; [ papers ];
+    user.packages = with pkgs; [ papers ];
+    hm.xdg.mimeApps =
+      let
+        value = "org.gnome.Papers.desktop";
 
-      xdg.mimeApps =
-        let
-          value = "org.gnome.Papers.desktop";
-
-          associations = builtins.listToAttrs (map (name: { inherit name value; }) [ "application/pdf" ]);
-        in
-        {
-          # associations.added = associations;
-          defaultApplications = associations;
-        };
-    };
+        associations = builtins.listToAttrs (map (name: { inherit name value; }) [ "application/pdf" ]);
+      in
+      {
+        # associations.added = associations;
+        defaultApplications = associations;
+      };
   };
 }

@@ -15,9 +15,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm = {
-      home.packages = with pkgs; [ vicinae ];
+    user.packages = with pkgs; [ vicinae ];
 
+    hm = {
       xdg.configFile."vicinae" = {
         source = ./config;
         recursive = true;

@@ -15,11 +15,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm = {
-      home.packages = with pkgs; [
-        # telegram-desktop
-        ayugram-desktop
-      ];
-    };
+    user.packages = with pkgs; [
+      # telegram-desktop
+      ayugram-desktop
+    ];
   };
 }

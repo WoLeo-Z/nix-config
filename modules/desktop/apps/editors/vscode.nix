@@ -110,12 +110,6 @@ in
         };
       };
 
-      home.packages = with pkgs; [
-        gcc
-        # gdb
-        # cmake
-      ];
-
       stylix.targets.vscode.enable = true;
     };
   };

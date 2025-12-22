@@ -16,12 +16,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm = {
-      home.packages = with inputs.nix-ai-tools.packages.${pkgs.stdenv.hostPlatform.system}; [
-        claude-code
-        claude-code-router
-        # pkgs.cherry-studio
-      ];
-    };
+    user.packages = with inputs.nix-ai-tools.packages.${pkgs.stdenv.hostPlatform.system}; [
+      claude-code
+      claude-code-router
+      # pkgs.cherry-studio
+    ];
   };
 }

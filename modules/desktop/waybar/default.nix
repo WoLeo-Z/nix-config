@@ -20,11 +20,11 @@ in
         enable = true;
         systemd.enable = true;
       };
-
-      home.packages = with pkgs; [
-        playerctl # mpris
-      ];
     };
+
+    user.packages = with pkgs; [
+      playerctl # mpris
+    ];
 
     home'.configFile."waybar" = {
       source = mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/waybar/config";

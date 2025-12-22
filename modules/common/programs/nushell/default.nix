@@ -83,7 +83,7 @@
     };
 
     stylix.targets.nushell.enable = true;
-
-    home.packages = with pkgs; [ carapace ];
   };
+
+  user.packages = with pkgs; [ carapace ];
 }

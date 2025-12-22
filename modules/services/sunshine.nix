@@ -40,7 +40,7 @@ in
       '')
     ];
 
-    hm.home.packages = with pkgs; [
+    user.packages = with pkgs; [
       moonlight-qt # Sunshine Client
     ];
   };

@@ -14,9 +14,5 @@ in
     enable = mkEnableOption' { };
   };
 
-  config = mkIf cfg.enable {
-    hm = {
-      home.packages = with pkgs; [ lunar-client ];
-    };
-  };
+  config = mkIf cfg.enable { user.packages = with pkgs; [ lunar-client ]; };
 }

@@ -23,13 +23,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    hm = {
-      home.packages = [
-        caelestia-shell
-        caelestia-cli
-        pkgs.libnotify # for notify-send
-      ];
+    user.packages = [
+      caelestia-shell
+      caelestia-cli
+      pkgs.libnotify # for notify-send
+    ];
 
+    hm = {
       xdg.configFile."caelestia" = {
         source = mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/caelestia-shell/config";
         recursive = true;

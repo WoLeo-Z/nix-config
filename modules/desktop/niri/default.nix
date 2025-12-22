@@ -47,15 +47,13 @@ in
     # modules.desktop.wofi.enable = true;
     modules.desktop.apps.utils.vicinae.enable = true;
 
-    hm = {
-      home.packages = with pkgs; [
-        wlr-randr
-        wl-clipboard
-        wl-clip-persist
-        cliphist
-        brightnessctl
-      ];
-    };
+    user.packages = with pkgs; [
+      wlr-randr
+      wl-clipboard
+      wl-clip-persist
+      cliphist
+      brightnessctl
+    ];
 
     home'.configFile."niri/config.kdl".source =
       mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/niri/config.kdl";

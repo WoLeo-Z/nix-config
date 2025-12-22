@@ -17,10 +17,6 @@ in
 
   config = mkIf cfg.enable {
     hm = {
-      home.packages = with pkgs; [
-        package-version-server # https://github.com/NixOS/nixpkgs/issues/356100
-      ];
-
       programs.zed-editor = {
         enable = true;
         extensions = [
@@ -109,8 +105,13 @@ in
               };
             };
             lsp = {
-              "nixd" = {
+              nixd = {
                 binary.path = "${lib.getExe pkgs.nixd}";
+              };
+              package-version-server = {
+                binary = {
+                  path = "${lib.getExe pkgs.package-version-server}";
+                };
               };
             };
 

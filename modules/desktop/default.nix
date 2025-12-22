@@ -21,11 +21,5 @@ in
 
     security.polkit.enable = true;
     services.gnome.gnome-keyring.enable = true;
-
-    hm.home.packages = with pkgs; [
-      # Audio Processing
-      ffmpeg
-      id3v2
-    ];
   };
 }

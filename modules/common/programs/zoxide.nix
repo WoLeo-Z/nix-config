@@ -1,5 +1,5 @@
 {
-  hm.programs.zoxide = {
+  programs.zoxide = {
     enable = true;
   };
 }

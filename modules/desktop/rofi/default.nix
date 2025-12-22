@@ -24,11 +24,6 @@ in
         package = pkgs.rofi;
       };
 
-      home.packages = [
-        rofi-launcher
-        rofi-cliphist
-      ];
-
       xdg.configFile."rofi" = {
         source = ./config;
         recursive = true;
@@ -36,5 +31,10 @@ in
 
       stylix.targets.rofi.enable = true;
     };
+
+    user.packages = [
+      rofi-launcher
+      rofi-cliphist
+    ];
   };
 }
