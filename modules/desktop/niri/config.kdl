@@ -1,7 +1,7 @@
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 
 // Input device configuration.
 // Find the full list of options on the wiki:
@@ -359,6 +359,39 @@ animations {
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
+}
+
+// Recent Windows
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Recent-Windows
+recent-windows {
+    // off
+    debounce-ms 750
+
+    open-delay-ms 150
+
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 12
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+        Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
+        Alt+grave       { next-window     filter="app-id"; }
+        Alt+Shift+grave { previous-window filter="app-id"; }
+
+        Mod+Tab         { next-window; }
+        Mod+Shift+Tab   { previous-window; }
+        Mod+grave       { next-window     filter="app-id"; }
+        Mod+Shift+grave { previous-window filter="app-id"; }
+    }
 }
 
 // Window Rules
