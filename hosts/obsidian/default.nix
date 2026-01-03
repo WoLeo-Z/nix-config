@@ -97,6 +97,7 @@
 
     services = {
       earlyoom.enable = true;
+      easyeffects.enable = false;
       mediamtx.enable = false;
       mihomo.enable = true;
       openssh.enable = true;
