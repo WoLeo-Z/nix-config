@@ -21,11 +21,11 @@ in
         # https://wiki.archlinux.org/title/HiDPI#JetBrains_IDEs
         forceWayland = true;
       })
+      android-tools
     ];
 
     nixpkgs.config.android_sdk.accept_license = true;
 
-    programs.adb.enable = true;
     user.extraGroups = [ "adbusers" ];
   };
 }
