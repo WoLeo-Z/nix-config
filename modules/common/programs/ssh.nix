@@ -33,11 +33,11 @@
           # required to prevent sending default identity files first.
           identitiesOnly = true;
         };
-        "do-sfo" = {
-          hostname = "do-sfo";
+        "do-sgp" = {
+          hostname = "do-sgp";
           port = 10022;
           user = "root";
-          identityFile = config.sops.secrets."private_keys/hosts/do-sfo".path;
+          identityFile = config.sops.secrets."private_keys/hosts/do-sgp".path;
         };
         "ah-us" = {
           hostname = "ah-us";
@@ -55,9 +55,9 @@
     };
   };
 
-  sops.secrets."private_keys/hosts/do-sfo" = {
+  sops.secrets."private_keys/hosts/do-sgp" = {
     sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
-    key = "hosts/do-sfo"; # Specify the location of this secret
+    key = "hosts/do-sgp"; # Specify the location of this secret
     mode = "0600";
     owner = config.user.name;
   };
