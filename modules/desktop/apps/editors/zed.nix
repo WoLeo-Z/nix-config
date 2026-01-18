@@ -95,7 +95,7 @@ in
                 tab_size = 2;
                 # formatter = "language_server"; # seems no way to pass any args to nixd
                 formatter.external = {
-                  command = "${lib.getExe pkgs.nixfmt-rfc-style}";
+                  command = "${lib.getExe pkgs.nixfmt}";
                   arguments = [ "--strict" ];
                 };
                 format_on_save = "on";

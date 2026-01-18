@@ -122,7 +122,7 @@
 
             programs.nixfmt = {
               enable = pkgs.lib.meta.availableOn pkgs.stdenv.buildPlatform pkgs.nixfmt-rfc-style.compiler;
-              package = pkgs.nixfmt-rfc-style;
+              package = pkgs.nixfmt;
               strict = true;
             };
 

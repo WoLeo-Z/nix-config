@@ -13,7 +13,11 @@
 
   services.resolved = {
     enable = true;
-    dnssec = "false"; # one of "true", "allow-downgrade", "false"
-    dnsovertls = "opportunistic";
+    settings = {
+      Resolve = {
+        DNSOverTLS = "opportunistic";
+        DNSSEC = "false"; # one of "true", "allow-downgrade", "false"
+      };
+    };
   };
 }
