@@ -21,6 +21,7 @@
         fontconfig
         freetype
         fuse3
+        glib
         icu
         libnotify
         libsodium
@@ -28,6 +29,10 @@
         libunwind
         libusb1
         libuuid
+        libxcb
+        libxi
+        libxrender
+        libxtst
         nspr
         nss
         stdenv.cc.cc
