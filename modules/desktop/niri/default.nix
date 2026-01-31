@@ -104,6 +104,11 @@ in
       ];
     };
 
+    # No CSD (Client-Side Decorations) for GTK Apps
+    hm.dconf.settings."org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:";
+    };
+
     # For greetd initial_session
     hm.home.file.".wayland-session" = {
       source = "${lib.getExe' package "niri-session"}";
