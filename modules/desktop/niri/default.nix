@@ -33,9 +33,12 @@ in
     # modules.desktop.caelestia-shell.enable = true;
     # modules.desktop.swayidle.enable = true;
 
-    # Caelestia Shell
+    # Dank Material Shell
     modules.desktop.dank-material-shell.enable = true;
     modules.desktop.swayidle.enable = true;
+
+    # Noctalia Shell
+    # modules.desktop.noctalia-shell.enable = true;
 
     # Waybar
     # modules.desktop.waybar.enable = true;
