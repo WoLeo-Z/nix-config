@@ -33,6 +33,8 @@
           # required to prevent sending default identity files first.
           identitiesOnly = true;
         };
+
+        # my servers
         "do-sgp" = {
           hostname = "do-sgp";
           port = 10022;
@@ -50,6 +52,12 @@
           port = 10022;
           user = "root";
           identityFile = config.sops.secrets."private_keys/hosts/alice-hk".path;
+        };
+        "azure-jp1" = {
+          hostname = "azure-jp1";
+          port = 10022;
+          user = "wol";
+          identityFile = config.sops.secrets."private_keys/hosts/azure-jp1".path;
         };
       };
     };
@@ -70,6 +78,12 @@
   sops.secrets."private_keys/hosts/alice-hk" = {
     sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
     key = "hosts/alice-hk"; # Specify the location of this secret
+    mode = "0600";
+    owner = config.user.name;
+  };
+  sops.secrets."private_keys/hosts/azure-jp1" = {
+    sopsFile = "${inputs.nix-secrets}/private_keys.yaml";
+    key = "hosts/azure-jp1"; # Specify the location of this secret
     mode = "0600";
     owner = config.user.name;
   };
