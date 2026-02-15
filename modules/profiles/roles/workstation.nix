@@ -60,6 +60,7 @@ mkMerge [
       ppdSupport = true; # translation of power-profiles-daemon API calls to TuneD
       ppdSettings.main.default = "balanced"; # balanced / performance / power-saver
     };
+    environment.etc."tuned/profiles/.keep".text = ""; # Needed by tuned-gui when etc overlay is enabled
     # DBus service that provides power management support to applications
     # Required by `tuned-ppd` for handling power supply changes
     services.upower.enable = true;
