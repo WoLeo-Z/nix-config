@@ -81,6 +81,14 @@ in
 
             # JSON
             "json.format.enable" = false;
+            "json.schemaDownload.trustedDomains" = {
+              "https://schemastore.azurewebsites.net/" = true;
+              "https://raw.githubusercontent.com/" = true;
+              "https://www.schemastore.org/" = true;
+              "https://json.schemastore.org/" = true;
+              "https://json-schema.org/" = true;
+              "https://schema.freqtrade.io/schema.json" = true;
+            };
             "[json]" = {
               "editor.defaultFormatter" = "esbenp.prettier-vscode";
             };
