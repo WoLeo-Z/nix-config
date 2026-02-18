@@ -68,6 +68,11 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    tinted-theming-scheme = {
+      url = "github:tinted-theming/schemes";
+      flake = false;
+    };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -31,7 +31,7 @@ in
       autoEnable = false;
       polarity = "dark";
       image = cfg.wallpaper;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+      base16Scheme = "${inputs.tinted-theming-scheme}/base16/catppuccin-mocha.yaml";
 
       cursor = {
         package = pkgs.bibata-cursors;
