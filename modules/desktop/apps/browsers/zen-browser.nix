@@ -18,52 +18,21 @@ in
   config = mkIf cfg.enable {
     hm = {
       imports = [
-        # inputs.zen-browser.homeModules.beta
-        inputs.zen-browser.homeModules.twilight
+        inputs.zen-browser.homeModules.beta
+        # inputs.zen-browser.homeModules.twilight
         # inputs.zen-browser.homeModules.twilight-official
       ];
 
       programs.zen-browser = {
         enable = true;
-        policies = {
-          AutofillAddressesEnabled = false;
-          AutoFillCreditCardEnabled = false;
-          DisableAppUpdate = true;
-          DisableFeedbackCommands = true;
-          DisableFirefoxStudies = true;
-          DisablePocket = true;
-          DisableSetDesktopBackground = true;
-          DisableTelemetry = true;
-          DontCheckDefaultBrowser = true;
-          FirefoxHome = {
-            Search = true;
-            TopSites = false;
-            SponsoredTopSites = false;
-            Highlights = false;
-            Pocket = false;
-            SponsoredPocket = false;
-            Snippets = false;
-            Locked = true;
-          };
-          Homepage = {
-            URL = "about:home";
-            Locked = true;
-            StartPage = "homepage";
-          };
-          NoDefaultBookmarks = true;
-          OfferToSaveLogins = false;
-          PasswordManagerEnabled = false;
-          SearchBar = "unified";
-          SearchSuggestEnabled = true;
-          ShowHomeButton = false;
-        };
+        # profiles.default.settings = { };
       };
 
       xdg.mimeApps =
         let
           value =
             let
-              zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.twilight; # or beta
+              zen-browser = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.beta; # or twilight
             in
             zen-browser.meta.desktopFileName;
 
