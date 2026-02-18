@@ -30,17 +30,25 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
         open = mkDefault true;
         powerManagement.enable = true;
         modesetting.enable = true;
-        package = config.boot.kernelPackages.nvidiaPackages.beta;
-        # pinned to 575.64.05
-        # https://github.com/NixOS/nixpkgs/blob/6024b4aa94589b07b38bca7c3013b44ce38a41dd/pkgs/os-specific/linux/nvidia-x11/default.nix#L83-L90
-        # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-        #   version = "575.64.05";
-        #   sha256_64bit = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
-        #   sha256_aarch64 = "sha256-GRE9VEEosbY7TL4HPFoyo0Ac5jgBHsZg9sBKJ4BLhsA=";
-        #   openSha256 = "sha256-mcbMVEyRxNyRrohgwWNylu45vIqF+flKHnmt47R//KU=";
-        #   settingsSha256 = "sha256-o2zUnYFUQjHOcCrB0w/4L6xI1hVUXLAWgG2Y26BowBE=";
-        #   persistencedSha256 = "sha256-2g5z7Pu8u2EiAh5givP5Q1Y4zk4Cbb06W37rf768NFU=";
-        # };
+        # package = config.boot.kernelPackages.nvidiaPackages.latest;
+
+        # fix: build failure on linux kernel 6.19
+        # REVIEW: remove when nixpkgs#489947 resolved
+        package =
+          let
+            base = config.boot.kernelPackages.nvidiaPackages.latest;
+            cachyos-nvidia-patch = pkgs.fetchpatch {
+              url = "https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/nvidia/nvidia-utils/kernel-6.19.patch";
+              sha256 = "sha256-YuJjSUXE6jYSuZySYGnWSNG5sfVei7vvxDcHx3K+IN4=";
+            };
+            driverAttr = if config.hardware.nvidia.open then "open" else "bin";
+          in
+          base
+          // {
+            ${driverAttr} = base.${driverAttr}.overrideAttrs (oldAttrs: {
+              patches = (oldAttrs.patches or [ ]) ++ [ cachyos-nvidia-patch ];
+            });
+          };
       };
     };
 
