@@ -36,14 +36,25 @@ in
           show-full-path-titles = true;
           show-location-entry = false;
 
-          default-folder-viewer = "icon-view"; # "list-view"
-          default-zoom-level = "smaller";
-          close-device-view-on-device-eject = "true";
+          default-folder-viewer = "list-view"; # or "icon-view"
+          inherit-folder-viewer = true;
+
+          default-sort-order = "name";
+
+          close-device-view-on-device-eject = true;
+
           date-format = "iso";
           date-font-choice = "no-mono";
+
+          inherit-show-thumbnails = true;
+
           show-reload-icon-toolbar = true;
           show-show-thumbnails-toolbar = true;
           show-open-in-terminal-toolbar = true;
+        };
+
+        "org/nemo/list-view" = {
+          default-zoom-level = "small";
         };
 
         "org/gtk/gtk4/settings/file-chooser" = {
