@@ -203,7 +203,6 @@ in
             "audio/x-vorbis"
             "audio/x-vorbis+ogg"
             "audio/x-wavpack"
-            "inode/directory"
           ]);
       };
 

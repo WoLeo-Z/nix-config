@@ -66,6 +66,48 @@ in
           sort-directories-first = true;
         };
       };
+
+      xdg.mimeApps =
+        let
+          value = "org.gnome.Nautilus.desktop";
+
+          associations = builtins.listToAttrs (
+            map (name: { inherit name value; }) [
+              "inode/directory"
+
+              # We use File Roller for compressed files
+              # "application/x-7z-compressed"
+              # "application/x-7z-compressed-tar"
+              # "application/x-bzip"
+              # "application/x-bzip-compressed-tar"
+              # "application/x-compress"
+              # "application/x-compressed-tar"
+              # "application/x-cpio"
+              # "application/x-gzip"
+              # "application/x-lha"
+              # "application/x-lzip"
+              # "application/x-lzip-compressed-tar"
+              # "application/x-lzma"
+              # "application/x-lzma-compressed-tar"
+              # "application/x-tar"
+              # "application/x-tarz"
+              # "application/x-xar"
+              # "application/x-xz"
+              # "application/x-xz-compressed-tar"
+              # "application/zip"
+              # "application/gzip"
+              # "application/bzip2"
+              # "application/x-bzip2-compressed-tar"
+              # "application/vnd.rar"
+              # "application/zstd"
+              # "application/x-zstd-compressed-tar"
+            ]
+          );
+        in
+        {
+          # associations.added = associations;
+          defaultApplications = associations;
+        };
     };
   };
 }
