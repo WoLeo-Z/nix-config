@@ -22,32 +22,30 @@ in
         source = ./config;
         recursive = true;
       };
-
-      # We don't use systemd service to start the server
-      # because we want to start it in the window manager
-      # so that vicinae server can have correct environment variables
-      #
-      # https://github.com/nix-community/home-manager/blob/13cc1efd78b943b98c08d74c9060a5b59bf86921/modules/programs/vicinae.nix#L245-L265
     };
 
-    # systemd.user.services.vicinae = {
-    #   wantedBy = [ "graphical-session.target" ];
-    #   unitConfig = {
-    #     Description = "Vicinae server daemon";
-    #     Documentation = [ "https://docs.vicinae.com" ];
-    #     After = [ "graphical-session.target" ];
-    #     PartOf = [ "graphical-session.target" ];
-    #   };
-    #   serviceConfig = {
-    #     EnvironmentFile = pkgs.writeText "vicinae-env" ''
-    #       USE_LAYER_SHELL=1
-    #     '';
-    #     Type = "simple";
-    #     ExecStart = "${lib.getExe' pkgs.vicinae "vicinae"} server";
-    #     Restart = "always";
-    #     RestartSec = 5;
-    #     KillMode = "process";
-    #   };
-    # };
+    # Reference: https://github.com/vicinaehq/vicinae/blob/005bfe7cb81df9d3ab02bbe16e9b0e0e7b219e37/nix/module.nix#L189-L213
+    systemd.user.services.vicinae = {
+      wantedBy = [ "graphical-session.target" ];
+      unitConfig = {
+        Description = "Vicinae server daemon";
+        Documentation = [ "https://docs.vicinae.com" ];
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${lib.getExe' pkgs.vicinae "vicinae"} server";
+        Restart = "always";
+        RestartSec = 5;
+        KillMode = "process";
+      };
+
+      # fix: Failed to start app: "Child process set up failed: execve: No such file or directory"
+      path = [
+        "/run/current-system/sw"
+        "/etc/profiles/per-user/${config.user.name}"
+      ];
+    };
   };
 }

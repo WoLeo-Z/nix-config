@@ -332,7 +332,6 @@ layout {
 // spawn-at-startup "alacritty" "-e" "fish"
 
 spawn-sh-at-startup "sleep 3 && fcitx5 -r"
-spawn-sh-at-startup "vicinae server"
 
 spawn-at-startup "zen"
 spawn-at-startup "zeditor"
