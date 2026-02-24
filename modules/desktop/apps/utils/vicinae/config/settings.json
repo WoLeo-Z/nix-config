@@ -1,82 +1,24 @@
 {
-	"imports": [],
-	"search_files_in_root": false,
-	"close_on_focus_loss": false,
-	"consider_preedit": false,
 	"pop_to_root_on_close": true,
-	"favicon_service": "twenty",
-	"keybinding": "default",
 
 	"font": {
 		"normal": {
-			"family": "auto",
-			"size": 11
+			"size": 12
 		}
 	},
 
 	"theme": {
 		"light": {
-			"name": "vicinae-light",
-			"icon_theme": "auto"
+			"name": "vicinae-light"
 		},
 		"dark": {
-			"name": "tokyo-night",
-			"icon_theme": "auto"
+			"name": "tokyo-night"
 		}
 	},
 
 	"launcher_window": {
-		"opacity": 0.95,
-
 		"client_side_decorations": {
-			"enabled": true,
-			"rounding": 10,
-			"border_width": 3
-		},
-
-		"size": {
-			"width": 770,
-			"height": 480
-		},
-
-		"screen": "auto",
-
-		"layer_shell": {
-			"enabled": true,
-			"scope": "vicinae",
-			"keyboard_interactivity": "exclusive",
-			"layer": "top"
+			"border_width": 4
 		}
-	},
-
-	"keybinds": {
-		"open-search-filter": "control+P",
-		"open-settings": "control+,",
-		"toggle-action-panel": "control+B",
-
-		"action.copy": "control+shift+C",
-		"action.copy-name": "control+shift+.",
-		"action.copy-path": "control+shift+,",
-		"action.dangerous-remove": "control+shift+X",
-		"action.duplicate": "control+D",
-		"action.edit": "control+E",
-		"action.edit-secondary": "control+shift+E",
-		"action.move-down": "control+shift+ARROWDOWN",
-		"action.move-up": "control+shift+ARROWUP",
-		"action.new": "control+N",
-		"action.open": "control+O",
-		"action.pin": "control+shift+P",
-		"action.refresh": "control+R",
-		"action.remove": "control+X",
-		"action.save": "control+S"
-	},
-
-	"favorites": [
-	],
-
-	"fallbacks": [
-		"files:search"
-	],
-
-	"providers": {}
+	}
 }
