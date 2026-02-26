@@ -44,7 +44,7 @@
         };
         media = {
           cavalier.enable = true;
-          gpu-screen-recorder.enable = true;
+          gpu-screen-recorder.enable = false;
           mpv.enable = true;
           obs-studio.enable = true;
           spotify.enable = true;
@@ -64,11 +64,11 @@
           gnome-control-center.enable = false;
           kdeconnect.enable = false;
           motrix.enable = false;
-          wireshark.enable = true;
+          wireshark.enable = false;
         };
         games = {
           minecraft = {
-            lunar-client.enable = true;
+            lunar-client.enable = false;
             prismlauncher.enable = true;
           };
           lutris.enable = true;
@@ -77,7 +77,7 @@
         };
         android-studio.enable = true;
         bitwarden.enable = false;
-        blender.enable = true;
+        blender.enable = false;
         bottles.enable = true;
         claude-code.enable = false;
         codex.enable = true;
@@ -88,7 +88,7 @@
         qemu.enable = false;
         telegram.enable = true;
         virtualbox.enable = false;
-        wechat.enable = true;
+        wechat.enable = false;
       };
       develop = {
         flutter.enable = false;
