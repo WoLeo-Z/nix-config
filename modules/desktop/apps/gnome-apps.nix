@@ -16,7 +16,7 @@ in
 
   config = mkIf cfg.enable {
     user.packages = with pkgs; [
-      # GNOME Apps
+      # GNOME Project & Circle
       gnome-clocks
       baobab # Disk Usage Analyzer
       loupe # Image Viewer
@@ -25,12 +25,16 @@ in
       gnome-solanum # Pomodoro Clock
       sysprof # Profile an application or entire system
       file-roller # Archive Manager
+      impression # Bootable driver flasher application
+      tuba # Browse the Fediverse
+      cartridges # Launch all your games
 
-      # GTK Apps
+      # Other GTK Apps
       amberol # Music Player
       turnon # Utility to send Wake On LAN magic packets
-      morphosis # Documents Converter (using Pandoc)
       rnote # Sketch and take handwritten notes
+      cartero # Perform HTTP requests and test web APIs
+      planify # Project and task manager with sync support
     ];
 
     hm = {
