@@ -14,14 +14,12 @@ in
     enable = mkEnableOption' { };
   };
 
-  config = mkIf cfg.enable {
-    hm = {
-      imports = [ inputs.dank-material-shell.homeModules.dank-material-shell ];
+  imports = [ inputs.dank-material-shell.nixosModules.dank-material-shell ];
 
-      programs.dank-material-shell = {
-        enable = true;
-        systemd.enable = true;
-      };
+  config = mkIf cfg.enable {
+    programs.dank-material-shell = {
+      enable = true;
+      systemd.enable = true;
     };
   };
 }
