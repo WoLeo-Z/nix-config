@@ -8,11 +8,4 @@
       '';
     };
   };
-
-  # Disable to save time when rebuilding
-  documentation.man.generateCaches = false;
-  hm.programs.man.generateCaches = false;
-
-  # Fix: cannot open database `.../programs.sqlite' at /run/current-system/sw/bin/command-not-found line 13.
-  programs.command-not-found.enable = false;
 }
