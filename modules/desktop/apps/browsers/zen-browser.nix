@@ -26,6 +26,7 @@ in
       programs.zen-browser = {
         enable = true;
         # profiles.default.settings = { };
+        suppressXdgMigrationWarning = true;
       };
 
       xdg.mimeApps =
