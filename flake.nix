@@ -131,7 +131,7 @@
             projectRoot = self;
 
             programs.nixfmt = {
-              enable = pkgs.lib.meta.availableOn pkgs.stdenv.buildPlatform pkgs.nixfmt-rfc-style.compiler;
+              enable = pkgs.lib.meta.availableOn pkgs.stdenv.buildPlatform pkgs.nixfmt.compiler;
               package = pkgs.nixfmt;
               strict = true;
             };
