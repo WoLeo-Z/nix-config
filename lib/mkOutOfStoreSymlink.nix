@@ -36,5 +36,5 @@ in
       name = storeFileName (baseNameOf pathStr);
     in
     inputs.nixpkgs.legacyPackages."x86_64-linux".runCommandLocal name { }
-      ''ln -s ${escapeShellArg pathStr} $out'';
+      "ln -s ${escapeShellArg pathStr} $out";
 }

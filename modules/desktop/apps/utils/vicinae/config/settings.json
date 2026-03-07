@@ -1,24 +1,24 @@
 {
-	"pop_to_root_on_close": true,
+  "pop_to_root_on_close": true,
 
-	"font": {
-		"normal": {
-			"size": 12
-		}
-	},
+  "font": {
+    "normal": {
+      "size": 12
+    }
+  },
 
-	"theme": {
-		"light": {
-			"name": "vicinae-light"
-		},
-		"dark": {
-			"name": "tokyo-night"
-		}
-	},
+  "theme": {
+    "light": {
+      "name": "vicinae-light"
+    },
+    "dark": {
+      "name": "tokyo-night"
+    }
+  },
 
-	"launcher_window": {
-		"client_side_decorations": {
-			"border_width": 4
-		}
-	}
+  "launcher_window": {
+    "client_side_decorations": {
+      "border_width": 4
+    }
+  }
 }
