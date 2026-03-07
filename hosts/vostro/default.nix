@@ -1,123 +1,119 @@
 { ... }:
 
 {
-  hostName = "vostro";
-  system = "x86_64-linux";
+  networking.hostName = "vostro";
+  # system = "x86_64-linux";
 
-  config = {
-    modules = {
-      profiles = {
-        user = "wol";
-        hardware = [
-          "cpu/intel"
-          "gpu/amd"
-          "gpu/disable-igpu"
-          "audio"
-          "bluetooth"
-          "printing/wireless"
-        ];
-      };
+  modules = {
+    profiles = {
+      user = "wol";
+      hardware = [
+        "cpu/intel"
+        "gpu/amd"
+        "gpu/disable-igpu"
+        "audio"
+        "bluetooth"
+        "printing/wireless"
+      ];
+    };
 
-      desktop = {
-        enable = true;
-        appearance.enable = true;
-        niri.enable = true;
-        apps = {
-          terminal = {
-            default = "kitty";
-            alacritty.enable = true;
-            foot.enable = true;
-            ghostty.enable = false;
-            kitty.enable = true;
-          };
-          nautilus.enable = true;
-          browsers = {
-            firefox.enable = true;
-            google-chrome.enable = true;
-          };
-          media = {
-            cavalier.enable = true;
-            mpv.enable = true;
-            obs-studio.enable = false;
-            spotify.enable = true;
-          };
-          editors = {
-            vscode.enable = true;
-            zed = {
-              enable = true;
-              enableAI = true;
-            };
-          };
-          utils = {
-            gnome-control-center.enable = false;
-          };
-          games = {
-            osu-lazer.enable = true;
-            steam.enable = true;
-          };
-          flatpak.enable = false;
-          telegram.enable = true;
-          bottles.enable = true;
-          bitwarden.enable = false;
+    desktop = {
+      enable = true;
+      appearance.enable = true;
+      niri.enable = true;
+      apps = {
+        terminal = {
+          default = "kitty";
+          alacritty.enable = true;
+          foot.enable = true;
+          ghostty.enable = false;
+          kitty.enable = true;
         };
+        nautilus.enable = true;
+        browsers = {
+          firefox.enable = true;
+          google-chrome.enable = true;
+        };
+        media = {
+          cavalier.enable = true;
+          mpv.enable = true;
+          obs-studio.enable = false;
+          spotify.enable = true;
+        };
+        editors = {
+          vscode.enable = true;
+          zed = {
+            enable = true;
+            enableAI = true;
+          };
+        };
+        utils = {
+          gnome-control-center.enable = false;
+        };
+        games = {
+          osu-lazer.enable = true;
+          steam.enable = true;
+        };
+        flatpak.enable = false;
+        telegram.enable = true;
+        bottles.enable = true;
+        bitwarden.enable = false;
       };
+    };
 
-      services = {
-        openssh.enable = true;
-        mihomo.enable = true;
-        sunshine.enable = true;
-        tailscale.enable = true;
-      };
+    services = {
+      openssh.enable = true;
+      mihomo.enable = true;
+      sunshine.enable = true;
+      tailscale.enable = true;
     };
   };
 
-  hardware = {
-    # Disable it to save time ...
-    # boot.loader.grub.useOSProber = true; # Dual boot
+  # Disable it to save time ...
+  # boot.loader.grub.useOSProber = true; # Dual boot
 
-    # CPU: Intel(R) Core(TM) i3-10100 (8) @ 4.30 GHz
-    # GPU 1: AMD Radeon RX 550 / 550 Series [Discrete]
-    # GPU 2 (Disabled): Intel UHD Graphics 630 [Integrated]
-    # Bluetooth
+  # CPU: Intel(R) Core(TM) i3-10100 (8) @ 4.30 GHz
+  # GPU 1: AMD Radeon RX 550 / 550 Series [Discrete]
+  # GPU 2 (Disabled): Intel UHD Graphics 630 [Integrated]
+  # Bluetooth
 
-    # FileSystems
-    boot.supportedFilesystems = [ "ntfs" ];
+  # FileSystems
+  boot.supportedFilesystems = [ "ntfs" ];
 
-    fileSystems."/" = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "btrfs";
-      options = [
-        "subvol=root"
-        "compress=zstd"
-      ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "btrfs";
+    options = [
+      "subvol=root"
+      "compress=zstd"
+    ];
+  };
 
-    fileSystems."/home" = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "btrfs";
-      options = [
-        "subvol=home"
-        "compress=zstd"
-      ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "btrfs";
+    options = [
+      "subvol=home"
+      "compress=zstd"
+    ];
+  };
 
-    fileSystems."/nix" = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "btrfs";
-      options = [
-        "subvol=nix"
-        "compress=zstd"
-        "noatime"
-      ];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "btrfs";
+    options = [
+      "subvol=nix"
+      "compress=zstd"
+      "noatime"
+    ];
+  };
 
-    fileSystems."/boot" = {
-      device = "/dev/disk/by-label/BOOT"; # sudo fatlabel /dev/vda1 BOOT
-      fsType = "vfat";
-      options = [
-        "fmask=0022"
-        "dmask=0022"
-      ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/BOOT"; # sudo fatlabel /dev/vda1 BOOT
+    fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 }
