@@ -115,8 +115,10 @@
   # Disable it to save time ...
   # boot.loader.grub.useOSProber = true; # Dual boot
 
-  # CPU: (TODO)
-  # GPU 1: (TODO)
+  # Host: B760M GAMING X AX
+  # CPU: Intel(R) Core(TM) i5-14600KF (20) @ 5.30 GHz
+  # GPU: NVIDIA GeForce RTX 5070 [Discrete]
+  # Memory: 31.18 GiB
   # WiFi + Bluetooth
 
   # Sensor it8622-isa-0a40
