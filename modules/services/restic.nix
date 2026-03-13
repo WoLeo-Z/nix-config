@@ -32,6 +32,10 @@ in
           OnCalendar = "*-*-* 08:00:00";
           Persistent = true;
         };
+
+        # sleep 30 to ensure the network is ready
+        backupPrepareCommand = "${lib.getExe' pkgs.coreutils "sleep"} 30";
+
         pruneOpts = [
           "--keep-daily 7"
           "--keep-weekly 5"
