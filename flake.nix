@@ -41,7 +41,7 @@
 
     # My secrets
     nix-secrets = {
-      url = "git+ssh://git@github.com/WoLeo-Z/nix-secrets.git?shallow=1";
+      url = "github:WoLeo-Z/nix-secrets";
       flake = false;
     };
 

@@ -661,16 +661,15 @@
       "locked": {
         "lastModified": 1770896532,
         "narHash": "sha256-viM6/6o7m8OySAtAp9uHRk7a/WuvNXhGVzGxhWVKOGk=",
-        "ref": "refs/heads/main",
+        "owner": "WoLeo-Z",
+        "repo": "nix-secrets",
         "rev": "5ba568860dea464c1bb6c15ea22ac8b9aa6767cd",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/WoLeo-Z/nix-secrets.git"
+        "type": "github"
       },
       "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/WoLeo-Z/nix-secrets.git"
+        "owner": "WoLeo-Z",
+        "repo": "nix-secrets",
+        "type": "github"
       }
     },
     "nixpkgs": {
