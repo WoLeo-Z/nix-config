@@ -659,11 +659,11 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1770896532,
-        "narHash": "sha256-viM6/6o7m8OySAtAp9uHRk7a/WuvNXhGVzGxhWVKOGk=",
+        "lastModified": 1773411235,
+        "narHash": "sha256-NCdZqGk6PPim9BY6tsAoH7Ya1wVoQm4XrN5OiuYVfuU=",
         "owner": "WoLeo-Z",
         "repo": "nix-secrets",
-        "rev": "5ba568860dea464c1bb6c15ea22ac8b9aa6767cd",
+        "rev": "fb510ff3920d4ebc303e5a44c85b4f06c0da6db2",
         "type": "github"
       },
       "original": {
