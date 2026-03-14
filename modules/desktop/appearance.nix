@@ -91,7 +91,6 @@ in
     # GTK
     stylix.targets.gtk.enable = true; # NixOS options
     hm.stylix.targets.gtk.enable = true; # Home-manager options
-    hm.stylix.targets.gnome.enable = true; # Needed by some apps (e.g. bottles, ...)
 
     # QT
     hm.stylix.targets.qt.enable = true;
