@@ -40,13 +40,13 @@ in
         osd-border-size = 1;
         osd-border-color = "#C0808080";
 
-        hwdec = "vaapi";
+        hwdec = "auto";
         vo = "gpu-next";
       };
       scriptOpts = {
         console = {
-          font = config.stylix.fonts.monospace.name;
-          font_size = 24;
+          monospace_font = config.stylix.fonts.monospace.name;
+          font_size = config.stylix.fonts.sizes.applications;
         };
         stats = {
           font = config.stylix.fonts.sansSerif.name;
