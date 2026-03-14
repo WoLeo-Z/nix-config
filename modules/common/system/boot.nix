@@ -14,11 +14,6 @@
       "nowatchdog"
       "pcie_aspm=off" # Fix: log spam: PCIe Bus Error ...
     ];
-
-    initrd = {
-      availableKernelModules = [ "btrfs" ];
-      kernelModules = [ ];
-    };
   };
 
   # Bootloader
@@ -26,7 +21,6 @@
     timeout = 3;
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
     };
 
     # grub = {
@@ -54,11 +48,12 @@
 
     systemd-boot = {
       enable = true;
-      editor = true;
+      editor = false; # for security
       # we use Git for version control, so we don't need to keep too many generations.
       configurationLimit = lib.mkDefault 10;
       # pick the highest resolution for systemd-boot's console.
       consoleMode = lib.mkDefault "max";
+      memtest86.enable = true;
     };
   };
 
