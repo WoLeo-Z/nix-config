@@ -35,6 +35,7 @@ in
       rnote # Sketch and take handwritten notes
       cartero # Perform HTTP requests and test web APIs
       planify # Project and task manager with sync support
+      parabolic # GUI for `yt-dlp`
     ];
 
     hm = {
