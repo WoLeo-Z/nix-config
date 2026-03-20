@@ -1,5 +1,6 @@
 patch:
   translator:
     dictionary: custom_dict
+    initial_quality: 1.2 # 拼音的权重应该比英文大
     enable_correction: false # correction for physically adjacent key
   "switches/@0/reset": 1 # default ascii_mode (eng)
