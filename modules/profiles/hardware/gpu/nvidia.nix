@@ -30,25 +30,7 @@ mkIf (any (s: hasPrefix "gpu/nvidia" s) hardware) (mkMerge [
         open = mkDefault true;
         powerManagement.enable = true;
         modesetting.enable = true;
-        # package = config.boot.kernelPackages.nvidiaPackages.latest;
-
-        # fix: build failure on linux kernel 6.19
-        # REVIEW: remove when nixpkgs#489947 resolved
-        package =
-          let
-            base = config.boot.kernelPackages.nvidiaPackages.latest;
-            cachyos-nvidia-patch = pkgs.fetchpatch {
-              url = "https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/nvidia/nvidia-utils/kernel-6.19.patch";
-              sha256 = "sha256-YuJjSUXE6jYSuZySYGnWSNG5sfVei7vvxDcHx3K+IN4=";
-            };
-            driverAttr = if config.hardware.nvidia.open then "open" else "bin";
-          in
-          base
-          // {
-            ${driverAttr} = base.${driverAttr}.overrideAttrs (oldAttrs: {
-              patches = (oldAttrs.patches or [ ]) ++ [ cachyos-nvidia-patch ];
-            });
-          };
+        package = config.boot.kernelPackages.nvidiaPackages.latest;
       };
     };
 

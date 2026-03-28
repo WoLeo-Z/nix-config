@@ -91,6 +91,8 @@ in
     # GTK
     stylix.targets.gtk.enable = true; # NixOS options
     hm.stylix.targets.gtk.enable = true; # Home-manager options
+    # The default value of `gtk.gtk4.theme` has changed from `config.gtk.theme` to `null`.
+    hm.gtk.gtk4.theme = null; # adopt the new default behavior
 
     # QT
     hm.stylix.targets.qt.enable = true;
