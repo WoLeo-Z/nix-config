@@ -1,11 +1,9 @@
-{ config, ... }:
-
 {
   services.kmscon = {
-    enable = false; # Wait for https://github.com/NixOS/nixpkgs/issues/385497
-    hwRender = false; # Fix font blurred (maybe?)
+    enable = true;
+    hwRender = false; # fix: font blurry
     extraConfig = ''
-      font-dpi = 120
+      font-dpi=144
     '';
   };
 
