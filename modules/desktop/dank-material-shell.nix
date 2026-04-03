@@ -21,5 +21,9 @@ in
       enable = true;
       systemd.enable = true;
     };
+
+    services.power-profiles-daemon.enable = false;
+    services.accounts-daemon.enable = false;
+    services.geoclue2.enable = false;
   };
 }
