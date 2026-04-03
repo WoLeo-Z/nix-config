@@ -47,7 +47,7 @@
     # };
 
     systemd-boot = {
-      enable = true;
+      enable = false;
       editor = false; # for security
       # we use Git for version control, so we don't need to keep too many generations.
       configurationLimit = lib.mkDefault 10;
@@ -55,7 +55,30 @@
       consoleMode = lib.mkDefault "max";
       memtest86.enable = true;
     };
+
+    limine = {
+      enable = true;
+      maxGenerations = lib.mkDefault 10;
+      secureBoot.enable = false;
+
+      # Extra entries
+      additionalFiles = {
+        "efi/memtest86plus/memtest86plus.efi" = pkgs.memtest86plus.efi;
+        "efi/netbootxyz/netboot.xyz.efi" = "${pkgs.netbootxyz-efi}";
+      };
+      extraEntries = ''
+        /MemTest86+
+          protocol: efi
+          comment: ${pkgs.memtest86plus.meta.description}
+          path: boot():/limine/efi/memtest86plus/memtest86plus.efi
+        /netboot.xyz
+          protocol: efi
+          comment: ${pkgs.netbootxyz-efi.meta.description}
+          path: boot():/limine/efi/netbootxyz/netboot.xyz.efi
+      '';
+    };
   };
 
   stylix.targets.grub.enable = true;
+  stylix.targets.limine.enable = true;
 }
