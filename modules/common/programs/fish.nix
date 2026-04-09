@@ -4,7 +4,7 @@
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
-        set -U fish_greeting # disable greeting
+        set fish_greeting # Disable greeting
       '';
     };
   };
