@@ -210,6 +210,9 @@ in
           "signon.rememberSignons" = false;
           "signon.showAutoCompleteFooter" = false;
           "signon.storeWhenAutocompleteOff" = false;
+
+          # Security
+          "media.peerconnection.enabled" = false; # prevent WebRTC IP Leaking
         };
       };
 
