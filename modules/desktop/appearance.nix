@@ -17,7 +17,10 @@ in
     enable = mkEnableOption' { default = config.modules.desktop.enable; };
     wallpaperDir = mkOption {
       type = types.path;
-      default = "${inputs.self}/assets/wallpapers";
+      default = builtins.path {
+        path = ../../assets/wallpapers;
+        name = "wallpapers";
+      };
     };
     wallpaper = mkOption {
       type = types.path;
