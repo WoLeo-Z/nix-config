@@ -101,10 +101,10 @@ output "PNP(AOC) Q27G3XMN 1APR2JA001175" {
     position x=0 y=0
 }
 
-// Sunshine Virtual Display, default disabled
+// Sunshine Virtual Display, default enabled
 output "Samsung Electric Company SAMSUNG 0x01000E00" {
     // Uncomment this line to disable this output.
-    off
+    // off
 
     // Resolution and, optionally, refresh rate of the output.
     // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
@@ -133,8 +133,8 @@ output "Samsung Electric Company SAMSUNG 0x01000E00" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    // DP-1 2560/1.25 = 2048px 2048
-    position x=2048 y=0
+    // DP-1 2560/1.5 = 1706.667
+    position x=1707 y=0
 }
 
 output "Virtual-1" {
