@@ -154,17 +154,23 @@
       flake = {
         nixosConfigurations =
           let
-            # Import our custom lib which merges helpers with nixpkgs.lib
-            lib = import ./lib {
-              inherit inputs;
-              lib = nixpkgs.lib // home-manager.lib;
-            };
-
-            # Import modules
-            modules = lib.collectModules ./modules;
-
             mkNixosConfiguration =
               hostName: system:
+              let
+                pkgs = nixpkgs.legacyPackages.${system};
+
+                # Import our custom lib which merges helpers with nixpkgs.lib
+                lib = import ./lib {
+                  inherit inputs pkgs;
+                  lib = nixpkgs.lib // home-manager.lib;
+                };
+
+                # Import modules
+                modules = lib.collectModulePaths {
+                  dir = ./modules;
+                  includeDefault = true;
+                };
+              in
               nixpkgs.lib.nixosSystem {
                 inherit system;
                 specialArgs = { inherit inputs lib; };

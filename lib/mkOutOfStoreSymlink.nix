@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, pkgs, ... }:
 
 with lib;
 let
@@ -35,6 +35,5 @@ in
       pathStr = toString path;
       name = storeFileName (baseNameOf pathStr);
     in
-    inputs.nixpkgs.legacyPackages."x86_64-linux".runCommandLocal name { }
-      "ln -s ${escapeShellArg pathStr} $out";
+    pkgs.runCommandLocal name { } "ln -s ${escapeShellArg pathStr} $out";
 }
