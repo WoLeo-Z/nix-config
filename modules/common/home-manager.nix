@@ -1,5 +1,4 @@
-# Reference: hlissner/dotfiles/modules/home.nix
-# https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/modules/home.nix
+# ref: https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/modules/home.nix
 
 # modules/home.nix -- the $HOME manager
 #

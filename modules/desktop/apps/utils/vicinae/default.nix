@@ -24,7 +24,7 @@ in
       };
     };
 
-    # Reference: https://github.com/vicinaehq/vicinae/blob/005bfe7cb81df9d3ab02bbe16e9b0e0e7b219e37/nix/module.nix#L189-L213
+    # ref: https://github.com/vicinaehq/vicinae/blob/005bfe7cb81df9d3ab02bbe16e9b0e0e7b219e37/nix/module.nix#L189-L213
     systemd.user.services.vicinae = {
       wantedBy = [ "graphical-session.target" ];
       unitConfig = {

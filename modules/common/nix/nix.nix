@@ -1,4 +1,4 @@
-# Referenced from: https://github.com/sukhmancs/nixos-configs/blob/4578594ef84c39e4e92558fa45e99dfebc5dc635/modules/shared/nix/default.nix
+# ref: https://github.com/sukhmancs/nixos-configs/blob/4578594ef84c39e4e92558fa45e99dfebc5dc635/modules/shared/nix/default.nix
 { pkgs, config, ... }:
 
 {

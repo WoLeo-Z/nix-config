@@ -1,5 +1,4 @@
-# Reference: https://github.com/CnTeng/nixfiles/blob/cfadd680c30fad79f7308a8347d042e8bc967ba9/pkgs/persist/package.nix
-
+# ref: https://github.com/CnTeng/nixfiles/blob/cfadd680c30fad79f7308a8347d042e8bc967ba9/pkgs/persist/package.nix
 { writeShellApplication }:
 writeShellApplication {
   name = "persist";
@@ -19,7 +18,7 @@ writeShellApplication {
 
     if [ ! -d "$DEST" ]; then
       mkdir -p "$DEST"
-    fi   
+    fi
 
     cp -r "$SOURCE" "$DEST"
 

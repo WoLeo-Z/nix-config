@@ -1,6 +1,4 @@
-# Reference: hlissner/dotfiles/modules/security.nix
-# https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/modules/security.nix
-
+# ref: https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/modules/security.nix
 { lib, config, ... }:
 
 {

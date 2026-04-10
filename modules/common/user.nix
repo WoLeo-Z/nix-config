@@ -1,6 +1,4 @@
-# Reference: hlissner/dotfiles/default.nix
-# https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/default.nix
-
+# ref: https://github.com/hlissner/dotfiles/blob/88fa021ee0d73ccbdfab9d11bbccd0dcf44a6745/default.nix
 {
   lib,
   options,

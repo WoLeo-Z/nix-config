@@ -1,6 +1,4 @@
-# Reference: hlissner/dotfiles/modules/profiles/role/workstation.nix
-# https://github.com/hlissner/dotfiles/blob/254aea2230e1350409a7ae7b6566bcd98f5b5360/modules/profiles/role/workstation.nix
-
+# ref: https://github.com/hlissner/dotfiles/blob/254aea2230e1350409a7ae7b6566bcd98f5b5360/modules/profiles/role/workstation.nix
 { lib, config, ... }:
 
 with lib;
