@@ -90,10 +90,6 @@
         virtualbox.enable = false;
         wechat.enable = false;
       };
-      develop = {
-        flutter.enable = false;
-        lg.enable = false;
-      };
     };
 
     services = {
