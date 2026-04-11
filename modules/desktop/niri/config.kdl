@@ -333,11 +333,6 @@ layout {
 
 spawn-sh-at-startup "sleep 3 && fcitx5 -r"
 
-spawn-at-startup "zen"
-spawn-at-startup "zeditor"
-spawn-at-startup "spotify"
-
-
 environment {
 }
 xwayland-satellite {
