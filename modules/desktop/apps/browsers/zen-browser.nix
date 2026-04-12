@@ -40,6 +40,7 @@ in
 
           # Seriously. Stop popping up on every damn page. If I want it translated,
           # I know where to find gtranslate/deepl/whatever!
+          "browser.translations.enable" = false;
           "browser.translations.automaticallyPopup" = false;
 
           # Enable ETP for decent security (makes firefox containers and many
