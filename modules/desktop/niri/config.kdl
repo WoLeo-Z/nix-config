@@ -98,13 +98,15 @@ output "PNP(AOC) Q27G3XMN 1APR2JA001175" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
+
+    // NOTE: You can check the logical position of outputs by running `niri msg outputs`
     position x=0 y=0
 }
 
-// Sunshine Virtual Display, default enabled
-output "Samsung Electric Company SAMSUNG 0x01000E00" {
+// Sunshine Virtual Display, default disabled
+output "DP-2" {
     // Uncomment this line to disable this output.
-    // off
+    off
 
     // Resolution and, optionally, refresh rate of the output.
     // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
@@ -112,10 +114,10 @@ output "Samsung Electric Company SAMSUNG 0x01000E00" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "2560x1440@119.998"
+    mode "3024x1964@120.000"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1.5
+    scale 2.0
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -133,8 +135,9 @@ output "Samsung Electric Company SAMSUNG 0x01000E00" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    // DP-1 2560/1.5 = 1706.667
-    position x=1707 y=0
+
+    // NOTE: You can check the logical position of outputs by running `niri msg outputs`
+    position x=-1512 y=0
 }
 
 output "Virtual-1" {
@@ -165,6 +168,8 @@ output "Virtual-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
+
+    // NOTE: You can check the logical position of outputs by running `niri msg outputs`
     position x=0 y=0
 }
 
