@@ -57,6 +57,7 @@
   };
 
   services.journald.extraConfig = ''
+    MaxRetentionSec=14day
     SystemMaxUse=1G
   '';
 
