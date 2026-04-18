@@ -30,7 +30,5 @@ with lib;
       uid = 1000;
     };
     users.users.${config.user.name} = mkAliasDefinitions options.user;
-
-    # fileSystems."/".device = mkDefault "/dev/disk/by-label/nixos";
   };
 }
