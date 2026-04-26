@@ -27,7 +27,7 @@ in
     ];
 
     home'.configFile."waybar" = {
-      source = mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/waybar/config";
+      source = pkgs.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/waybar/config";
       recursive = true;
     };
 

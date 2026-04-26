@@ -31,7 +31,7 @@ in
 
     hm = {
       xdg.configFile."caelestia" = {
-        source = mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/caelestia-shell/config";
+        source = pkgs.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/caelestia-shell/config";
         recursive = true;
       };
 

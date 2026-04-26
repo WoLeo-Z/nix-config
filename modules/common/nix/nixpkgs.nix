@@ -5,7 +5,10 @@
   # which is a case that should be avoided. Everything that is set to configure
   # nixpkgs must go here.
   nixpkgs = {
-    overlays = [ inputs.nur.overlays.default ];
+    overlays = [
+      inputs.self.overlays.default
+      inputs.nur.overlays.default
+    ];
 
     # Configuration reference:
     # <https://nixos.org/manual/nixpkgs/unstable/#chap-packageconfig>

@@ -46,7 +46,7 @@ mkIf (cfg.user == "wol") (mkMerge [
 
     hm.home.file = {
       ".ssh/id_ed25519" = {
-        source = mkOutOfStoreSymlink config.sops.secrets."private_keys/users/wol".path;
+        source = pkgs.mkOutOfStoreSymlink config.sops.secrets."private_keys/users/wol".path;
       };
       ".ssh/id_ed25519.pub" = {
         text = lib.constants.users.wol.publicKey;

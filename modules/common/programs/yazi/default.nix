@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}:
+{ pkgs, config, ... }:
 
 {
   hm = {
@@ -41,13 +36,13 @@
 
     xdg.configFile = {
       "yazi/init.lua" = {
-        source = lib.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/common/programs/yazi/config/init.lua";
+        source = pkgs.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/common/programs/yazi/config/init.lua";
       };
       "yazi/keymap.toml" = {
-        source = lib.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/common/programs/yazi/config/keymap.toml";
+        source = pkgs.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/common/programs/yazi/config/keymap.toml";
       };
       "yazi/yazi.toml" = {
-        source = lib.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/common/programs/yazi/config/yazi.toml";
+        source = pkgs.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/common/programs/yazi/config/yazi.toml";
       };
     };
 

@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   config,
-  lib,
   ...
 }:
 {
@@ -44,6 +43,6 @@
     owner = config.user.name;
   };
   hm.xdg.configFile."sops/age/keys.txt".source =
-    lib.mkOutOfStoreSymlink
+    pkgs.mkOutOfStoreSymlink
       config.sops.secrets."sops-age-key-file".path;
 }

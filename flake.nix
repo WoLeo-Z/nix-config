@@ -116,10 +116,7 @@
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        inputs.treefmt-nix.flakeModule
-        ./pkgs
-      ];
+      imports = [ inputs.treefmt-nix.flakeModule ];
 
       systems = import systems;
 
@@ -152,16 +149,16 @@
         };
 
       flake = {
+        overlays.default = import ./pkgs { inherit (nixpkgs) lib; };
+
         nixosConfigurations =
           let
             mkNixosConfiguration =
               hostName: system:
               let
-                pkgs = nixpkgs.legacyPackages.${system};
-
                 # Import our custom lib which merges helpers with nixpkgs.lib
                 lib = import ./lib {
-                  inherit inputs pkgs;
+                  inherit inputs;
                   lib = nixpkgs.lib // home-manager.lib;
                 };
 

@@ -59,7 +59,7 @@ in
     ];
 
     home'.configFile."niri/config.kdl".source =
-      mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/niri/config.kdl";
+      pkgs.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/niri/config.kdl";
 
     xdg.portal = {
       enable = true;
