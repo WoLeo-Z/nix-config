@@ -641,8 +641,8 @@ binds {
     // which ensures niri always processes them, even when an inhibitor is active.
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    Print { screenshot; }
-    Shift+Print { screenshot show-pointer=false; }
+    Print { screenshot show-pointer=false; }
+    // Shift+Print { screenshot show-pointer=true; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
