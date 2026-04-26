@@ -9,8 +9,7 @@
 
     # NixOS unstable
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-unstable-small"; # moves faster, has less packages
-
+    # nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-unstable-small"; # moves faster
     # nixpkgs-pinned.url = "github:NixOS/nixpkgs/awa";
 
     # Home Manager
@@ -59,14 +58,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     dank-material-shell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    impermanence.url = "github:nix-community/impermanence";
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     tinted-theming-scheme = {
       url = "github:tinted-theming/schemes";
