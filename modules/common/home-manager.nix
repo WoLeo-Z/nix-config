@@ -19,6 +19,7 @@
   lib,
   config,
   options,
+  inputs,
   ...
 }:
 
@@ -28,6 +29,8 @@ let
   cfg = config.home';
 in
 {
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
+
   options.hm = mkOpt' types.attrs { } "An alias for home-manager.users.${config.user.name}";
 
   options.home' = with types; {

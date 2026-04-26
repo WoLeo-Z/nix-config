@@ -112,18 +112,11 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      flake-parts,
-      systems,
-      home-manager,
-      ...
-    }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+    inputs@{ self, ... }:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ inputs.treefmt-nix.flakeModule ];
 
-      systems = import systems;
+      systems = import inputs.systems;
 
       perSystem =
         { pkgs, ... }:
@@ -156,7 +149,7 @@
       flake =
         let
           # Merge custom lib
-          lib = import ./lib { lib = nixpkgs.lib // home-manager.lib; };
+          lib = import ./lib { lib = inputs.nixpkgs.lib; };
 
           # Collect modules
           modules = lib.collectModulePaths {
@@ -167,13 +160,11 @@
           # Helper function
           mkNixosConfiguration =
             hostName: system:
-            nixpkgs.lib.nixosSystem {
+            inputs.nixpkgs.lib.nixosSystem {
               inherit system;
               specialArgs = { inherit inputs lib; };
               modules = [
                 (./hosts + "/${hostName}/default.nix")
-
-                home-manager.nixosModules.home-manager
 
                 inputs.chaotic.nixosModules.default
               ]
