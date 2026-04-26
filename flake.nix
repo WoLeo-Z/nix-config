@@ -153,41 +153,41 @@
           };
         };
 
-      flake = {
-        overlays.default = import ./pkgs { inherit (nixpkgs) lib; };
+      flake =
+        let
+          # Merge custom lib
+          lib = import ./lib { lib = nixpkgs.lib // home-manager.lib; };
 
-        nixosConfigurations =
-          let
-            mkNixosConfiguration =
-              hostName: system:
-              let
-                # Merge custom lib
-                lib = import ./lib { lib = nixpkgs.lib // home-manager.lib; };
+          # Collect modules
+          modules = lib.collectModulePaths {
+            dir = ./modules;
+            includeDefault = true;
+          };
 
-                # Collect modules
-                modules = lib.collectModulePaths {
-                  dir = ./modules;
-                  includeDefault = true;
-                };
-              in
-              nixpkgs.lib.nixosSystem {
-                inherit system;
-                specialArgs = { inherit inputs lib; };
-                modules = [
-                  (./hosts + "/${hostName}/default.nix")
+          # Helper function
+          mkNixosConfiguration =
+            hostName: system:
+            nixpkgs.lib.nixosSystem {
+              inherit system;
+              specialArgs = { inherit inputs lib; };
+              modules = [
+                (./hosts + "/${hostName}/default.nix")
 
-                  home-manager.nixosModules.home-manager
+                home-manager.nixosModules.home-manager
 
-                  inputs.chaotic.nixosModules.default
-                ]
-                ++ modules;
-              };
-          in
-          {
+                inputs.chaotic.nixosModules.default
+              ]
+              ++ modules;
+            };
+        in
+        {
+          overlays.default = import ./pkgs { inherit lib; };
+
+          nixosConfigurations = {
             obsidian = mkNixosConfiguration "obsidian" "x86_64-linux";
             vm = mkNixosConfiguration "vm" "x86_64-linux";
             vostro = mkNixosConfiguration "vostro" "x86_64-linux";
           };
-      };
+        };
     };
 }
