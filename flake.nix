@@ -156,13 +156,10 @@
             mkNixosConfiguration =
               hostName: system:
               let
-                # Import our custom lib which merges helpers with nixpkgs.lib
-                lib = import ./lib {
-                  inherit inputs;
-                  lib = nixpkgs.lib // home-manager.lib;
-                };
+                # Merge custom lib
+                lib = import ./lib { lib = nixpkgs.lib // home-manager.lib; };
 
-                # Import modules
+                # Collect modules
                 modules = lib.collectModulePaths {
                   dir = ./modules;
                   includeDefault = true;
