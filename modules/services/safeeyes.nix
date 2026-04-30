@@ -20,20 +20,11 @@ in
 
       unitConfig = {
         Description = "Safe Eyes";
-        PartOf = [ "graphical-session.target" ];
-        StartLimitIntervalSec = 350;
-        StartLimitBurst = 30;
+        After = [ "graphical-session.target" ];
       };
 
       serviceConfig = {
         ExecStart = lib.getExe pkgs.safeeyes;
-        Restart = "on-failure";
-        RestartSec = 3;
-
-        # HACK: prevent network errors (actually network shouldn't be required)
-        ExecStartPre = "${lib.getExe' pkgs.coreutils "sleep"} 3";
-        # HACK: ignore output noise "screen saver extension not supported"
-        StandardOutput = "null";
       };
     };
   };
