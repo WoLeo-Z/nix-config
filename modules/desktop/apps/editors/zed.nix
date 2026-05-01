@@ -60,32 +60,46 @@ in
             };
 
             title_bar = {
-              "show_branch_icon" = false;
-              "show_branch_name" = true;
-              "show_project_items" = true;
-              "show_onboarding_banner" = true;
-              "show_user_picture" = false;
-              "show_sign_in" = true;
-              "show_menus" = false;
+              show_branch_status_icon = false;
+              show_branch_name = true;
+              show_project_items = true;
+              show_onboarding_banner = true;
+              show_user_picture = false;
+              show_sign_in = true;
+              show_menus = false;
+              button_layout = "platform_default";
             };
 
             # vim_mode = true;
 
             project_panel = {
+              button = true;
+              default_width = 240;
+              dock = "left";
               indent_size = 12;
             };
 
-            git = {
-              path_style = "file_name_first";
-            };
-
             git_panel = {
-              default_width = 360;
+              button = true;
+              default_width = 240;
+              dock = "left";
               status_style = "label_color";
             };
 
             outline_panel = {
+              button = true;
+              default_width = 240;
+              dock = "left";
               indent_size = 12;
+            };
+
+            collaboration_panel = {
+              button = false;
+            };
+
+            agent = {
+              dock = "right";
+              sidebar_side = "right";
             };
 
             format_on_save = "off";
@@ -113,13 +127,6 @@ in
                 };
               };
             };
-
-            notification_panel = {
-              dock = "left";
-              button = false;
-            };
-
-            collaboration_panel.button = false;
 
             edit_predictions = {
               provider = "zed";
