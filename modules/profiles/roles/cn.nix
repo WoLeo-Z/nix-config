@@ -29,8 +29,8 @@ mkMerge [
 
     nix.settings.substituters = lib.mkBefore [
       # Status: https://mirrors.cernet.edu.cn/list/nix-channels
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=30"
-      # "https://mirrors.ustc.edu.cn/nix-channels/store?priority=30"
+      # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=30"
+      "https://mirrors.ustc.edu.cn/nix-channels/store?priority=30"
     ];
   })
 ]
