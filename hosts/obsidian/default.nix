@@ -77,11 +77,12 @@
         blender.enable = false;
         bottles.enable = true;
         claude-code.enable = false;
-        codex.enable = true;
+        codex.enable = false;
         flatpak.enable = false;
         gnome-apps.enable = true;
         nautilus.enable = true;
         nemo.enable = true;
+        opencode.enable = true;
         qemu.enable = false;
         telegram.enable = true;
         virtualbox.enable = false;
