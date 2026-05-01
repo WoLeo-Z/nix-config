@@ -16,7 +16,9 @@ in
         enableGitIntegration = true;
         settings = {
           window_padding_width = "3 5";
-          # background_blur = 64; # not working
+
+          background_opacity = "0.80";
+          background_blur = "32";
 
           cursor_shape = "block";
           cursor_trail = 3;
@@ -36,7 +38,6 @@ in
           inherit (config.stylix.fonts.monospace) package name;
           size = config.stylix.fonts.sizes.terminal;
         };
-        settings.background_opacity = toString config.stylix.opacity.terminal;
       };
 
       xdg.mimeApps =
