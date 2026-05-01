@@ -18,9 +18,8 @@ in
     user.packages = with pkgs; [ vicinae ];
 
     hm = {
-      xdg.configFile."vicinae" = {
-        source = ./config;
-        recursive = true;
+      xdg.configFile."vicinae/settings.json" = {
+        source = pkgs.mkOutOfStoreSymlink "${config.programs.nh.flake}/modules/desktop/apps/utils/vicinae/settings.json";
       };
     };
 
