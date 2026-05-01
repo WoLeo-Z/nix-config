@@ -8,6 +8,13 @@
     overlays = [
       inputs.self.overlays.default
       inputs.nur.overlays.default
+
+      # workaround: openldap check fails on i686
+      # https://github.com/NixOS/nixpkgs/issues/514113#issuecomment-4338976393
+      # REVIEW: remove when fixed
+      (_: prev: {
+        openldap = prev.openldap.overrideAttrs { doCheck = !prev.stdenv.hostPlatform.isi686; };
+      })
     ];
 
     # Configuration reference:
