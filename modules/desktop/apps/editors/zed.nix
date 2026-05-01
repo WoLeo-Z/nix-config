@@ -12,7 +12,6 @@ in
 {
   options.modules.desktop.apps.editors.zed = {
     enable = mkEnableOption' { };
-    enableAI = mkEnableOption' { default = true; };
   };
 
   config = mkIf cfg.enable {
@@ -121,43 +120,11 @@ in
             };
 
             collaboration_panel.button = false;
-          }
-          (
-            if cfg.enableAI then
-              {
-                agent = {
-                  default_model = {
-                    provider = "zed.dev";
-                    model = "claude-3-7-sonnet-latest";
-                    # provider = "copilot_chat";
-                    # model = "o1-mini";
-                  };
-                };
-                features = {
-                  edit_prediction_provider = "zed";
-                  # edit_prediction_provider = "copilot";
-                };
-              }
-            else
-              {
-                # https://github.com/zed-industries/zed/issues/7121#issuecomment-2434482066
 
-                features = {
-                  edit_prediction_provider = "none";
-                  copilot = false;
-                };
-                assistant = {
-                  enabled = false;
-                  dock = "left";
-                  version = "2";
-                };
-                assistant_v2.enabled = false;
-                chat_panel = {
-                  dock = "left";
-                  button = "never";
-                };
-              }
-          )
+            edit_predictions = {
+              provider = "zed";
+            };
+          }
         ];
       };
     };

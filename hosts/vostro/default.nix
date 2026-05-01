@@ -42,10 +42,7 @@
         };
         editors = {
           vscode.enable = true;
-          zed = {
-            enable = true;
-            enableAI = true;
-          };
+          zed.enable = true;
         };
         utils = {
           gnome-control-center.enable = false;

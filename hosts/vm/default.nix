@@ -28,10 +28,7 @@
         };
         editors = {
           vscode.enable = true;
-          zed = {
-            enable = true;
-            enableAI = true;
-          };
+          zed.enable = true;
         };
         flatpak.enable = true;
         telegram.enable = true;
