@@ -2,7 +2,7 @@
   description = "WoL's NixOS Configuration";
 
   inputs = {
-    systems.url = "github:nix-systems/default";
+    systems.url = "github:nix-systems/default-linux";
 
     # NixOS stable
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
