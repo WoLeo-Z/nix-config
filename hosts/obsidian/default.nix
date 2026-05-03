@@ -104,6 +104,8 @@
       tailscale.enable = true;
       zerotierone.enable = false;
     };
+
+    virtualisation.podman.enable = true;
   };
 
   # Disable it to save time ...
